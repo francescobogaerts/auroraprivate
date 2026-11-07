@@ -3,11 +3,13 @@ import Base from '../layouts/Base.astro';
 import { SITE } from '../data/site';
 import stock from '../data/stock.json';
 ---
-<Base over={false} title="Privacy · AURORA Private" description="Hoe AURORA Private omgaat met je gegevens: geen cookies, geen tracking, niets opgeslagen op de website." og="home" talk="/#gesprek" crumbs={[{ name: 'Privacy', path: '/privacy' }]}>
-<section class="legal-page"><div class="wrap" style="max-width:820px">
+<Base title="Privacy · AURORA Private" description="Hoe AURORA Private omgaat met je gegevens: geen cookies, geen tracking, niets opgeslagen op de website." og="home" talk="/#gesprek" crumbs={[{ name: 'Privacy', path: '/privacy' }]}>
+<section class="legal-page legal-head tone-night"><div class="wrap" style="max-width:820px">
   <span class="eyebrow">Privacy · concept, definitief bij livegang</span>
   <h1 class="display" style="font-size:clamp(2.4rem,5vw,4rem);margin-top:16px">Wat we niet doen, is het belangrijkste.</h1>
   <p class="lead" style="margin-top:24px">Wie deze site bezoekt, zoekt soms iets wat nog niemand mag weten. De site is daarom zo gebouwd dat er zo min mogelijk over jou achterblijft.</p>
+</div></section>
+<section class="legal-page legal-body tone-day"><div class="wrap" style="max-width:820px">
 
   <h2>Geen cookies, geen tracking</h2>
   <p>Deze website plaatst geen cookies en gebruikt geen analytics, advertentie- of socialmediapixels. Lettertypen staan op onze eigen server, zodat je browser geen verbinding legt met bijvoorbeeld Google Fonts. Daarom zie je ook geen cookiemelding. Uitzondering in deze voorvertoning: de tijdelijke stockbeelden (zie onderaan).</p>

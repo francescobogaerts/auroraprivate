@@ -53,7 +53,7 @@ const credit = hasStock
     </div>
   ))}
 </div></section>
-<section class="section" aria-labelledby="praktisch-t"><div class="wrap">
+<section class="section tone-dusk" aria-labelledby="praktisch-t"><div class="wrap">
   <div class="still reveal" style="margin-bottom:clamp(64px,8vw,112px)">
     <span class="eyebrow">Praktisch</span>
     <h2 class="statement" id="praktisch-t">{e.practical.heading}</h2>
@@ -62,7 +62,7 @@ const credit = hasStock
   </div>
   <dl class="facts reveal">{e.facts.map((f) => <div><dt>{f.dt}</dt><dd>{f.dd}</dd></div>)}</dl>
 </div></section>
-<section class="section" aria-labelledby="meer-t" style={`--loc:var(--${e.loc})`}><div class="wrap">
+<section class="section tone-dawn" aria-labelledby="meer-t" style={`--loc:var(--${e.loc})`}><div class="wrap">
   <div class="head reveal">
     <div class="stack"><span class="eyebrow">Meer in {name}</span><h2 class="h2" id="meer-t">De andere middagen</h2></div>
     <a class="link" href={`/${e.loc}#excursies`}>Terug naar {name} <Fragment set:html={arrow} /></a>

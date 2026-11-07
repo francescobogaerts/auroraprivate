@@ -132,3 +132,45 @@
 .gallery .photo,.gallery .photo:first-child,.gallery .photo:not(:first-child){aspect-ratio:auto!important;height:100%;min-height:0}
 @media (max-width:760px){.gallery{aspect-ratio:auto;grid-template-rows:auto}.gallery .photo:first-child{aspect-ratio:4/5!important}.gallery .photo:not(:first-child){aspect-ratio:3/4!important}}
 .sky{overflow:clip}.sky-in{overflow:hidden}
+
+/* ===== Tones re-map the design tokens, so every component follows the light of its section ===== */
+.tone-night,.tone-dusk{
+  --text:var(--salt); --text-soft:rgba(236,238,234,.74); --text-faint:rgba(236,238,234,.5);
+  --line:rgba(236,238,234,.16); --line-strong:rgba(236,238,234,.36);
+  --accent:var(--salt); --on-accent:var(--ink); --paper:rgba(236,238,234,.05); --surface-2:rgba(236,238,234,.06);
+  --red:#D49AA0; color:var(--salt);
+}
+.tone-dawn{--text:var(--ink); --text-soft:#3D4440; --text-faint:#5A605B; --line:rgba(30,38,36,.18); --line-strong:rgba(30,38,36,.4); --paper:rgba(255,255,255,.28); --red:#7E3F47; color:var(--ink)}
+.tone-day{--paper:rgba(255,255,255,.5)}
+.tone-night h1,.tone-night h2,.tone-night h3,.tone-dusk h1,.tone-dusk h2,.tone-dusk h3,.tone-night .statement,.tone-dusk .statement,.tone-night .price,.tone-dusk .price{color:var(--salt)}
+.tone-night .eyebrow,.tone-dusk .eyebrow,.tone-night .soft,.tone-dusk .soft{color:var(--text-soft)}
+.tone-night em,.tone-dusk em{color:var(--dawn-2)}
+.tone-dawn h1,.tone-dawn h2,.tone-dawn h3,.tone-dawn .statement,.tone-dawn .price{color:var(--ink)}
+.tone-dawn .eyebrow,.tone-dawn .soft,.tone-dawn .credit{color:var(--text-soft)}
+.tone-night .btn,.tone-dusk .btn{background:var(--salt);color:var(--ink);border-color:var(--salt)}
+.tone-night .btn:hover,.tone-dusk .btn:hover{background:transparent;color:var(--salt)}
+.tone-night .btn--ghost,.tone-dusk .btn--ghost{background:transparent;color:var(--salt);border-color:var(--line-strong)}
+.tone-night .seats span,.tone-dusk .seats span{border-color:var(--salt)}
+.tone-night .rule,.tone-dusk .rule{background:var(--line-strong)}
+.tone-night a:not(.btn),.tone-dusk a:not(.btn){color:inherit}
+.tone-night .notice,.tone-dusk .notice{background:var(--paper)}
+.tone-night .notice p,.tone-dusk .notice p{color:var(--salt)}
+.tone-night .daytable td:first-child,.tone-dusk .daytable td:first-child,.tone-night .daytable td:nth-child(2),.tone-dusk .daytable td:nth-child(2){color:var(--salt)}
+.tone-night .faq summary,.tone-dusk .faq summary{color:var(--salt)}
+.tone-night .facts dd,.tone-dusk .facts dd{color:var(--salt)}
+.tone-dusk .daytable tr.move td{color:var(--dawn-2)}
+.tone-dawn .rc,.tone-dawn .recog{border-color:var(--line)}
+
+/* Sub-page sequences: night → dusk → dawn → day */
+.opening + .tone-night,.opening--sub + .tone-night{background:linear-gradient(180deg,var(--night) 0%,var(--night-2) 100%)}
+.tone-dawn.section--s{background:linear-gradient(180deg,#3A5250 0%,var(--dawn-1) 22%,var(--dawn-2) 60%,var(--dawn-3) 100%)}
+.tone-night + .tone-dawn{background:linear-gradient(180deg,var(--night-2) 0%,var(--dusk) 12%,var(--dawn-1) 30%,var(--dawn-2) 55%,var(--dawn-3) 100%)}
+.story + .tone-dusk{background:linear-gradient(180deg,var(--night) 0%,var(--dusk) 100%)}
+.tone-dawn + .tone-day{background:linear-gradient(180deg,var(--dawn-3) 0%,var(--surface) 40%)}
+.tone-dawn + .intake--glass,.tone-day + .intake--glass{border-top:0}
+
+/* Legal pages: a night header that turns to day for the reading part */
+.legal-head{padding-bottom:clamp(64px,8vw,112px)!important;background:radial-gradient(90% 120% at 50% 120%,#2A3634 0%,var(--night) 70%)!important}
+.legal-head .lead,.legal-head .soft{color:var(--text-soft)}
+.legal-body{padding-top:clamp(64px,8vw,112px)!important;background:linear-gradient(180deg,#1A2422 0px,var(--dusk) 40px,var(--dawn-1) 120px,var(--dawn-2) 220px,var(--dawn-3) 360px,var(--surface) 620px)!important}
+.legal-body h2{color:var(--ink)}
