@@ -1,0 +1,227 @@
+<!doctype html>
+<!-- AURORA Private brand book, online reference v1.1 · 8 Oct 2026 · internal, not linked from public navigation -->
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AURORA Brand Book</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/aurora.css">
+<style>
+.bb-toc{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.92rem;margin-top:var(--s5)}
+.bb-toc a{color:var(--text-soft);text-decoration:none}
+.bb-toc a:hover{color:var(--text)}
+.chapter{padding-block:clamp(56px,8vw,96px);border-top:1px solid var(--line)}
+.chapter > .wrap{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(24px,4vw,64px)}
+.chapter .no{font:300 1rem var(--font-display);letter-spacing:.16em;color:var(--text-soft)}
+.chapter h2{font-size:clamp(2rem,3.8vw,3.4rem);margin-bottom:var(--s4)}
+.chapter h3{font:500 1rem var(--font-body);margin:var(--s4) 0 var(--s2)}
+.chapter p + p{margin-top:var(--s2)}
+@media (max-width:860px){.chapter > .wrap{grid-template-columns:1fr}}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:var(--s3);margin-top:var(--s4)}
+.sw{border:1px solid var(--line)}
+.sw i{display:block;height:120px}
+.sw div{padding:12px;font-size:.88rem}
+.sw b{display:block;font:400 1.15rem var(--font-display)}
+.sw code{font-size:.82rem;color:var(--text-soft)}
+.logo-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s3);margin-top:var(--s4)}
+.logo-tile{aspect-ratio:3/2;display:grid;place-items:center;border:1px solid var(--line)}
+.logo-tile img{max-width:70%;max-height:60%}
+.logo-tile.ink{background:#1E2624}.logo-tile.salt{background:#ECEEEA}
+.type-spec{border-top:1px solid var(--line);padding-top:var(--s3);margin-top:var(--s3)}
+.type-spec .big{font:300 clamp(3rem,7vw,5.5rem)/1 var(--font-display)}
+.type-spec .body{font:400 1.4rem/1.5 var(--font-body)}
+.glyphs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s3);margin-top:var(--s4)}
+.glyphs figure{margin:0;border:1px solid var(--line);padding:var(--s3);display:grid;gap:8px;justify-items:start;background:var(--salt);color:#1E2624}
+.glyphs img{width:56px;height:56px}
+.glyphs figcaption{font-size:.85rem;color:#4A5653}
+@media (max-width:700px){.glyphs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.maps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);margin-top:var(--s4)}
+@media (max-width:700px){.maps{grid-template-columns:1fr}}
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);margin-top:var(--s3)}
+@media (max-width:700px){.dodont{grid-template-columns:1fr}}
+.quote{font:300 clamp(1.4rem,2.4vw,1.9rem)/1.35 var(--font-display);border-left:2px solid var(--red);padding-left:var(--s3);margin:var(--s3) 0}
+.redlog{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--s3);margin-top:var(--s4)}
+.redlog .photo{aspect-ratio:1672/941}
+.redlog span{font-size:.82rem;color:var(--text-soft);display:block;margin-top:6px}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 39 L24 8 L42 39 M8 32 H40 M13 32 A11 11 0 0 1 35 32"/></g></svg><span><b>AURORA</b><small>BRAND BOOK</small></span></a>
+  <span class="eyebrow" style="margin-left:auto">Versie 1.1 · 8 oktober 2026 · intern</span>
+</div></header>
+<main id="main">
+
+<section class="opening" aria-labelledby="bb-t">
+  <figure class="photo" data-photo="aurora-red-sea"><img alt="Open zee voor zonsopkomst met een band mineraalrood licht boven een rotsige kust." loading="eager"><span class="pending-note">Beeld volgt: aurora-red-sea.png</span></figure>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="copy"><div class="wrap">
+    <span class="eyebrow">Brand book &amp; visuele identiteit · oktober 2026</span>
+    <h1 class="display" id="bb-t">Een nieuwe ochtend</h1>
+  </div></div>
+</section>
+
+<div class="wrap"><nav class="bb-toc" aria-label="Hoofdstukken">
+  <a href="#c1">01 Merkbasis</a><a href="#c2">02 Publiek</a><a href="#c3">03 Logo</a><a href="#c4">04 Logogebruik</a><a href="#c5">05 Kleur</a><a href="#c6">06 Morning red</a><a href="#c7">07 Bestemmingen</a><a href="#c8">08 Typografie</a><a href="#c9">09 Fotografie</a><a href="#c10">10 Illustratie</a><a href="#c11">11 Layout</a><a href="#c12">12 Tone of voice</a><a href="#c13">13 Digitaal gedrag</a><a href="#c14">14 Toepassingen</a><a href="#c15">15 Programma 2.0</a><a href="#c16">16 Gebruik &amp; beheer</a>
+</nav></div>
+
+<section class="chapter" id="c1"><div class="wrap"><span class="no">01 / Merkbasis</span><div>
+  <h2>Ruimte is het vertrekpunt</h2>
+  <p class="lead">AURORA Private is een traject van zes maanden voor persoonlijk herstel en verandering, met veertien dagen op locatie als keerpunt. Vier bestemmingen; Bonaire is Editie 01.</p>
+  <h3>De merkgedachte</h3><p class="quote">Een sanctuary, geen kliniek.</p>
+  <h3>Het gevoel</h3><p>Rustig, menselijk, discreet. Kwaliteit die je ervaart in aandacht en materiaal.</p>
+  <h3>De belofte in communicatie</h3><p>Ruimte en persoonlijke aandacht. Geen beloofde uitkomst.</p>
+</div></div></section>
+
+<section class="chapter" id="c2"><div class="wrap"><span class="no">02 / Publiek</span><div>
+  <h2>Voor mensen met een eigen verhaal</h2>
+  <h3>Ondernemers</h3><p>Schrijf met respect voor verantwoordelijkheid en zelfstandigheid. Vermijd taal die van prestaties een diagnose maakt.</p>
+  <h3>Publieke personen</h3><p>Laat discretie zien in afstand, besloten ruimtes en terughoudende fotografie.</p>
+  <h3>Particuliere cliënten</h3><p>Spreek iemand aan als persoon. Gebruik heldere woorden en laat ruimte voor vragen.</p>
+  <h3>Naasten en organisaties</h3><p>Twee ingangen voor wie niet zelf de deelnemer is. Meedoen blijft altijd een eigen keuze van de deelnemer.</p>
+</div></div></section>
+
+<section class="chapter" id="c3"><div class="wrap"><span class="no">03 / Logo</span><div>
+  <h2>De signatuur</h2>
+  <p>Het monogram: de A, de horizon en de opkomende boog vormen samen het beeldmerk. Het woordmerk staat in Jost Light met ruime spatiëring; PRIVATE op een rustige tweede regel. Varianten: Ink op Salt, Salt op Ink. Eénkleurig gebruik heeft de voorkeur; Aurora Red alleen voor het monogram als gemarkeerd moment.</p>
+  <div class="logo-row">
+    <div class="logo-tile salt"><img src="assets/brand/aurora-monogram.svg" alt="Monogram Ink op Salt"></div>
+    <div class="logo-tile ink"><img src="assets/brand/aurora-monogram-salt.svg" alt="Monogram Salt op Ink"></div>
+    <div class="logo-tile salt"><img src="assets/brand/aurora-monogram-aurora-red.svg" alt="Monogram in Aurora Red"></div>
+    <div class="logo-tile salt"><img src="assets/brand/aurora-wordmark-ink.svg" alt="Woordmerk Ink"></div>
+    <div class="logo-tile ink"><img src="assets/brand/aurora-wordmark-salt.svg" alt="Woordmerk Salt"></div>
+  </div>
+</div></div></section>
+
+<section class="chapter" id="c4"><div class="wrap"><span class="no">04 / Logogebruik</span><div>
+  <h2>Ruimte rond het merk</h2>
+  <h3>Vrije ruimte</h3><p>Rond het monogram minimaal een kwart van de totale hoogte. Rond het woordmerk minimaal de hoogte van de P in PRIVATE.</p>
+  <h3>Minimale maat</h3><p class="num">Monogram 24 px digitaal of 8 mm in druk. Woordmerk 140 px digitaal of 35 mm in druk.</p>
+  <div class="dodont"><div><h3>Wel</h3><p>Eén kleur. Rustige achtergrond. Vaste verhoudingen. Originele SVG.</p></div><div><h3>Niet</h3><p>Uitrekken, schaduw toevoegen, letters herschikken of het merk op drukke details plaatsen.</p></div></div>
+</div></div></section>
+
+<section class="chapter" id="c5"><div class="wrap"><span class="no">05 / Kleur</span><div>
+  <h2>De kernkleuren</h2>
+  <p>Ink en Salt dragen de compositie. Tide stuurt de interactie. Dune ondersteunt lijnwerk. First Light en Aurora Red markeren geselecteerde momenten.</p>
+  <div class="swatches">
+    <div class="sw"><i style="background:#1E2624"></i><div><b>Ink</b><code>#1E2624</code></div></div>
+    <div class="sw"><i style="background:#ECEEEA;border-bottom:1px solid var(--line)"></i><div><b>Salt</b><code>#ECEEEA</code></div></div>
+    <div class="sw"><i style="background:#3D6766"></i><div><b>Tide</b><code>#3D6766</code></div></div>
+    <div class="sw"><i style="background:#B7A68A"></i><div><b>Dune</b><code>#B7A68A</code></div></div>
+    <div class="sw"><i style="background:#D8BBA6"></i><div><b>First Light</b><code>#D8BBA6</code></div></div>
+    <div class="sw"><i style="background:#97555C"></i><div><b>Aurora Red</b><code>#97555C</code></div></div>
+  </div>
+  <h3>Contrast</h3><p class="num">Ink op Salt 13,24:1. Salt op Tide 5,40:1. Salt op Aurora Red 4,77:1. Dune op Salt 2,04:1, dus nooit voor gewone kleine tekst.</p>
+</div></div></section>
+
+<section class="chapter" id="c6"><div class="wrap"><span class="no">06 / Morning red</span><div>
+  <h2>Het rood vóór de zonsopkomst</h2>
+  <p>Aurora Red is een herkenbaar terugkerend moment in de materialen. Laat het ontstaan in wolken, reflecties, licht of een klein materiaaldetail. Houd koele schaduwen en de eigen kleuren van een bestemming zichtbaar.</p>
+  <p>Website: bij de opening, in het verhaal en bij de afsluiting. Deck: ongeveer elke 3–4 dia’s een rood moment. In accentbeelden mag circa 15–25% rood of rose dragen; een richting, geen pixelregel. Geen universele rode tint, geen neon, geen noorderlicht, geen oranje kleurwas.</p>
+  <div class="redlog">
+    <div><figure class="photo" data-photo="aurora-red-sea"><img alt="aurora-red-sea" loading="lazy"><span class="pending-note">sea</span></figure><span>aurora-red-sea · home, deck-opening, brand book</span></div>
+    <div><figure class="photo" data-photo="aurora-red-room"><img alt="aurora-red-room" loading="lazy"><span class="pending-note">room</span></figure><span>aurora-red-room · verblijf, editorial split</span></div>
+    <div><figure class="photo" data-photo="aurora-red-bonaire"><img alt="aurora-red-bonaire" loading="lazy"><span class="pending-note">bonaire</span></figure><span>aurora-red-bonaire · opening Bonaire</span></div>
+    <div><figure class="photo" data-photo="aurora-red-india"><img alt="aurora-red-india" loading="lazy"><span class="pending-note">india</span></figure><span>aurora-red-india · opening India</span></div>
+    <div><figure class="photo" data-photo="aurora-red-mauritius"><img alt="aurora-red-mauritius" loading="lazy"><span class="pending-note">mauritius</span></figure><span>aurora-red-mauritius · opening Mauritius</span></div>
+    <div><figure class="photo" data-photo="aurora-red-marbella"><img alt="aurora-red-marbella" loading="lazy"><span class="pending-note">marbella</span></figure><span>aurora-red-marbella · opening Marbella</span></div>
+  </div>
+</div></div></section>
+
+<section class="chapter" id="c7"><div class="wrap"><span class="no">07 / Bestemmingen</span><div>
+  <h2>Vier eigen kleuren</h2>
+  <div class="swatches">
+    <div class="sw"><i style="background:#2F7F86"></i><div><b>Bonaire</b><code>#2F7F86</code><br>Caribische ruimte</div></div>
+    <div class="sw"><i style="background:#B98A4E"></i><div><b>India</b><code>#B98A4E</code><br>Aan de voet van de Himalaya</div></div>
+    <div class="sw"><i style="background:#4C7A5C"></i><div><b>Mauritius</b><code>#4C7A5C</code><br>Lagune en vulkanisch groen</div></div>
+    <div class="sw"><i style="background:#A9764F"></i><div><b>Marbella</b><code>#A9764F</code><br>Andalusische ochtenden</div></div>
+  </div>
+  <p style="margin-top:var(--s3)">De locatiekleur ondersteunt fotografie en illustratie. Het globale merk en de hoofdinteractie blijven Ink, Salt en Tide.</p>
+</div></div></section>
+
+<section class="chapter" id="c8"><div class="wrap"><span class="no">08 / Typografie</span><div>
+  <h2>Typografie met rust</h2>
+  <div class="type-spec"><span class="eyebrow">Jost Light · koppen en woordmerk · gewicht 300–500</span><p class="big">Aa Bb Cc 0123</p></div>
+  <div class="type-spec"><span class="eyebrow">Instrument Sans · tekst, formulieren, navigatie · gewicht 400–600 · regelhoogte 1,5–1,65</span><p class="body">Aandacht begint bij woorden die je zonder moeite kunt lezen.</p></div>
+  <p style="margin-top:var(--s3)" class="num">Website: body 18 px, labels 14 px, grote koppen 56–120 px responsief. Deck: koppen 72–96 px, body 28–34 px op 1920 × 1080. Fonts zelf gehost (SIL Open Font License).</p>
+</div></div></section>
+
+<section class="chapter" id="c9"><div class="wrap"><span class="no">09 / Fotografie</span><div>
+  <h2>Licht, materiaal en afstand</h2>
+  <h3>Fotografische taal</h3><p>Gevoel van 35 of 50 mm full-frame. Natuurlijk licht, eerlijke schaduwen, zachte highlights en fijne korrel. Asymmetrisch, met ruimte voor de omgeving.</p>
+  <h3>Menselijke aanwezigheid</h3><p>Ruggen, handen en kleine figuren op afstand. Geen herkenbare cliënten die voor de camera poseren. Geen persoonsportretten bij de herkenningssectie.</p>
+  <h3>Vermijden</h3><p>HDR, oranje kleurfilters, lens flare, wellnessposes, klinische clichés en een gladde reclameafwerking.</p>
+  <h3>Waarheidsgetrouw gebruik</h3><p>Gegenereerde beelden zijn sfeerconcepten. Gebruik echte, gelicentieerde fotografie voor concrete accommodaties, medewerkers en herkenbare monumenten.</p>
+</div></div></section>
+
+<section class="chapter" id="c10"><div class="wrap"><span class="no">10 / Illustratie</span><div>
+  <h2>Dutch atlas line</h2>
+  <p>Fijn, rustig en éénkleurig. Ink of Dune op Salt. Kaarten, contouren en programmaglyphs delen dezelfde ingetogen logica. Kaarten circa 1,25 px op 1000 px breed; UI-iconen 1,5 px op een raster van 24 px met afgeronde uiteinden.</p>
+  <div class="glyphs">
+    <figure><img src="assets/atlas/glyph-week01.svg" alt=""><figcaption>01 Aankomst · open deur</figcaption></figure>
+    <figure><img src="assets/atlas/glyph-week02.svg" alt=""><figcaption>02 Stilte · horizon</figcaption></figure>
+    <figure><img src="assets/atlas/glyph-week03.svg" alt=""><figcaption>03 Inzicht · oog</figcaption></figure>
+    <figure><img src="assets/atlas/glyph-week04.svg" alt=""><figcaption>04 Kracht · stijgende lijn</figcaption></figure>
+    <figure><img src="assets/atlas/glyph-week05.svg" alt=""><figcaption>05 Terugkeer · pad door de poort</figcaption></figure>
+  </div>
+  <div class="maps">
+    <figure class="atlas"><img src="assets/atlas/map-bonaire.svg" alt="Atlaskaart Bonaire" loading="lazy"><figcaption>map-bonaire.svg</figcaption></figure>
+    <figure class="atlas"><img src="assets/atlas/map-mauritius.svg" alt="Atlaskaart Mauritius" loading="lazy"><figcaption>map-mauritius.svg</figcaption></figure>
+    <figure class="atlas"><img src="assets/atlas/map-india.svg" alt="Atlaskaart Noord-India" loading="lazy"><figcaption>map-india.svg</figcaption></figure>
+    <figure class="atlas"><img src="assets/atlas/map-marbella.svg" alt="Atlaskaart Andalusië" loading="lazy"><figcaption>map-marbella.svg</figcaption></figure>
+  </div>
+  <p class="soft" style="margin-top:var(--s2);font-size:.9rem">Kaarten die nog niet in deze build staan, worden verborgen tot de bestanden uit de kit zijn geïmporteerd.</p>
+</div></div></section>
+
+<section class="chapter" id="c11"><div class="wrap"><span class="no">11 / Layout</span><div>
+  <h2>Een rustige compositie</h2>
+  <h3>Website</h3><p class="num">Eén sterk beeld per scherm. Maximaal 1280 px contentbreedte. 64–96 px tussen hoofdsecties. Mobiel 24 px zijmarge.</p>
+  <h3>Presentatie</h3><p class="num">16:9, 1920 × 1080, marges 120 px horizontaal en 90 px verticaal, 12 kolommen. Eén hoofdgedachte per dia. Wissel fotografie af met rustige informatiepagina’s.</p>
+  <h3>Social</h3><p>Beeld, één kop, klein merk. Tekst binnen een veilige marge van 8%. Houd tekst los van de foto.</p>
+</div></div></section>
+
+<section class="chapter" id="c12"><div class="wrap"><span class="no">12 / Tone of voice</span><div>
+  <h2>Menselijk en helder</h2>
+  <p class="quote">Je hoeft nog niet alle antwoorden te hebben.</p>
+  <p class="quote">Een eerste gesprek geeft ruimte om vragen te stellen.</p>
+  <h3>Zo schrijven we</h3><p>Korte zinnen. Je en jouw. Rustig en direct. Concreet over de ervaring, zorgvuldig over het resultaat.</p>
+  <h3>Wel</h3><p>traject, begeleiding, keerpunt, herstel van ritme, patronen, verantwoordelijkheid.</p>
+  <h3>Niet</h3><p>gegarandeerd herstel, beste kliniek, exclusieve genezing, detox, ontwenning, behandeling, therapie als belofte, overdreven luxeclaims of oncontroleerbare superlatieven.</p>
+</div></div></section>
+
+<section class="chapter" id="c13"><div class="wrap"><span class="no">13 / Digitaal gedrag</span><div>
+  <h2>Interacties zonder druk</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--s3)"><a class="btn" href="#c13">Primaire actie</a><a class="btn btn--ghost" href="#c13">Secundaire actie</a></div>
+  <h3>Knoppen</h3><p>Tide achtergrond, Salt tekst. Rechte hoeken, rustige padding. Eén primaire actie per sectie.</p>
+  <h3>Formulieren</h3><p>Zichtbare labels, duidelijke foutmeldingen en alleen noodzakelijke velden. Een succesmelding volgt pas op een echte verzending; de huidige intake is een voorvertoning die niets verstuurt.</p>
+  <h3>Toegankelijkheid</h3><p class="num">Minimaal 4,5:1 contrast voor gewone tekst en 3:1 voor grote tekst. Zichtbare focus. Snel weg met Esc op alle publieke pagina’s.</p>
+  <h3>Beweging</h3><p class="num">Overgangen rond 240 ms. Geen verplichte scrollanimaties. Reduced motion wordt gerespecteerd.</p>
+</div></div></section>
+
+<section class="chapter" id="c14"><div class="wrap"><span class="no">14 / Toepassingen</span><div>
+  <h2>Een samenhangende beeldwereld</h2>
+  <h3>Website</h3><p>Open zee op de home. Een eigen ochtend voor elke bestemming. Atlas en traject als rustige inhoudelijke laag.</p>
+  <h3>Pitch</h3><p>Een sterke opening, heldere propositie, het traject en de bestemmingen. Operationele beslissingen krijgen aparte ruimte.</p>
+  <h3>Social</h3><p>Wissel een bestemming af met een rustige gedachte of een programmamoment. Geef iedere post één reden om te bestaan.</p>
+</div></div></section>
+
+<section class="chapter" id="c15"><div class="wrap"><span class="no">15 / Programma 2.0</span><div>
+  <h2>Hoe het traject in het merk staat</h2>
+  <p>Het programma is een traject van zes maanden: ± 4 weken voorbereiding, 14 dagen op locatie, ± 5 maanden integratie. De vijf programmanamen uit de kit (Aankomst, Stilte, Inzicht, Kracht, Terugkeer) zijn de vijf bewegingen van dat traject, elk met een eigen glyph. Ze zijn geen weken.</p>
+  <p>Kernzin, op elke pagina: <em>Zes maanden persoonlijke begeleiding, met veertien dagen op locatie als keerpunt.</em></p>
+  <p>Prijs: niet in de hero, wel als “€17.500, het volledige traject van zes maanden”. Nooit als prijs voor de veertien dagen.</p>
+</div></div></section>
+
+<section class="chapter" id="c16"><div class="wrap"><span class="no">16 / Gebruik &amp; beheer</span><div>
+  <h2>Klaar voor gebruik</h2>
+  <h3>In deze kit</h3><p>Websitevoorstellen, een conceptpitch, tokens, fonts, atlasgrafiek, fotografie en bewerkbare social templates.</p>
+  <h3>Voor publieke lancering</h3><p>Bevestig team, aanbod, tarieven en contactroute. Controleer de rechten en juistheid van echte locatiebeelden. Laat de grens-tekst juridisch toetsen.</p>
+  <h3>Versiebeheer</h3><p>Behoud de huidige kernkleuren en programmanamen. Voeg nieuwe voorbeelden toe met datum en toepassing. Versie 1.1, 8 oktober 2026: Programma 2.0 doorgevoerd, morning red per sectie vastgelegd.</p>
+</div></div></section>
+</main>
+<footer class="site-foot"><div class="wrap"><p>AURORA Private brand book · intern document, niet publiceren · bron: ChatGPT-kit 8 okt 2026 en Programma 2.0.</p></div></footer>
+<script src="js/aurora.js"></script>
+</body>
+</html>

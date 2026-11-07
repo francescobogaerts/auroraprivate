@@ -1,0 +1,48 @@
+---
+// Confidential first-conversation card.
+// Two modes, switched by PUBLIC_INTAKE_LIVE:
+//   preview (default) – nothing leaves the screen; visitor prepares and copies their questions.
+//   live              – encrypted POST to /api/intake, which forwards once and stores nothing.
+import { SITE, LOCATIONS, type LocKey } from '../data/site';
+interface Props { loc?: LocKey }
+const { loc = 'bonaire' } = Astro.props;
+const live = SITE.intakeLive;
+const arrow = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+---
+<div class="vault"><div class="bar"><span class="dot" aria-hidden="true"></span>Vertrouwelijk kanaal<span class="chip">{live ? 'Versleuteld · niet opgeslagen' : 'Voorvertoning · verstuurt niets'}</span></div><div class="body">
+<form id="intake-form" novalidate data-live={live ? 'true' : undefined} action="/api/intake" method="post">
+  <fieldset><legend>Voor wie vraag je dit aan?</legend>
+    <div class="chips">
+      <input type="radio" name="wie" id="wie-zelf" value="mezelf" checked><label for="wie-zelf">Voor mezelf</label>
+      <input type="radio" name="wie" id="wie-naaste" value="een naaste"><label for="wie-naaste">Voor een naaste</label>
+      <input type="radio" name="wie" id="wie-org" value="mijn organisatie"><label for="wie-org">Voor mijn organisatie</label>
+    </div></fieldset>
+  <div><label for="intake-loc">Locatie</label><select id="intake-loc" name="loc">
+    {LOCATIONS.map((l) => <option value={l.key} selected={l.key === loc}>{l.name}, {l.edition.toLowerCase()}</option>)}
+    <option value="open">Weet ik nog niet</option>
+  </select></div>
+  <fieldset><legend>Hoe wil je bereikt worden?</legend>
+    <div class="chips">
+      <input type="radio" name="via" id="via-signal" value="Signal" checked><label for="via-signal">Signal</label>
+      <input type="radio" name="via" id="via-tel" value="telefoon"><label for="via-tel">Telefoon</label>
+      <input type="radio" name="via" id="via-mail" value="e-mail"><label for="via-mail">E-mail</label>
+    </div></fieldset>
+  {live && (
+    <div><label for="intake-contact" id="intake-contact-l">Je Signal-nummer</label><input id="intake-contact" name="contact" type="text" autocomplete="off" required maxlength="120"></div>
+  )}
+  <div><label for="intake-q">Welke vragen wil je stellen? (optioneel)</label><textarea id="intake-q" name="vragen" maxlength="2000" placeholder="Bijvoorbeeld: past het traject naast mijn werk?"></textarea></div>
+  {live && <div class="hp" aria-hidden="true"><label for="intake-web">Website</label><input id="intake-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>}
+  <p class="note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10 V7 a4 4 0 0 1 8 0 V10 M12 14 v3"/></g></svg>
+    {live
+      ? <span>Je bericht gaat versleuteld rechtstreeks naar één begeleider en wordt op deze site niet bewaard. Lees de <a href="/privacy">privacyverklaring</a>.</span>
+      : <span>Deze voorvertoning verstuurt en bewaart niets. Je vragen blijven op dit scherm. De echte contactroute volgt zodra het adres en de privacyafspraken bevestigd zijn.</span>}
+  </p>
+  <p><button class="btn" type="submit">{live ? 'Verstuur vertrouwelijk' : 'Bereid mijn gesprek voor'} <Fragment set:html={arrow} /></button></p>
+  <p class="form-status" role="status" aria-live="polite" hidden></p>
+</form>
+<div class="prepared" id="prepared" hidden aria-live="polite">
+  <h3 class="h3">{live ? 'Ontvangen' : 'Je gesprek, voorbereid'}</h3>
+  <pre></pre>
+  <button class="btn btn--ghost" type="button" id="prepared-copy">Kopieer je vragen</button>
+</div>
+</div></div>

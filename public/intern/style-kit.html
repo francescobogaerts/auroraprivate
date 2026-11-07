@@ -1,0 +1,118 @@
+<!doctype html>
+<!-- AURORA Private reusable style kit v1.1 · 8 Oct 2026 · internal -->
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AURORA Style Kit</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/aurora.css">
+<style>
+.kit-sec{padding-block:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
+.kit-sec h2{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:var(--s3)}
+.tok{width:100%;border-collapse:collapse;font-size:.95rem}
+.tok th{text-align:left;font:500 .78rem var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--text-soft);border-bottom:1px solid var(--text);padding:0 12px 10px 0}
+.tok td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+.tok i{display:inline-block;width:28px;height:28px;border:1px solid var(--line);vertical-align:middle}
+.tok code{font-size:.88rem}
+.scroll{overflow-x:auto}
+.code{background:var(--surface-2);padding:var(--s3);font:400 .85rem/1.55 ui-monospace,Menlo,Consolas,monospace;white-space:pre;overflow-x:auto;max-width:100%}
+.demo{border:1px solid var(--line);padding:var(--s4);display:grid;gap:var(--s3)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4)}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:var(--s2)}
+.icons div{border:1px solid var(--line);padding:14px;display:grid;justify-items:center;gap:8px;font-size:.75rem;color:var(--text-soft)}
+.icons svg{width:28px;height:28px;color:var(--text)}
+.files li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.files code{font-size:.85rem}
+.files span{color:var(--text-soft);font-size:.88rem}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 39 L24 8 L42 39 M8 32 H40 M13 32 A11 11 0 0 1 35 32"/></g></svg><span><b>AURORA</b><small>STYLE KIT</small></span></a>
+  <span class="eyebrow" style="margin-left:auto">v1.1 · intern</span>
+</div></header>
+<main id="main" class="wrap">
+<section style="padding-block:clamp(56px,8vw,96px)">
+  <span class="eyebrow">Herbruikbare stijlkit</span>
+  <h1 class="display" style="margin-top:16px;font-size:clamp(2.6rem,6vw,5rem)">Tokens, componenten en assets</h1>
+  <p class="lead" style="margin-top:24px">Eén bron voor website, deck, brand book en social. Alle waarden komen uit <code>style-kit/tokens.json</code> van de kit van 8 oktober 2026, aangevuld met themarollen voor donkere modus.</p>
+</section>
+
+<section class="kit-sec"><h2>Kleur</h2>
+<div class="scroll"><table class="tok"><thead><tr><th></th><th>Token</th><th>Waarde</th><th>Rol</th><th>Kleine tekst op Salt</th></tr></thead><tbody>
+<tr><td><i style="background:#1E2624"></i></td><td><code>--ink</code></td><td><code>#1E2624</code></td><td>Tekst, donkere banden</td><td>13,24:1</td></tr>
+<tr><td><i style="background:#ECEEEA"></i></td><td><code>--salt</code></td><td><code>#ECEEEA</code></td><td>Lichte vlakken (koel, geen crème)</td><td>n.v.t.</td></tr>
+<tr><td><i style="background:#3D6766"></i></td><td><code>--tide</code></td><td><code>#3D6766</code></td><td>Primaire interactie, links, knoppen</td><td>5,40:1</td></tr>
+<tr><td><i style="background:#B7A68A"></i></td><td><code>--dune</code></td><td><code>#B7A68A</code></td><td>Lijnwerk, atlas, grens-lijn</td><td>2,04:1 · niet voor tekst</td></tr>
+<tr><td><i style="background:#D8BBA6"></i></td><td><code>--first-light</code></td><td><code>#D8BBA6</code></td><td>Labels op foto’s en Ink, dawn-momenten</td><td>alleen op Ink</td></tr>
+<tr><td><i style="background:#97555C"></i></td><td><code>--aurora-red</code></td><td><code>#97555C</code></td><td>Morning red: regel, monogram, tijdlijn-accent</td><td>4,77:1</td></tr>
+<tr><td><i style="background:#4A5653"></i></td><td><code>--text-soft</code></td><td><code>#4A5653</code></td><td>Secundaire tekst (afgeleid)</td><td>≈ 6,9:1</td></tr>
+<tr><td><i style="background:#2F7F86"></i></td><td><code>--bonaire</code></td><td><code>#2F7F86</code></td><td>Locatieaccent (lijn, kaart)</td><td>n.v.t.</td></tr>
+<tr><td><i style="background:#B98A4E"></i></td><td><code>--india</code></td><td><code>#B98A4E</code></td><td>Locatieaccent</td><td>n.v.t.</td></tr>
+<tr><td><i style="background:#4C7A5C"></i></td><td><code>--mauritius</code></td><td><code>#4C7A5C</code></td><td>Locatieaccent</td><td>n.v.t.</td></tr>
+<tr><td><i style="background:#A9764F"></i></td><td><code>--marbella</code></td><td><code>#A9764F</code></td><td>Locatieaccent</td><td>n.v.t.</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="kit-sec"><h2>Type, ruimte en beweging</h2>
+<div class="scroll"><table class="tok"><thead><tr><th>Token</th><th>Waarde</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td><code>--font-display</code></td><td>Jost 300/400/500</td><td>Koppen, woordmerk, tekst in grafiek</td></tr>
+<tr><td><code>--font-body</code></td><td>Instrument Sans 400–600</td><td>Tekst, formulieren, navigatie</td></tr>
+<tr><td><code>--fs-display</code></td><td><code>clamp(2.6rem, 6.4vw, 6.5rem)</code></td><td>Openingskop (kit: 3.5–7.5rem, iets kleiner gezet voor mobiel)</td></tr>
+<tr><td><code>--fs-h2</code></td><td><code>clamp(2.1rem, 4.4vw, 4.25rem)</code></td><td>Sectiekop</td></tr>
+<tr><td><code>--fs-body</code> · <code>--fs-label</code></td><td><code>1.125rem</code> · <code>.875rem</code></td><td>18 px body, 14 px labels</td></tr>
+<tr><td><code>--s1…--s9</code></td><td class="num">4, 8, 16, 24, 32, 48, 64, 96, 128</td><td>Ruimte (8-punts schaal)</td></tr>
+<tr><td><code>--content</code> · <code>--gutter</code></td><td class="num">1280 px · 24–64 px</td><td>Contentbreedte, zijmarge</td></tr>
+<tr><td><code>--dur</code> · <code>--ease</code></td><td><code>240ms</code> · <code>cubic-bezier(.2,.7,.2,1)</code></td><td>Alle overgangen</td></tr>
+<tr><td>radius</td><td>0</td><td>Knoppen en panelen hebben rechte hoeken</td></tr>
+</tbody></table></div>
+<p class="soft" style="margin-top:16px;font-size:.92rem">Bestanden: <code>css/aurora.css</code> (volledig systeem), <code>assets/tokens/aurora-tokens.css</code> en <code>tokens.json</code> (kit-origineel).</p>
+</section>
+
+<section class="kit-sec"><h2>Componenten</h2>
+<div class="grid2">
+  <div class="demo"><span class="eyebrow">Knoppen · <code>.btn</code>, <code>.btn--ghost</code></span><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn" type="button">Bereid mijn gesprek voor</button><button class="btn btn--ghost" type="button">Verder naar India</button></div></div>
+  <div class="demo"><span class="eyebrow">Morning red regel · <code>.rule-red</code></span><h3 class="h3">Ruimte is het vertrekpunt.</h3><hr class="rule-red"></div>
+  <div class="demo"><span class="eyebrow">Herkenning · <code>.recog</code></span><div class="recog" style="margin:0"><button type="button" aria-pressed="true">“Niemand mag het weten.”<small>Zichtbaarheid is het grootste risico.</small></button></div></div>
+  <div class="demo"><span class="eyebrow">Tijdlijn · <code>.line6</code></span><div class="line6" style="margin:0"><div class="track"><div class="seg"><strong>Voorb.</strong><span>4 wk</span></div><div class="seg core"><strong>Locatie</strong><span>14 d</span></div><div class="seg int"><strong>Integratie</strong><span>± 5 maanden</span></div></div></div></div>
+  <div class="demo"><span class="eyebrow">Beweging · <code>details.move</code></span><div class="moves" style="margin:0"><details class="move" open><summary><img class="glyph" src="assets/atlas/glyph-week03.svg" alt="" width="44" height="44"><span class="t"><h3>Inzicht</h3><span class="when">Op locatie · dag 3–11</span></span><svg class="pm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 H20 M12 4 V20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></summary><div class="body"><p>Eerlijk kijken naar patronen.</p></div></details></div></div>
+  <div class="demo"><span class="eyebrow">Excursie · <code>.exc</code></span><article class="exc" style="--loc:var(--bonaire)"><span class="when">Dag 6, middag</span><h3>Klein Bonaire</h3><p class="soft">Zeilen naar het onbewoonde eilandje.</p></article></div>
+  <div class="demo"><span class="eyebrow">Foto · <code>figure.photo[data-photo]</code></span><figure class="photo" data-photo="aurora-red-room" style="aspect-ratio:3/2"><img alt="aurora-red-room"><span class="pending-note">Beeld volgt: aurora-red-room.png</span></figure><p class="soft" style="font-size:.88rem">Laadt <code>.jpg</code>, dan <code>.png</code>; zonder bestand toont het frame eerlijk ‘Beeld volgt’.</p></div>
+  <div class="demo"><span class="eyebrow">Atlas · <code>figure.atlas</code></span><figure class="atlas"><img src="assets/atlas/map-bonaire.svg" alt="Atlaskaart Bonaire"><figcaption>Atlasstudie · benaderde plaatsaanduidingen</figcaption></figure></div>
+</div>
+</section>
+
+<section class="kit-sec"><h2>UI-iconen · <code>assets/atlas/icons-set.svg</code></h2>
+<div id="iconsprite" hidden></div>
+<div class="icons" id="icons"></div>
+<p class="soft" style="margin-top:12px;font-size:.92rem">Gebruik: <code>&lt;svg&gt;&lt;use href="assets/atlas/icons-set.svg#icon-lock"/&gt;&lt;/svg&gt;</code>. 24 px raster, 1,5 px lijn, kleur via <code>currentColor</code>.</p>
+</section>
+
+<section class="kit-sec"><h2>Assets in de build</h2>
+<ul class="files list-lines">
+<li><code>assets/brand/aurora-monogram.svg</code> · <code>-salt</code> · <code>-aurora-red</code><span>Kit · style-kit</span></li>
+<li><code>assets/brand/aurora-wordmark-ink.svg</code> · <code>-salt</code><span>Kit · tekst-SVG, Jost vereist</span></li>
+<li><code>assets/brand/favicon.svg</code><span>Kit · atlas-and-ui/svg</span></li>
+<li><code>assets/atlas/glyph-week01–05.svg</code><span>Kit · programmaglyphs</span></li>
+<li><code>assets/atlas/map-bonaire.svg</code> · <code>map-mauritius.svg</code><span>Kit · in build</span></li>
+<li><code>assets/atlas/map-india.svg</code> · <code>map-marbella.svg</code> · <code>map-world-four.svg</code><span>Ontbreekt: te groot voor de connector, volgt uit de ZIP</span></li>
+<li><code>assets/atlas/icons-set.svg</code> · <code>divider-contour.svg</code><span>Kit</span></li>
+<li><code>assets/fonts/jost-var.woff2</code> · <code>instrument-sans-var.woff2</code><span>OFL, zelf gehost</span></li>
+<li><code>assets/photography/aurora-red-{sea,room,bonaire,india,mauritius,marbella}</code><span>Ontbreekt: volgt uit de ZIP (.png master + .jpg web)</span></li>
+</ul>
+</section>
+</main>
+<footer class="site-foot"><div class="wrap"><p>AURORA Private style kit · intern.</p></div></footer>
+<script src="js/aurora.js"></script>
+<script>
+(function(){
+  var names=['lock','shield','phone','message','calendar','location-pin','close','arrow-right','plus','minus','sun','moon','wave','leaf','compass','check'];
+  var box=document.getElementById('icons');
+  names.forEach(function(n){ box.insertAdjacentHTML('beforeend','<div><svg aria-hidden="true"><use href="assets/atlas/icons-set.svg#icon-'+n+'"/></svg>'+n+'</div>'); });
+})();
+</script>
+</body>
+</html>

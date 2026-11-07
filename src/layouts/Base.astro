@@ -1,0 +1,95 @@
+---
+import '../styles/aurora.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE, type LocKey } from '../data/site';
+
+interface Crumb { name: string; path: string }
+interface Props {
+  title: string;
+  description?: string;
+  og?: string;                       // basename in /public/og, without extension
+  current?: LocKey | 'home' | null;
+  talk?: string;                     // where "Eerste gesprek" points
+  crumbs?: Crumb[];
+  noindex?: boolean;
+  bare?: boolean;                    // no header/footer (404 etc. still get them; intern pages don't use this layout)
+}
+
+const {
+  title,
+  description = SITE.description,
+  og = 'home',
+  current = null,
+  talk = '#gesprek',
+  crumbs = [],
+  noindex = false,
+} = Astro.props;
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = SITE.url + (path === '/' ? '/' : path);
+const ogUrl = `${SITE.url}/og/${og}.jpg`;
+const robots = SITE.indexable && !noindex ? 'index,follow' : 'noindex,nofollow';
+
+const ld: any[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.url + '/',
+    logo: SITE.url + '/brand/aurora-monogram.svg',
+    description: SITE.description,
+  },
+];
+if (crumbs.length) {
+  ld.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{ name: 'AURORA Private', path: '/' }, ...crumbs].map((c, i) => ({
+      '@type': 'ListItem', position: i + 1, name: c.name, item: SITE.url + c.path,
+    })),
+  });
+}
+---
+<!doctype html>
+<html lang={SITE.lang}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="robots" content={robots}>
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href={canonical}>
+<meta property="og:type" content="website">
+<meta property="og:locale" content={SITE.locale}>
+<meta property="og:site_name" content={SITE.name}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={ogUrl}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content={SITE.themeColor}>
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="/brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/jost-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
+<slot name="head" />
+</head>
+<body>
+<a class="skip" href="#main">Naar de inhoud</a>
+<Header current={current} talk={talk} />
+<main id="main">
+<slot />
+</main>
+<Footer talk={talk} />
+<script>
+  import '../scripts/aurora.ts';
+</script>
+</body>
+</html>

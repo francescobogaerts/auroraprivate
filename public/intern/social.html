@@ -1,0 +1,152 @@
+<!doctype html>
+<!-- AURORA Private social editor v1.1 · 8 Oct 2026 · internal. Renders locally on canvas; nothing is posted. -->
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AURORA Social Editor</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/aurora.css">
+<style>
+.ed{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding-block:clamp(40px,6vw,72px);align-items:start}
+@media (max-width:900px){.ed{grid-template-columns:1fr}}
+.panel{display:grid;gap:var(--s4)}
+.panel label,.panel legend{font-size:var(--fs-label);color:var(--text-soft);display:block;margin-bottom:8px}
+.panel fieldset{border:0;padding:0;margin:0}
+.panel select,.panel textarea,.panel input[type=text]{width:100%;font:inherit;color:var(--text);background:transparent;border:0;border-bottom:1px solid var(--text-soft);padding:8px 0;border-radius:0}
+.panel textarea{min-height:84px;resize:vertical}
+.chk{display:flex;gap:10px;align-items:center;font-size:.95rem}
+.preview{background:var(--surface-2);padding:var(--s4);display:grid;place-items:center;min-height:420px}
+.preview canvas{max-width:100%;max-height:72vh;height:auto;width:auto;box-shadow:0 1px 0 var(--line)}
+.out{display:grid;gap:var(--s2)}
+.out img{max-width:240px;border:1px solid var(--line)}
+.msg{font-size:.9rem;color:var(--text-soft)}
+.copybox{background:var(--surface-2);padding:var(--s3);font-size:.95rem}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 39 L24 8 L42 39 M8 32 H40 M13 32 A11 11 0 0 1 35 32"/></g></svg><span><b>AURORA</b><small>SOCIAL</small></span></a>
+  <span class="eyebrow" style="margin-left:auto">Concepten · niets wordt gepost</span>
+</div></header>
+<main id="main" class="wrap">
+  <div class="ed">
+    <form class="panel" id="f" onsubmit="return false">
+      <div><span class="eyebrow">Social editor</span><h1 class="h2" style="margin-top:12px;font-size:clamp(2rem,3vw,2.6rem)">Eén beeld, één kop, klein merk.</h1></div>
+      <fieldset><legend>Formaat</legend>
+        <div class="chips">
+          <input type="radio" name="fmt" id="fmt-post" value="1080x1350" checked><label for="fmt-post">Post 1080×1350</label>
+          <input type="radio" name="fmt" id="fmt-story" value="1080x1920"><label for="fmt-story">Story 1080×1920</label>
+          <input type="radio" name="fmt" id="fmt-sq" value="1080x1080"><label for="fmt-sq">Vierkant 1080×1080</label>
+          <input type="radio" name="fmt" id="fmt-li" value="1200x627"><label for="fmt-li">LinkedIn 1200×627</label>
+        </div></fieldset>
+      <div><label for="dest">Bestemming en beeld</label><select id="dest">
+        <option value="bonaire">Bonaire · aurora-red-bonaire</option>
+        <option value="india">India · aurora-red-india</option>
+        <option value="mauritius">Mauritius · aurora-red-mauritius</option>
+        <option value="marbella">Marbella · aurora-red-marbella</option>
+        <option value="sea">Merkgedachte · aurora-red-sea</option>
+        <option value="room">Programmamoment · aurora-red-room</option>
+      </select></div>
+      <div><label for="head">Kop (maximaal twee regels)</label><textarea id="head">Ruimte voor een nieuwe ochtend.</textarea></div>
+      <div><label for="lab">Label onderaan</label><input type="text" id="lab" value="BONAIRE / AURORA PRIVATE"></div>
+      <label class="chk"><input type="checkbox" id="red" checked> Morning red regel tonen</label>
+      <div class="out">
+        <button class="btn" type="button" id="save">PNG opslaan</button>
+        <p class="msg" id="msg" aria-live="polite"></p>
+        <img id="png" alt="Gerenderde PNG; rechtsklik of lang indrukken om op te slaan" hidden>
+      </div>
+      <div><span class="eyebrow">Concept-caption (social-copy.md)</span><p class="copybox" id="caption" style="margin-top:8px"></p></div>
+    </form>
+    <div class="preview"><canvas id="c" width="1080" height="1350" aria-label="Voorvertoning van de social post"></canvas></div>
+  </div>
+</main>
+<script src="js/aurora.js"></script>
+<script>
+(function(){
+  var DATA = {
+    bonaire:{photo:'aurora-red-bonaire',head:'Ruimte voor een nieuwe ochtend.',lab:'BONAIRE / AURORA PRIVATE',cap:'Ruimte voor een nieuwe ochtend. Zoutvlaktes, helder water en een open horizon. Ontdek de wereld van AURORA Private.'},
+    india:{photo:'aurora-red-india',head:'Stilte krijgt ruimte.',lab:'INDIA / AURORA PRIVATE',cap:'Stilte krijgt ruimte. Mist boven het water, heuvels in de verte en aandacht voor het moment. India binnen de AURORA-collectie.'},
+    mauritius:{photo:'aurora-red-mauritius',head:'Een ander ritme.',lab:'MAURITIUS / AURORA PRIVATE',cap:'Een ander ritme. Jadegroen water, donkere steen en het eerste licht boven de lagune. Mauritius binnen de AURORA-collectie.'},
+    marbella:{photo:'aurora-red-marbella',head:'Dichter bij jezelf.',lab:'MARBELLA / AURORA PRIVATE',cap:'Dichter bij jezelf. Ochtendlicht op wit pleisterwerk, olijfbomen en de Middellandse Zee op afstand. Marbella binnen de AURORA-collectie.'},
+    sea:{photo:'aurora-red-sea',head:'Een sanctuary, geen kliniek.',lab:'AURORA PRIVATE',cap:'Een sanctuary, geen kliniek. Zes maanden persoonlijke begeleiding, met veertien dagen op locatie als keerpunt.'},
+    room:{photo:'aurora-red-room',head:'Het traject begint voor je vertrekt.',lab:'HET TRAJECT / AURORA PRIVATE',cap:'Het traject begint voor je vertrekt en houdt niet op als je thuiskomt. Eén begeleider, zes maanden.'}
+  };
+  var c = document.getElementById('c'), x = c.getContext('2d');
+  var imgs = {}, dest = document.getElementById('dest'), head = document.getElementById('head'), lab = document.getElementById('lab'), red = document.getElementById('red');
+  var MONO = new Path2D('M6 39 L24 8 L42 39 M8 32 H40 M13 32 A11 11 0 0 1 35 32');
+
+  function load(name, cb){
+    if(imgs[name] !== undefined) return cb(imgs[name]);
+    var tries = ['assets/photography/'+name+'.jpg','assets/photography/'+name+'.png'], im = new Image();
+    im.onload = function(){ imgs[name] = im; cb(im); };
+    im.onerror = function(){ if(tries.length) im.src = tries.shift(); else { imgs[name] = null; cb(null); } };
+    im.src = tries.shift();
+  }
+  function fmt(){ var v = document.querySelector('input[name="fmt"]:checked').value.split('x'); return {w:+v[0], h:+v[1]}; }
+  function wrap(text, maxW, size){
+    x.font = '300 ' + size + 'px Jost, sans-serif';
+    var words = text.split(/\s+/), lines = [], line = '';
+    words.forEach(function(w){ var t = line ? line + ' ' + w : w; if(x.measureText(t).width > maxW && line){ lines.push(line); line = w; } else line = t; });
+    if(line) lines.push(line); return lines.slice(0, 2);
+  }
+  function draw(){
+    var f = fmt(); c.width = f.w; c.height = f.h;
+    var d = DATA[dest.value];
+    load(d.photo, function(im){
+      x.fillStyle = '#1E2624'; x.fillRect(0,0,f.w,f.h);
+      if(im){ // cover crop, centred, natural colour
+        var s = Math.max(f.w/im.width, f.h/im.height), w = im.width*s, h = im.height*s;
+        x.drawImage(im, (f.w-w)/2, (f.h-h)/2, w, h);
+      } else { // honest stand-in until the master is in the build
+        x.strokeStyle = 'rgba(183,166,138,.5)'; x.lineWidth = 1.25;
+        for(var y = 60; y < f.h; y += 48){ x.beginPath(); x.moveTo(0,y); x.bezierCurveTo(f.w*.18,y-18,f.w*.22,y+28,f.w*.41,y+6); x.bezierCurveTo(f.w*.6,y-14,f.w*.8,y-8,f.w,y+5); x.stroke(); }
+        x.fillStyle = '#AEB7B3'; x.font = '400 22px "Instrument Sans", sans-serif'; x.fillText('Beeld volgt: ' + d.photo + '.png', f.w*.08, f.h*.5);
+      }
+      var g = x.createLinearGradient(0,0,0,f.h);
+      g.addColorStop(0,'rgba(30,38,36,.5)'); g.addColorStop(.5,'rgba(30,38,36,.15)'); g.addColorStop(1,'rgba(30,38,36,.8)');
+      x.fillStyle = g; x.fillRect(0,0,f.w,f.h);
+      var m = Math.round(Math.min(f.w,f.h)*0.08), land = f.w > f.h;
+      x.fillStyle = '#ECEEEA';
+      x.font = '300 ' + (land?32:40) + 'px Jost, sans-serif'; if('letterSpacing' in x) x.letterSpacing = (land?6:7)+'px';
+      x.fillText('AURORA', m, m + (land?32:40));
+      x.font = '300 ' + (land?12:15) + 'px Jost, sans-serif'; if('letterSpacing' in x) x.letterSpacing = '5px';
+      x.fillText('PRIVATE', m+2, m + (land?56:80));
+      if('letterSpacing' in x) x.letterSpacing = '0px';
+      var size = land ? 60 : (f.h > 1500 ? 96 : 86), lines = wrap(head.value || d.head, f.w - m*2, size), lh = size*1.1;
+      var baseY = land ? f.h*0.62 : f.h*0.68;
+      x.font = '300 ' + size + 'px Jost, sans-serif'; x.fillStyle = '#ECEEEA';
+      lines.forEach(function(l,i){ x.fillText(l, m, baseY + i*lh); });
+      if(red.checked){ x.fillStyle = '#97555C'; x.fillRect(m, baseY + lines.length*lh - size*0.35, 72, 3); }
+      x.font = '400 ' + (land?16:20) + 'px "Instrument Sans", sans-serif'; x.fillStyle = '#D8BBA6'; if('letterSpacing' in x) x.letterSpacing = '2px';
+      x.fillText(lab.value, m, f.h - m);
+      if('letterSpacing' in x) x.letterSpacing = '0px';
+      x.save(); var ms = land?0.9:1.1; x.translate(f.w - m - 48*ms, f.h - m - 40*ms); x.scale(ms,ms); x.strokeStyle = '#ECEEEA'; x.lineWidth = 1.25; x.lineCap='round'; x.lineJoin='round'; x.stroke(MONO); x.restore();
+      document.getElementById('caption').textContent = d.cap;
+    });
+  }
+  dest.addEventListener('change', function(){ var d = DATA[dest.value]; head.value = d.head; lab.value = d.lab; draw(); });
+  [head, lab, red].forEach(function(el){ el.addEventListener('input', draw); });
+  document.querySelectorAll('input[name="fmt"]').forEach(function(r){ r.addEventListener('change', draw); });
+  (document.fonts && document.fonts.load ? Promise.all([document.fonts.load('300 40px Jost'), document.fonts.load('400 20px "Instrument Sans"')]) : Promise.resolve()).then(draw, draw);
+
+  var dl = null;
+  if(window.claude && window.claude.use){ window.claude.use('downloads').then(function(n){ dl = n; }, function(){}); }
+  document.getElementById('save').addEventListener('click', function(){
+    var msg = document.getElementById('msg'), f = fmt(), name = 'aurora-' + dest.value + '-' + f.w + 'x' + f.h + '.png';
+    c.toBlob(function(blob){
+      if(!blob){ msg.textContent = 'Kon de afbeelding niet maken.'; return; }
+      if(dl){
+        dl.save({filename:name, data:blob}).then(function(){ msg.textContent = 'Opgeslagen als ' + name + '.'; }, function(e){ showImg(blob, name, e && e.code === 'declined' ? 'Opslaan geannuleerd. ' : ''); });
+      } else showImg(blob, name, '');
+    }, 'image/png');
+    function showImg(blob, name, pre){
+      var im = document.getElementById('png'); im.src = URL.createObjectURL(blob); im.hidden = false;
+      msg.textContent = pre + 'Rechtsklik of houd de afbeelding ingedrukt om ' + name + ' op te slaan.';
+    }
+  });
+})();
+</script>
+</body>
+</html>

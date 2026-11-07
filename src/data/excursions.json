@@ -1,0 +1,1010 @@
+[
+  {
+    "loc": "bonaire",
+    "slug": "washingtonslagbaai",
+    "order": 1,
+    "title": "Washington Slagbaai",
+    "metaTitle": "Washington Slagbaai · AURORA Private Bonaire",
+    "description": "Het noorden van het eiland, zonder dorp of weg in zicht. Je loopt in je eigen tempo.",
+    "when": "Dag 3, middag · ingepland in de veertien dagen",
+    "card": {
+      "when": "Dag 3, middag",
+      "text": "Wandeling door het nationale park in het noorden: cactusbos, kalksteenkust en stille baaien.",
+      "teaser": "Het noorden van het eiland, zonder dorp of weg in zicht. Je loopt in je eigen tempo.",
+      "photo": "img/wsb-1"
+    },
+    "beats": [
+      {
+        "photo": "img/wsb-1",
+        "alt": "Washington Slagbaai: het noorden (sfeerbeeld)",
+        "eyebrow": "Bonaire · 12°09′N 68°16′W",
+        "line": "Cactusbos tot aan de kalksteenkust."
+      },
+      {
+        "photo": "img/wsb-2",
+        "alt": "Washington Slagbaai: onderweg (sfeerbeeld)",
+        "label": "02 · Onderweg",
+        "line": "Geen bereik, geen haast. Alleen wind en het geluid van je eigen stappen."
+      },
+      {
+        "photo": "img/wsb-3",
+        "alt": "Washington Slagbaai: aan het water (sfeerbeeld)",
+        "label": "03 · Aan het water",
+        "line": "Een stille baai om af te koelen voor de terugweg."
+      }
+    ],
+    "practical": {
+      "heading": "Het noorden van het eiland, zonder dorp of weg in zicht.",
+      "lead": "Wandeling door het nationale park in het noorden: cactusbos, kalksteenkust en stille baaien.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 4 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig wandelen"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Water, schoenen met grip"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "bonaire",
+    "slug": "lacbay",
+    "order": 2,
+    "title": "Lac Bay",
+    "metaTitle": "Lac Bay · AURORA Private Bonaire",
+    "description": "Peddelen door ondiep water en mangrove. Wie wil, legt de peddel even neer en drijft.",
+    "when": "Dag 4, middag · ingepland in de veertien dagen",
+    "card": {
+      "when": "Dag 4, middag",
+      "text": "Met de kajak door de mangroven aan de oostkust.",
+      "teaser": "Peddelen door ondiep water en mangrove. Wie wil, legt de peddel even neer en drijft.",
+      "photo": "img/bonaire"
+    },
+    "beats": [
+      {
+        "photo": "img/bonaire",
+        "alt": "Lac Bay: oostkust (sfeerbeeld)",
+        "eyebrow": "Bonaire · 12°09′N 68°16′W",
+        "line": "Ondiep, helder water achter het rif."
+      },
+      {
+        "photo": "img/kb-1",
+        "alt": "Lac Bay: mangrove (sfeerbeeld)",
+        "label": "02 · Mangrove",
+        "line": "Smalle doorgangen, koel en stil. Het ritme van de peddel neemt het over."
+      },
+      {
+        "photo": "img/kb-3",
+        "alt": "Lac Bay: terug (sfeerbeeld)",
+        "label": "03 · Terug",
+        "line": "Op de rug drijven in de baai voordat de middag omslaat."
+      }
+    ],
+    "practical": {
+      "heading": "Peddelen door ondiep water en mangrove.",
+      "lead": "Met de kajak door de mangroven aan de oostkust.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 3 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Licht, met begeleiding"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Zwemkleding, zonbescherming"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "bonaire",
+    "slug": "kleinbonaire",
+    "order": 3,
+    "title": "Klein Bonaire",
+    "metaTitle": "Klein Bonaire · AURORA Private Bonaire",
+    "description": "Een korte oversteek naar een eilandje waar niemand woont. Zwemmen boven het rif, dan terug in het late licht.",
+    "when": "Dag 6, middag · ingepland in de veertien dagen",
+    "card": {
+      "when": "Dag 6, middag",
+      "text": "Zeilen naar het onbewoonde eilandje voor de kust en zwemmen boven het rif.",
+      "teaser": "Een korte oversteek naar een eilandje waar niemand woont. Zwemmen boven het rif, dan terug in het late licht.",
+      "photo": "img/kb-1"
+    },
+    "beats": [
+      {
+        "photo": "img/kb-1",
+        "alt": "Klein Bonaire: de oversteek (sfeerbeeld)",
+        "eyebrow": "Bonaire · 12°09′N 68°16′W",
+        "line": "Een kwartier varen. Achter je wordt de kust klein."
+      },
+      {
+        "photo": "img/kb-2",
+        "alt": "Klein Bonaire: het eilandje (sfeerbeeld)",
+        "label": "02 · Het eilandje",
+        "line": "Onbewoond. Wit zand, geen schaduw behalve die je meeneemt."
+      },
+      {
+        "photo": "img/kb-3",
+        "alt": "Klein Bonaire: boven het rif (sfeerbeeld)",
+        "label": "03 · Boven het rif",
+        "line": "Snorkelen in stil water, of gewoon kijken vanaf de boot."
+      }
+    ],
+    "practical": {
+      "heading": "Een korte oversteek naar een eilandje waar niemand woont.",
+      "lead": "Zeilen naar het onbewoonde eilandje voor de kust en zwemmen boven het rif.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 4 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Zwemkleding, rifveilige zonnebrand"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "bonaire",
+    "slug": "ezels-pekelmeer",
+    "order": 4,
+    "title": "Ezelopvang en Pekelmeer",
+    "metaTitle": "Ezelopvang en Pekelmeer · AURORA Private Bonaire",
+    "description": "Eerst de opvang voor de ezels van het eiland, daarna de zoutpannen in het zuiden waar flamingo’s foerageren.",
+    "when": "Dag 8, middag · ingepland in de veertien dagen",
+    "card": {
+      "when": "Dag 8, middag",
+      "text": "De ezelopvang in het binnenland en de flamingo’s bij het Pekelmeer, op afstand bekeken.",
+      "teaser": "Eerst de opvang voor de ezels van het eiland, daarna de zoutpannen in het zuiden waar flamingo’s foerageren.",
+      "photo": "img/ez-1"
+    },
+    "beats": [
+      {
+        "photo": "img/ez-1",
+        "alt": "Ezelopvang en Pekelmeer: het binnenland (sfeerbeeld)",
+        "eyebrow": "Bonaire · 12°09′N 68°16′W",
+        "line": "Bij de opvang leven de ezels van het eiland in vrijheid. Je kijkt, je voert niet zonder uitleg."
+      },
+      {
+        "photo": "img/ez-2",
+        "alt": "Ezelopvang en Pekelmeer: het zuiden (sfeerbeeld)",
+        "label": "02 · Het zuiden",
+        "line": "Roze zoutpannen en witte bergen zout tot aan de horizon."
+      },
+      {
+        "photo": "img/fl-1",
+        "alt": "Ezelopvang en Pekelmeer: pekelmeer (sfeerbeeld)",
+        "label": "03 · Pekelmeer",
+        "line": "Flamingo’s, op afstand. Het broedgebied blijft hun gebied."
+      }
+    ],
+    "practical": {
+      "heading": "Eerst de opvang voor de ezels van het eiland, daarna de zoutpannen in het zuiden waar flamingo’s foerageren.",
+      "lead": "De ezelopvang in het binnenland en de flamingo’s bij het Pekelmeer, op afstand bekeken.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 4 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig, deels met de auto"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Hoed, verrekijker als je die hebt"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "india",
+    "slug": "olifanten",
+    "order": 1,
+    "title": "Olifanten bij Jaipur",
+    "metaTitle": "Olifanten bij Jaipur · AURORA Private India",
+    "description": "Een opvang waar olifanten niet worden bereden. Je loopt mee, kijkt en helpt bij het wassen.",
+    "when": "Middag, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Middag, in het ritme",
+      "text": "Een ethische opvang: kijken, meelopen en helpen bij het wassen. Er wordt niet gereden.",
+      "teaser": "Een opvang waar olifanten niet worden bereden. Je loopt mee, kijkt en helpt bij het wassen.",
+      "photo": "img/ol-1"
+    },
+    "beats": [
+      {
+        "photo": "img/ol-1",
+        "alt": "Olifanten bij Jaipur: de opvang",
+        "eyebrow": "India · 30°05′N 78°16′E",
+        "line": "Olifanten die niet meer hoeven te werken."
+      },
+      {
+        "photo": "img/ol-2",
+        "alt": "Olifanten bij Jaipur: meelopen",
+        "label": "02 · Meelopen",
+        "line": "Op hun tempo, niet op het jouwe. Er wordt niet gereden."
+      },
+      {
+        "photo": "img/ol-3",
+        "alt": "Olifanten bij Jaipur: water",
+        "label": "03 · Water",
+        "line": "Helpen bij het wassen, als de verzorgers dat goed vinden."
+      }
+    ],
+    "practical": {
+      "heading": "Een opvang waar olifanten niet worden bereden.",
+      "lead": "Een ethische opvang: kijken, meelopen en helpen bij het wassen. Er wordt niet gereden.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 3 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Kleding die nat mag worden"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "india",
+    "slug": "gangaaarti",
+    "order": 2,
+    "title": "Ganga Aarti",
+    "metaTitle": "Ganga Aarti · AURORA Private India",
+    "description": "Vuur, bellen en gezang bij het vallen van de avond. Je kijkt vanaf het water of vanaf de treden.",
+    "when": "Avond, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Avond, in het ritme",
+      "text": "De avondceremonie aan de oever van de Ganges in Varanasi.",
+      "teaser": "Vuur, bellen en gezang bij het vallen van de avond. Je kijkt vanaf het water of vanaf de treden.",
+      "photo": "img/india-river"
+    },
+    "beats": [
+      {
+        "photo": "img/india-river",
+        "alt": "Ganga Aarti: schemer",
+        "eyebrow": "India · 30°05′N 78°16′E",
+        "line": "De treden aan de rivier lopen vol."
+      },
+      {
+        "photo": "img/india-closing",
+        "alt": "Ganga Aarti: de ceremonie",
+        "label": "02 · De ceremonie",
+        "line": "Vuur, bellen en gezang. Je hoeft niets te begrijpen om het te voelen."
+      },
+      {
+        "photo": "img/india",
+        "alt": "Ganga Aarti: het water",
+        "label": "03 · Het water",
+        "line": "Kleine lichtjes drijven weg. Daarna is het stil."
+      }
+    ],
+    "practical": {
+      "heading": "Vuur, bellen en gezang bij het vallen van de avond.",
+      "lead": "De avondceremonie aan de oever van de Ganges in Varanasi.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Avond"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 2,5 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Kijken en luisteren"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Bedekte schouders, een sjaal"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "india",
+    "slug": "rishikesh",
+    "order": 3,
+    "title": "Rishikesh",
+    "metaTitle": "Rishikesh · AURORA Private India",
+    "description": "Groen water tussen beboste heuvels. Op het water met een gids, of langs de oever als dat beter past.",
+    "when": "Middag, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Middag, in het ritme",
+      "text": "De Ganga tussen beboste heuvels, op het water of langs de oever.",
+      "teaser": "Groen water tussen beboste heuvels. Op het water met een gids, of langs de oever als dat beter past.",
+      "photo": "img/rf-2"
+    },
+    "beats": [
+      {
+        "photo": "img/rf-2",
+        "alt": "Rishikesh: de vallei",
+        "eyebrow": "India · 30°05′N 78°16′E",
+        "line": "De rivier komt hier net uit de bergen."
+      },
+      {
+        "photo": "img/rf-1",
+        "alt": "Rishikesh: op het water",
+        "label": "02 · Op het water",
+        "line": "Met een ervaren gids, in een tempo dat bij de groep past."
+      },
+      {
+        "photo": "img/rf-3",
+        "alt": "Rishikesh: de oever",
+        "label": "03 · De oever",
+        "line": "Of je blijft aan de kant. Ook dat is een keuze."
+      }
+    ],
+    "practical": {
+      "heading": "Groen water tussen beboste heuvels.",
+      "lead": "De Ganga tussen beboste heuvels, op het water of langs de oever.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 3 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Gemiddeld, of rustig langs de oever"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Droge kleding voor na afloop"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "india",
+    "slug": "tajmahal",
+    "order": 4,
+    "title": "Taj Mahal",
+    "metaTitle": "Taj Mahal · AURORA Private India",
+    "description": "Vroeg op, voor de rest van de dag begint. Het marmer kleurt mee met het eerste licht.",
+    "when": "Ochtend, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Ochtend, in het ritme",
+      "text": "Een bezoek bij zonsopkomst, voor de drukte van de dag.",
+      "teaser": "Vroeg op, voor de rest van de dag begint. Het marmer kleurt mee met het eerste licht.",
+      "photo": "img/india-garden"
+    },
+    "beats": [
+      {
+        "photo": "img/india-garden",
+        "alt": "Taj Mahal: voor zonsopkomst",
+        "eyebrow": "India · 30°05′N 78°16′E",
+        "line": "Vertrek in het donker. Niemand praat veel."
+      },
+      {
+        "photo": "img/india-courtyard",
+        "alt": "Taj Mahal: het eerste licht",
+        "label": "02 · Het eerste licht",
+        "line": "Het marmer kleurt rozig, dan wit."
+      },
+      {
+        "photo": "img/india-terrace",
+        "alt": "Taj Mahal: de tuinen",
+        "label": "03 · De tuinen",
+        "line": "Tijd om te zitten voordat de drukte komt."
+      }
+    ],
+    "practical": {
+      "heading": "Vroeg op, voor de rest van de dag begint.",
+      "lead": "Een bezoek bij zonsopkomst, voor de drukte van de dag.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Vroege ochtend"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 4 uur incl. reis"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Lichte jas voor de vroege uren"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "mauritius",
+    "slug": "gangatalao",
+    "order": 1,
+    "title": "Ganga Talao",
+    "metaTitle": "Ganga Talao · AURORA Private Mauritius",
+    "description": "Een kratermeer hoog in het binnenland, met tempels aan de oever. Koeler dan de kust, en stiller.",
+    "when": "Middag, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Middag, in het ritme",
+      "text": "Het heilige kratermeer in het binnenland van het eiland.",
+      "teaser": "Een kratermeer hoog in het binnenland, met tempels aan de oever. Koeler dan de kust, en stiller.",
+      "photo": "img/mauritius-lagoon"
+    },
+    "beats": [
+      {
+        "photo": "img/mauritius-lagoon",
+        "alt": "Ganga Talao: het binnenland (sfeerbeeld)",
+        "eyebrow": "Mauritius · 20°10′S 57°30′E",
+        "line": "De weg klimt weg van de kust, de lucht koelt af."
+      },
+      {
+        "photo": "img/mauritius-rain",
+        "alt": "Ganga Talao: het meer (sfeerbeeld)",
+        "label": "02 · Het meer",
+        "line": "Een kratermeer met tempels aan de oever."
+      },
+      {
+        "photo": "img/mauritius-forest",
+        "alt": "Ganga Talao: stilte (sfeerbeeld)",
+        "label": "03 · Stilte",
+        "line": "Even zitten aan het water. Niemand vraagt iets."
+      }
+    ],
+    "practical": {
+      "heading": "Een kratermeer hoog in het binnenland, met tempels aan de oever.",
+      "lead": "Het heilige kratermeer in het binnenland van het eiland.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 3 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Bedekte schouders, een vest"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "mauritius",
+    "slug": "chamarel",
+    "order": 2,
+    "title": "Chamarel",
+    "metaTitle": "Chamarel · AURORA Private Mauritius",
+    "description": "Duinen van gekleurde vulkanische aarde en een waterval die diep het groen in valt.",
+    "when": "Middag, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Middag, in het ritme",
+      "text": "De gekleurde aarde en de waterval van Chamarel.",
+      "teaser": "Duinen van gekleurde vulkanische aarde en een waterval die diep het groen in valt.",
+      "photo": "img/ch-3"
+    },
+    "beats": [
+      {
+        "photo": "img/ch-3",
+        "alt": "Chamarel: de aarde (sfeerbeeld)",
+        "eyebrow": "Mauritius · 20°10′S 57°30′E",
+        "line": "Vulkanische grond in banen van rood, paars en oker."
+      },
+      {
+        "photo": "img/mauritius-forest",
+        "alt": "Chamarel: de waterval (sfeerbeeld)",
+        "label": "02 · De waterval",
+        "line": "Het water valt diep het groen in."
+      },
+      {
+        "photo": "img/br-2",
+        "alt": "Chamarel: het uitzicht (sfeerbeeld)",
+        "label": "03 · Het uitzicht",
+        "line": "Vanaf de rand zie je hoe jong dit eiland eigenlijk is."
+      }
+    ],
+    "practical": {
+      "heading": "Duinen van gekleurde vulkanische aarde en een waterval die diep het groen in valt.",
+      "lead": "De gekleurde aarde en de waterval van Chamarel.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 3 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig, korte wandelingen"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Water, stevige schoenen"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "mauritius",
+    "slug": "dolfijnen",
+    "order": 3,
+    "title": "Dolfijnen bij Tamarin",
+    "metaTitle": "Dolfijnen bij Tamarin · AURORA Private Mauritius",
+    "description": "Vroeg de baai op. Komen ze, dan kijk je met de motor uit. Komen ze niet, dan is de ochtend op zee ook genoeg.",
+    "when": "Ochtend, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Ochtend, in het ritme",
+      "text": "Vanaf de boot met de motor uit. Niet achtervolgen, niet voeren.",
+      "teaser": "Vroeg de baai op. Komen ze, dan kijk je met de motor uit. Komen ze niet, dan is de ochtend op zee ook genoeg.",
+      "photo": "img/do-1"
+    },
+    "beats": [
+      {
+        "photo": "img/do-1",
+        "alt": "Dolfijnen bij Tamarin: de baai",
+        "eyebrow": "Mauritius · 20°10′S 57°30′E",
+        "line": "Vroeg vertrekken, het water is nog vlak."
+      },
+      {
+        "photo": "img/do-2",
+        "alt": "Dolfijnen bij Tamarin: motor uit",
+        "label": "02 · Motor uit",
+        "line": "We achtervolgen niet en voeren niet. Wat komt, komt."
+      },
+      {
+        "photo": "img/do-3",
+        "alt": "Dolfijnen bij Tamarin: terug",
+        "label": "03 · Terug",
+        "line": "Hoe de ochtend ook loopt, je bent terug voor het programma."
+      }
+    ],
+    "practical": {
+      "heading": "Vroeg de baai op.",
+      "lead": "Vanaf de boot met de motor uit. Niet achtervolgen, niet voeren.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Vroege ochtend"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 3 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig, op de boot"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Zwemkleding, windjack"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "mauritius",
+    "slug": "blackriver",
+    "order": 4,
+    "title": "Black River Gorges",
+    "metaTitle": "Black River Gorges · AURORA Private Mauritius",
+    "description": "Inheems bos, vogels die je eerder hoort dan ziet, en een kloof die opengaat naar de westkust.",
+    "when": "Middag, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Middag, in het ritme",
+      "text": "Wandelen door inheems bos naar de uitzichtpunten van de kloof.",
+      "teaser": "Inheems bos, vogels die je eerder hoort dan ziet, en een kloof die opengaat naar de westkust.",
+      "photo": "img/br-1"
+    },
+    "beats": [
+      {
+        "photo": "img/br-1",
+        "alt": "Black River Gorges: het bos (sfeerbeeld)",
+        "eyebrow": "Mauritius · 20°10′S 57°30′E",
+        "line": "Inheems groen, koel onder het bladerdak."
+      },
+      {
+        "photo": "img/br-2",
+        "alt": "Black River Gorges: het pad (sfeerbeeld)",
+        "label": "02 · Het pad",
+        "line": "Je hoort de vogels eerder dan je ze ziet."
+      },
+      {
+        "photo": "img/br-3",
+        "alt": "Black River Gorges: de kloof (sfeerbeeld)",
+        "label": "03 · De kloof",
+        "line": "Uitzicht tot aan de westkust."
+      }
+    ],
+    "practical": {
+      "heading": "Inheems bos, vogels die je eerder hoort dan ziet, en een kloof die opengaat naar de westkust.",
+      "lead": "Wandelen door inheems bos naar de uitzichtpunten van de kloof.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 4 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Gemiddeld wandelen"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Water, schoenen met grip"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "marbella",
+    "slug": "elchorro-ronda",
+    "order": 1,
+    "title": "El Chorro en Ronda",
+    "metaTitle": "El Chorro en Ronda · AURORA Private Marbella",
+    "description": "Kalksteenwanden bij El Chorro, daarna Ronda: de brug over de kloof en de kerk Santa María la Mayor, gebouwd op een voormalige moskee.",
+    "when": "Middag, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Middag, in het ritme",
+      "text": "De kloof van El Chorro en de brug over de kloof van Ronda.",
+      "teaser": "Kalksteenwanden bij El Chorro, daarna Ronda: de brug over de kloof en de kerk Santa María la Mayor, gebouwd op een voormalige moskee.",
+      "photo": "img/marbella-sierra"
+    },
+    "beats": [
+      {
+        "photo": "img/marbella-sierra",
+        "alt": "El Chorro en Ronda: el chorro",
+        "eyebrow": "Marbella · 36°30′N 4°53′W",
+        "line": "Kalksteenwanden en water diep onder je."
+      },
+      {
+        "photo": "img/marbella",
+        "alt": "El Chorro en Ronda: ronda",
+        "label": "02 · Ronda",
+        "line": "De brug over de kloof. Het stadje staat letterlijk op de rand."
+      },
+      {
+        "photo": "img/marbella-closing",
+        "alt": "El Chorro en Ronda: santa maría la mayor",
+        "label": "03 · Santa María la Mayor",
+        "line": "Een kerk op de plek van een voormalige moskee. Twee geschiedenissen in één gebouw."
+      }
+    ],
+    "practical": {
+      "heading": "Kalksteenwanden bij El Chorro, daarna Ronda: de brug over de kloof en de kerk Santa María la Mayor, gebouwd op een voormalige moskee.",
+      "lead": "De kloof van El Chorro en de brug over de kloof van Ronda.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 6 uur incl. reis"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Stevige schoenen, laag extra kleding"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "marbella",
+    "slug": "alhambra",
+    "order": 2,
+    "title": "Alhambra",
+    "metaTitle": "Alhambra · AURORA Private Marbella",
+    "description": "Paleizen, binnenplaatsen en tuinen boven Granada, met de Sierra Nevada op de achtergrond.",
+    "when": "Dag in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Dag in het ritme",
+      "text": "De paleizen en tuinen van Granada.",
+      "teaser": "Paleizen, binnenplaatsen en tuinen boven Granada, met de Sierra Nevada op de achtergrond.",
+      "photo": "img/marbella-patio"
+    },
+    "beats": [
+      {
+        "photo": "img/marbella-patio",
+        "alt": "Alhambra: de heuvel",
+        "eyebrow": "Marbella · 36°30′N 4°53′W",
+        "line": "Rode muren boven de stad, de bergen erachter."
+      },
+      {
+        "photo": "img/marbella-garden",
+        "alt": "Alhambra: de paleizen",
+        "label": "02 · De paleizen",
+        "line": "Binnenplaatsen, water en licht. Gebouwd om langzaam door te lopen."
+      },
+      {
+        "photo": "img/marbella-sierra",
+        "alt": "Alhambra: de tuinen",
+        "label": "03 · De tuinen",
+        "line": "Schaduw, fonteinen en een bank met uitzicht."
+      }
+    ],
+    "practical": {
+      "heading": "Paleizen, binnenplaatsen en tuinen boven Granada, met de Sierra Nevada op de achtergrond.",
+      "lead": "De paleizen en tuinen van Granada.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Hele dag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 9 uur incl. reis"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Hoed, comfortabele schoenen"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "marbella",
+    "slug": "gibraltar",
+    "order": 3,
+    "title": "Gibraltar",
+    "metaTitle": "Gibraltar · AURORA Private Marbella",
+    "description": "Omhoog langs de Rots, met uitzicht over de Straat naar Afrika. De berberapen bekijk je op afstand.",
+    "when": "Middag, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Middag, in het ritme",
+      "text": "De Rots en de berberapen, op afstand bekeken.",
+      "teaser": "Omhoog langs de Rots, met uitzicht over de Straat naar Afrika. De berberapen bekijk je op afstand.",
+      "photo": "img/marbella-sea"
+    },
+    "beats": [
+      {
+        "photo": "img/marbella-sea",
+        "alt": "Gibraltar: de rots",
+        "eyebrow": "Marbella · 36°30′N 4°53′W",
+        "line": "Kalksteen recht uit zee."
+      },
+      {
+        "photo": "img/marbella-sierra",
+        "alt": "Gibraltar: boven",
+        "label": "02 · Boven",
+        "line": "Over de Straat zie je Afrika liggen."
+      },
+      {
+        "photo": "img/marbella",
+        "alt": "Gibraltar: de apen",
+        "label": "03 · De apen",
+        "line": "Berberapen, op afstand bekeken. Niet voeren, tassen dicht."
+      }
+    ],
+    "practical": {
+      "heading": "Omhoog langs de Rots, met uitzicht over de Straat naar Afrika.",
+      "lead": "De Rots en de berberapen, op afstand bekeken.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Middag"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 5 uur incl. reis"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Rustig"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Paspoort of ID, windjack"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  },
+  {
+    "loc": "marbella",
+    "slug": "paarden",
+    "order": 4,
+    "title": "Andalusische paarden",
+    "metaTitle": "Andalusische paarden · AURORA Private Marbella",
+    "description": "Stapvoets door de heuvels met een rustig Andalusisch paard. Geen ervaring nodig.",
+    "when": "Ochtend, in het ritme · ingepland in de veertien dagen",
+    "card": {
+      "when": "Ochtend, in het ritme",
+      "text": "Stapvoets door de sierra, met de zee onder je.",
+      "teaser": "Stapvoets door de heuvels met een rustig Andalusisch paard. Geen ervaring nodig.",
+      "photo": "img/pa-1"
+    },
+    "beats": [
+      {
+        "photo": "img/pa-1",
+        "alt": "Andalusische paarden: de stal",
+        "eyebrow": "Marbella · 36°30′N 4°53′W",
+        "line": "Kennismaken. Het paard beslist mee in welk tempo het gaat."
+      },
+      {
+        "photo": "img/pa-2",
+        "alt": "Andalusische paarden: de sierra",
+        "label": "02 · De sierra",
+        "line": "Stapvoets door olijf en steen."
+      },
+      {
+        "photo": "img/pa-3",
+        "alt": "Andalusische paarden: het uitzicht",
+        "label": "03 · Het uitzicht",
+        "line": "De zee onder je, de ochtend nog koel."
+      }
+    ],
+    "practical": {
+      "heading": "Stapvoets door de heuvels met een rustig Andalusisch paard.",
+      "lead": "Stapvoets door de sierra, met de zee onder je.",
+      "body": "De middagen van de veertien dagen zijn voor lichaam en omgeving. Deze excursie hoort bij dat ritme: geen los uitje, maar een deel van het traject. Wie een middag liever overslaat, blijft op locatie. Dat is ook een keuze."
+    },
+    "facts": [
+      {
+        "dt": "Moment",
+        "dd": "Ochtend"
+      },
+      {
+        "dt": "Duur",
+        "dd": "± 3 uur"
+      },
+      {
+        "dt": "Tempo",
+        "dd": "Stapvoets, geen ervaring nodig"
+      },
+      {
+        "dt": "Meenemen",
+        "dd": "Lange broek, dichte schoenen"
+      },
+      {
+        "dt": "Boeken",
+        "dd": "Niet los, onderdeel van het traject"
+      }
+    ],
+    "credit": "Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn gegenereerde sfeerconcepten (Runway), geen foto’s van de excursie of een partner."
+  }
+]

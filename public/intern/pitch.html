@@ -1,0 +1,353 @@
+<!doctype html>
+<!-- AURORA Private founder/partner concept deck v1.1 · 8 Oct 2026 · internal, not linked from public navigation -->
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AURORA Pitch</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/aurora.css">
+<style>
+/* Deck: 1920×1080 master grid, 120px side margins, 90px top/bottom, 12 columns. */
+html,body{height:100%}
+body{background:var(--band);color:var(--on-band);overflow:hidden}
+.stage{position:fixed;inset:0;overflow:hidden}
+.deck{width:1920px;height:1080px;position:absolute;left:50%;top:50%;transform-origin:center center}
+.slide{position:absolute;inset:0;background:var(--salt);color:var(--ink);display:none;overflow:hidden;font-family:var(--font-body)}
+.slide.on{display:block}
+.slide.dark{background:#1E2624;color:#ECEEEA}
+.slide .m{position:absolute;inset:90px 120px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:32px;align-content:start}
+.slide h2{font:300 88px/1.04 var(--font-display);letter-spacing:.005em;margin:0;color:inherit;text-wrap:balance}
+.slide .lab{font:500 20px/1.3 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:#4A5653}
+.slide.dark .lab,.slide .photo-text .lab{color:#D8BBA6}
+.slide p.b{font:400 30px/1.5 var(--font-body);max-width:none;color:#33403D}
+.slide.dark p.b{color:#C9D0CC}
+.slide .foot{position:absolute;left:120px;right:120px;bottom:40px;display:flex;justify-content:space-between;font:400 20px var(--font-body);color:#6A7572}
+.slide.dark .foot,.slide.ph .foot{color:#AEB7B3}
+.slide .rr{display:block;width:72px;height:3px;background:#97555C;border:0;margin:40px 0}
+.slide .ph-full{position:absolute;inset:0}
+.slide .ph-full .photo{position:absolute;inset:0}
+.slide .grad{position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,38,36,.62) 0%,rgba(30,38,36,.22) 45%,rgba(30,38,36,0) 70%)}
+.slide .photo-text{position:absolute;left:120px;top:90px;bottom:90px;width:880px;display:flex;flex-direction:column;justify-content:flex-end;color:#ECEEEA}
+.slide .photo-text h2{font-size:120px}
+.slide .photo-text p.b{color:#E3E7E3}
+.cols3,.cols5,.cols2{display:grid;gap:40px;grid-column:1/-1;margin-top:72px}
+.cols2{grid-template-columns:1fr 1fr}.cols3{grid-template-columns:repeat(3,1fr)}.cols5{grid-template-columns:repeat(5,1fr)}
+.col{border-top:1px solid #1E2624;padding-top:24px}
+.slide.dark .col{border-top-color:#5C6865}
+.col h3{font:400 38px/1.15 var(--font-display);margin:0 0 14px}
+.col p{font:400 25px/1.45 var(--font-body);color:#33403D;max-width:none;margin:0}
+.slide.dark .col p{color:#C9D0CC}
+.col img{width:56px;height:56px;margin-bottom:18px}
+.col .k{font:400 20px var(--font-body);color:#4A5653;letter-spacing:.06em;margin-bottom:10px;display:block}
+.col.red{border-top:3px solid #97555C}
+.split{position:absolute;inset:0;display:grid;grid-template-columns:60% 40%;gap:0;align-items:stretch}
+.split .photo{height:100%}
+.split .txt{padding:90px 120px 90px 80px;display:flex;flex-direction:column;justify-content:center;gap:28px}
+.split .txt h2{font-size:80px}
+.tri{position:absolute;left:120px;right:120px;top:300px;bottom:150px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.tri figure{margin:0;display:grid;grid-template-rows:1fr auto;gap:18px}
+.tri .photo{height:100%}
+.tri h3{font:300 44px var(--font-display);margin:0}
+.tri p{font:400 22px/1.4 var(--font-body);color:#33403D;margin:6px 0 0}
+.mapbox{position:absolute;right:120px;bottom:120px;width:420px;background:#ECEEEA;border:1px solid #C6CCC7}
+.mapbox img{width:100%;display:block}
+.biz{grid-column:1/-1;margin-top:64px;border-collapse:collapse;font:400 30px var(--font-body);width:100%}
+.biz th{font:500 20px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:#4A5653;text-align:left;padding:0 0 18px;border-bottom:1px solid #1E2624}
+.biz td{padding:22px 0;border-bottom:1px solid #C6CCC7;font-variant-numeric:tabular-nums}
+.biz td.n{text-align:right}
+.biz tr.tot td{font:300 48px var(--font-display);border-bottom:0}
+.mono{width:96px;height:96px}
+/* chrome */
+.ui{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:8px;justify-content:center;color:#ECEEEA;font:500 14px var(--font-body);background:linear-gradient(0deg,rgba(20,26,25,.85),rgba(20,26,25,0));opacity:.92;z-index:5}
+.ui button{background:rgba(30,38,36,.8);color:#ECEEEA;border:1px solid #5C6865;padding:9px 14px;font:500 14px var(--font-body);cursor:pointer;border-radius:0}
+.ui button:hover{border-color:#ECEEEA}
+.ui .count{min-width:70px;text-align:center;font-variant-numeric:tabular-nums}
+.overview{position:fixed;inset:0;background:#141A19;overflow:auto;padding:24px 16px 96px;z-index:6;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;align-content:start}
+.overview button{all:unset;cursor:pointer;display:grid;gap:6px;color:#AEB7B3;font:400 13px var(--font-body)}
+.overview .thumb{aspect-ratio:16/9;overflow:hidden;position:relative;border:1px solid #33403D;background:#ECEEEA}
+.overview .thumb > div{width:1920px;height:1080px;transform-origin:0 0;position:absolute;left:0;top:0}
+.overview .thumb .slide{display:block}
+.overview button:focus-visible .thumb,.overview button.cur .thumb{outline:2px solid #D8BBA6;outline-offset:2px}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  html,body{height:auto;overflow:visible;background:#fff}
+  .ui,.overview{display:none!important}
+  .stage{position:static;display:block}
+  .deck{transform:none!important;position:static;width:1920px;height:auto}
+  .slide{display:block!important;position:relative;width:1920px;height:1080px;page-break-after:always;break-after:page}
+}
+</style>
+</head>
+<body>
+<div class="stage"><div class="deck" id="deck" aria-live="polite"></div></div>
+<div class="ui" id="ui">
+  <button type="button" id="prev" aria-label="Vorige dia">←</button>
+  <span class="count" id="count">1 / 15</span>
+  <button type="button" id="next" aria-label="Volgende dia">→</button>
+  <button type="button" id="ov">Overzicht</button>
+  <button type="button" id="fs">Volledig scherm</button>
+</div>
+<div class="overview" id="overview" hidden></div>
+
+<template id="slides">
+<!-- 01 Opening · RED moment (sea at dawn) -->
+<section class="slide ph" data-title="AURORA Private">
+  <div class="ph-full"><figure class="photo" data-photo="aurora-red-sea"><img alt="Open zee voor zonsopkomst met een band mineraalrood licht boven een rotsige kust."><span class="pending-note">Beeld volgt: aurora-red-sea.png</span></figure></div>
+  <div class="grad"></div>
+  <div class="photo-text">
+    <svg class="mono" viewBox="0 0 48 48" aria-hidden="true" style="margin-bottom:48px"><g fill="none" stroke="#ECEEEA" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 39 L24 8 L42 39 M8 32 H40 M13 32 A11 11 0 0 1 35 32"/></g></svg>
+    <h2>AURORA<br>Private</h2>
+    <p class="b" style="margin-top:28px">Een sanctuary, geen kliniek.</p>
+  </div>
+  <div class="foot"><span>Conceptpresentatie voor oprichters en partners · 8 oktober 2026 · geen investeringsaanbod</span><span>01</span></div>
+</section>
+
+<!-- 02 Statement -->
+<section class="slide" data-title="Het vertrekpunt">
+  <div class="m"><div style="grid-column:1/10">
+    <span class="lab">Het vertrekpunt</span>
+    <h2 style="margin-top:40px">Ruimte voor herstel<br>en verandering</h2>
+    <hr class="rr">
+    <p class="b" style="max-width:1080px">Zes maanden persoonlijke begeleiding voor mensen die behoefte hebben aan afstand van hun dagelijkse omgeving, met veertien dagen op locatie als keerpunt.</p>
+  </div></div>
+  <div class="foot"><span>Bron: Programma 2.0 (canon, 8 okt 2026)</span><span>02</span></div>
+</section>
+
+<!-- 03 Voor wie (recognition, no portraits) -->
+<section class="slide" data-title="Voor wie">
+  <div class="m">
+    <div style="grid-column:1/-1"><span class="lab">De doelgroep</span><h2 style="margin-top:40px">Voor wie</h2></div>
+    <div class="cols5">
+      <div class="col"><span class="k">De Presteerder</span><h3>“Ik functioneer. Daar zit het probleem.”</h3><p>Veertien dagen is overzienbaar; integratie past in een agenda.</p></div>
+      <div class="col"><span class="k">De Resetter</span><h3>“Ik weet wat ik moet doen. Ik doe het niet.”</h3><p>Zes maanden en één begeleider. Geen weekend weg.</p></div>
+      <div class="col"><span class="k">De Private Cliënt</span><h3>“Niemand mag het weten.”</h3><p>Maximaal zes per editie, Quick Exit, Signal, geen namen.</p></div>
+      <div class="col"><span class="k">De Naaste</span><h3>“Ik zie het bij iemand van wie ik hou.”</h3><p>Hoe je het gesprek begint; je kunt zelf de intake aanvragen.</p></div>
+      <div class="col"><span class="k">De Organisatie</span><h3>“Onze beste mensen branden op.”</h3><p>Zakelijke facturatie en een liaison; de medewerker houdt regie.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Herkenning via situaties, niet via portretten</span><span>03</span></div>
+</section>
+
+<!-- 04 Editorial split · RED moment (room) -->
+<section class="slide" data-title="Een persoonlijk traject">
+  <div class="split">
+    <figure class="photo" data-photo="aurora-red-room"><img alt="Ochtendlicht op kalkpleister, een open raam naar zee en een rode linnen plaid."><span class="pending-note">Beeld volgt: aurora-red-room.png</span></figure>
+    <div class="txt"><span class="lab">De propositie</span><h2>Een persoonlijk traject</h2><p class="b">Een private omgeving, één vaste begeleider van intake tot dag 180 en maximaal zes deelnemers per editie. De individuele invulling begint bij het intakegesprek.</p></div>
+  </div>
+  <div class="foot"><span>Beeld: gegenereerd sfeerconcept, geen geverifieerde accommodatie</span><span>04</span></div>
+</section>
+
+<!-- 05 Programme -->
+<section class="slide" data-title="Het traject">
+  <div class="m">
+    <div style="grid-column:1/-1"><span class="lab">De programmaopbouw</span><h2 style="margin-top:40px">Zes maanden, vijf bewegingen</h2></div>
+    <div class="cols5">
+      <div class="col"><img src="assets/atlas/glyph-week01.svg" alt=""><span class="k">± 4 weken thuis</span><h3>Aankomst</h3><p>Intake en screening, doelen en patronen in kaart, een eigen AURORA Plan.</p></div>
+      <div class="col red"><img src="assets/atlas/glyph-week02.svg" alt=""><span class="k">Dag 1–7 op locatie</span><h3>Stilte</h3><p>Vertragen en eerlijk kijken. Dag 7 bewust leeg.</p></div>
+      <div class="col red"><img src="assets/atlas/glyph-week03.svg" alt=""><span class="k">Dag 3–11 op locatie</span><h3>Inzicht</h3><p>Patronen, relaties, emoties en verantwoordelijkheid.</p></div>
+      <div class="col red"><img src="assets/atlas/glyph-week04.svg" alt=""><span class="k">Dag 12–14 op locatie</span><h3>Kracht</h3><p>Het leven thuis opnieuw vormgeven; integratieplan.</p></div>
+      <div class="col"><img src="assets/atlas/glyph-week05.svg" alt=""><span class="k">± 5 maanden thuis</span><h3>Terugkeer</h3><p>1-op-1 sessies, groepssessies, evaluaties op dag 30, 60, 90 en 180.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>De inhoud van de veertien dagen is een eerste ontwerp, te toetsen door de begeleiders</span><span>05</span></div>
+</section>
+
+<!-- 06 Bonaire · RED moment -->
+<section class="slide ph" data-title="Bonaire">
+  <div class="ph-full"><figure class="photo" data-photo="aurora-red-bonaire"><img alt="Zoutvlakte op Bonaire in het eerste licht, met cactussen aan de waterkant."><span class="pending-note">Beeld volgt: aurora-red-bonaire.png</span></figure></div>
+  <div class="grad"></div>
+  <div class="photo-text"><span class="lab">01 / Caribische ruimte · Editie 01</span><h2 style="margin-top:24px">Bonaire</h2><p class="b" style="margin-top:20px">De eerste editie van de collectie.<br>Koraalsteen, zoutvlaktes en open water.</p></div>
+  <div class="mapbox"><img src="assets/atlas/map-bonaire.svg" alt="Atlaskaart van Bonaire"></div>
+  <div class="foot"><span>Beeld: gegenereerd sfeerconcept · kaart met benaderde plaatsaanduidingen</span><span>06</span></div>
+</section>
+
+<!-- 07 Three next editions · RED moment (three dawn concepts) -->
+<section class="slide" data-title="Volgende edities">
+  <div class="m"><div style="grid-column:1/-1"><span class="lab">Volgende edities · hetzelfde traject</span><h2 style="margin-top:32px">India, Mauritius en Marbella</h2></div></div>
+  <div class="tri">
+    <figure><div class="photo" data-photo="aurora-red-india"><img alt="Rivertreden in Noord-India bij dageraad"><span class="pending-note">aurora-red-india.png</span></div><figcaption><h3>India</h3><p>Riviersteen, ochtendmist en gelaagde heuvels.</p></figcaption></figure>
+    <figure><div class="photo" data-photo="aurora-red-mauritius"><img alt="Jadegroene lagune op Mauritius met een pirogue"><span class="pending-note">aurora-red-mauritius.png</span></div><figcaption><h3>Mauritius</h3><p>Jadegroen water en vulkanisch landschap.</p></figcaption></figure>
+    <figure><div class="photo" data-photo="aurora-red-marbella"><img alt="Terras van een Andalusische finca met olijven en zee"><span class="pending-note">aurora-red-marbella.png</span></div><figcaption><h3>Marbella</h3><p>Wit pleisterwerk, zilvergroene olijven en zee.</p></figcaption></figure>
+  </div>
+  <div class="foot"><span>Beelden: gegenereerde regionale concepten, geen gecontracteerde locaties</span><span>07</span></div>
+</section>
+
+<!-- 08 Fourteen days -->
+<section class="slide" data-title="De veertien dagen">
+  <div class="m">
+    <div style="grid-column:1/9"><span class="lab">Op locatie</span><h2 style="margin-top:40px">Veertien dagen,<br>elke dag hetzelfde ritme</h2></div>
+    <div class="cols3">
+      <div class="col"><span class="k">Ochtend</span><h3>Inhoud</h3><p>Workshops in de groep: inventaris, patronen, relaties, identiteit.</p></div>
+      <div class="col"><span class="k">Middag</span><h3>Lichaam en omgeving</h3><p>Beweging, zee of bergpad, de excursies van de locatie.</p></div>
+      <div class="col"><span class="k">Avond</span><h3>Licht en samen</h3><p>Diner met de editie, stilte, vrije avonden.</p></div>
+    </div>
+    <p class="b" style="grid-column:1/-1;margin-top:56px">Minimaal zes privé sessies per deelnemer. Dag 7 en dag 11 zijn bewust leeg.</p>
+  </div>
+  <div class="foot"><span>Eerste ontwerp, Programma 2.0</span><span>08</span></div>
+</section>
+
+<!-- 09 Statement: discretion -->
+<section class="slide" data-title="Discretie">
+  <div class="m"><div style="grid-column:1/10">
+    <span class="lab">Voorgesteld serviceprincipe</span>
+    <h2 style="margin-top:40px">Discretie begint<br>bij het eerste contact</h2>
+    <hr class="rr">
+    <p class="b">Een korte, duidelijke contactroute. Alleen noodzakelijke informatie. Persoonlijk contact voordat verdere gegevens worden gedeeld. De site sluit direct met Esc.</p>
+  </div></div>
+  <div class="foot"><span>Contactroute en privacyafspraken nog te bevestigen</span><span>09</span></div>
+</section>
+
+<!-- 10 Particulier en zakelijk -->
+<section class="slide" data-title="Twee betaalroutes">
+  <div class="m">
+    <div style="grid-column:1/-1"><span class="lab">Twee betaalroutes</span><h2 style="margin-top:40px">Particulier en zakelijk</h2></div>
+    <div class="cols2">
+      <div class="col"><h3>Particulier</h3><p>De deelnemer betaalt zelf, direct. Dezelfde voorwaarden als zakelijk.</p></div>
+      <div class="col"><h3>Zakelijk</h3><p>Een organisatie financiert het traject: veertien dagen afwezig, zes maanden begeleiding. Zakelijke facturatie, één liaison voor HR. Wat er gedeeld wordt, bepaalt de deelnemer; dat leggen we per opdracht apart vast.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Programma 2.0 · kit 8 okt 2026</span><span>10</span></div>
+</section>
+
+<!-- 11 Chapter divider · RED moment (dawn cue) -->
+<section class="slide dark" data-title="Het bedrijf">
+  <div class="m"><div style="grid-column:1/-1;padding-top:220px">
+    <svg class="mono" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="#97555C" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 39 L24 8 L42 39 M8 32 H40 M13 32 A11 11 0 0 1 35 32"/></g></svg>
+    <h2 style="margin-top:48px;font-size:104px">Het bedrijf achter<br>het traject</h2>
+  </div></div>
+  <div class="foot"><span>Hoofdstuk II</span><span>11</span></div>
+</section>
+
+<!-- 12 Business model -->
+<section class="slide" data-title="Verdienmodel">
+  <div class="m">
+    <div style="grid-column:1/-1"><span class="lab">Commerciële uitgangspunten · nog te bevestigen</span><h2 style="margin-top:40px">Eén prijs, het hele traject</h2></div>
+    <table class="biz" style="grid-column:1/9">
+      <thead><tr><th>Uitgangspunt</th><th style="text-align:right">Waarde</th></tr></thead>
+      <tbody>
+        <tr><td>Prijs per deelnemer, volledig traject van zes maanden</td><td class="n">€17.500</td></tr>
+        <tr><td>Deelnemers per editie (maximaal)</td><td class="n">6</td></tr>
+        <tr class="tot"><td>Omzet per editie</td><td class="n">€105.000</td></tr>
+      </tbody>
+    </table>
+    <div style="grid-column:10/13;margin-top:64px" class="col"><h3>Nog te bepalen</h3><p>Inbegrepen diensten, kosten per editie, data, reis in- of exclusief vlucht, contractvoorwaarden.</p></div>
+  </div>
+  <div class="foot"><span>Bron: Programma 2.0. Geen marktcijfers, bezettingsgraad of rendement; die zijn niet aangeleverd.</span><span>12</span></div>
+</section>
+
+<!-- 13 Organisation -->
+<section class="slide" data-title="Voor lancering vast te leggen">
+  <div class="m">
+    <div style="grid-column:1/-1"><span class="lab">Voor lancering vast te leggen</span><h2 style="margin-top:40px">De organisatie achter<br>het verblijf</h2></div>
+    <div class="cols3">
+      <div class="col"><h3>Programma</h3><p>Begeleiders en hun registratie, verantwoordelijkheden, toelating en doorverwijzing. Juridische en inhoudelijke toets.</p></div>
+      <div class="col"><h3>Locatie</h3><p>Accommodatie, lokale partners, data van Editie 01 en beschikbaarheid bevestigen.</p></div>
+      <div class="col"><h3>Contact en vervolg</h3><p>Contactadres, intake, privacy en afspraken over de integratiefase uitwerken.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Open punten uit Programma 2.0 en de kit</span><span>13</span></div>
+</section>
+
+<!-- 14 Launch sequence -->
+<section class="slide" data-title="Voorbereiding op lancering">
+  <div class="m">
+    <div style="grid-column:1/-1"><span class="lab">Voorgestelde volgorde</span><h2 style="margin-top:40px">Voorbereiding op lancering</h2></div>
+    <div class="cols3">
+      <div class="col"><span class="k">01</span><h3>Bevestigen</h3><p>Programma, begeleiders, partners en contactroute.</p></div>
+      <div class="col"><span class="k">02</span><h3>Concretiseren</h3><p>Echte locatiebeelden, data van Editie 01, voorwaarden.</p></div>
+      <div class="col"><span class="k">03</span><h3>Publiceren</h3><p>Website, presentatie en intakepad na inhoudelijke controle.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Volgorde is een voorstel</span><span>14</span></div>
+</section>
+
+<!-- 15 Closing · quiet RED return -->
+<section class="slide dark" data-title="De volgende stap">
+  <div class="m"><div style="grid-column:1/9;padding-top:160px">
+    <span class="lab">Oprichters en partners</span>
+    <h2 style="margin-top:40px">De volgende stap</h2>
+    <hr class="rr">
+    <p class="b">Bevestig de propositie en de operationele uitgangspunten. Daarmee vertaalt AURORA de visuele wereld naar een concreet aanbod, met Bonaire als Editie 01.</p>
+  </div>
+  <div style="grid-column:10/13;align-self:end;justify-self:end;padding-top:420px"><svg class="mono" viewBox="0 0 48 48" aria-hidden="true" style="width:140px;height:140px"><g fill="none" stroke="#97555C" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 39 L24 8 L42 39 M8 32 H40 M13 32 A11 11 0 0 1 35 32"/></g></svg></div></div>
+  <div class="foot"><span>AURORA Private · een sanctuary, geen kliniek</span><span>15</span></div>
+</section>
+</template>
+
+<script>
+(function(){
+  var deck = document.getElementById('deck');
+  deck.appendChild(document.getElementById('slides').content.cloneNode(true));
+  var slides = Array.prototype.slice.call(deck.querySelectorAll('.slide'));
+  var i = 0;
+  try{ var h = parseInt((location.hash||'').replace('#s',''),10); if(h>0 && h<=slides.length) i = h-1; }catch(e){}
+  var count = document.getElementById('count');
+
+  function fit(){
+    var s = Math.min(innerWidth/1920, innerHeight/1080);
+    deck.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+  }
+  function go(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach(function(s,j){ s.classList.toggle('on', j===i); s.setAttribute('aria-hidden', j!==i); });
+    count.textContent = (i+1) + ' / ' + slides.length;
+    try{ history.replaceState(null,'','#s'+(i+1)); }catch(e){}
+  }
+  addEventListener('resize', fit); fit(); go(i);
+
+  document.getElementById('prev').onclick = function(){ go(i-1); };
+  document.getElementById('next').onclick = function(){ go(i+1); };
+
+  var ov = document.getElementById('overview');
+  function openOverview(){
+    ov.innerHTML = '';
+    slides.forEach(function(s,j){
+      var b = document.createElement('button'); b.type='button'; if(j===i) b.className='cur';
+      var t = document.createElement('div'); t.className='thumb';
+      var inner = document.createElement('div'); var c = s.cloneNode(true); c.classList.add('on'); c.removeAttribute('aria-hidden'); inner.appendChild(c); t.appendChild(inner);
+      b.appendChild(t); var cap = document.createElement('span'); cap.textContent = (j+1) + ' · ' + s.dataset.title; b.appendChild(cap);
+      b.onclick = function(){ closeOverview(); go(j); };
+      ov.appendChild(b);
+      requestAnimationFrame(function(){ inner.style.transform = 'scale(' + (t.clientWidth/1920) + ')'; });
+    });
+    ov.hidden = false; loadPhotos(ov);
+    var cur = ov.querySelector('.cur'); if(cur) cur.focus();
+  }
+  function closeOverview(){ ov.hidden = true; }
+  document.getElementById('ov').onclick = function(){ ov.hidden ? openOverview() : closeOverview(); };
+  document.getElementById('fs').onclick = function(){
+    var el = document.documentElement;
+    if(document.fullscreenElement){ document.exitFullscreen && document.exitFullscreen().catch(function(){}); }
+    else if(el.requestFullscreen){ el.requestFullscreen().catch(function(){}); }
+  };
+
+  addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); if(ov.hidden) go(i+1); }
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); if(ov.hidden) go(i-1); }
+    else if(e.key==='Home'){ go(0); } else if(e.key==='End'){ go(slides.length-1); }
+    else if(e.key==='o'||e.key==='O'){ ov.hidden ? openOverview() : closeOverview(); }
+    else if(e.key==='Escape' && !ov.hidden){ closeOverview(); }
+  });
+
+  var x0=null;
+  addEventListener('touchstart', function(e){ if(ov.hidden) x0 = e.touches[0].clientX; }, {passive:true});
+  addEventListener('touchend', function(e){ if(x0===null) return; var dx = e.changedTouches[0].clientX - x0; if(Math.abs(dx)>40) go(i + (dx<0?1:-1)); x0=null; }, {passive:true});
+
+  function loadPhotos(root){
+    root.querySelectorAll('[data-photo]').forEach(function(fig){
+      var img = fig.querySelector('img'); if(!img || img.dataset.started) return; img.dataset.started='1';
+      var base = 'assets/photography/' + fig.getAttribute('data-photo');
+      var tries = [base+'.jpg', base+'.png'];
+      function next(){ if(!tries.length){ fig.classList.add('is-pending'); return; } img.src = tries.shift(); }
+      img.addEventListener('error', next); img.addEventListener('load', function(){ fig.classList.remove('is-pending'); });
+      next();
+    });
+  }
+  loadPhotos(deck);
+  if(location.search.indexOf('print')>-1) document.documentElement.classList.add('printing');
+})();
+</script>
+</body>
+</html>

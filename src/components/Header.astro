@@ -1,0 +1,19 @@
+---
+import Brand from './Brand.astro';
+import { LOCATIONS, type LocKey } from '../data/site';
+
+interface Props { current?: LocKey | 'home' | null; talk: string }
+const { current = null, talk } = Astro.props;
+---
+<header class="site-head"><div class="wrap">
+  <Brand />
+  <nav class="nav" id="nav" aria-label="Hoofdmenu">
+    <a href={current === 'home' ? '#traject' : '/#traject'}>Het traject</a>
+    {LOCATIONS.map((l) => (
+      <a href={`/${l.key}`} aria-current={current === l.key ? 'page' : undefined}>{l.name}</a>
+    ))}
+    <a href={talk}>Eerste gesprek</a>
+  </nav>
+  <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false">Menu</button>
+  <button class="quick-exit" type="button" data-quick-exit title="Sneltoets: Esc">Snel weg</button>
+</div></header>

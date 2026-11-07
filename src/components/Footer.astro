@@ -1,0 +1,17 @@
+---
+import Brand from './Brand.astro';
+import { LOCATIONS } from '../data/site';
+interface Props { talk: string }
+const { talk } = Astro.props;
+---
+<footer class="site-foot"><div class="wrap">
+  <div class="grid">
+    <div class="stack">
+      <Brand style="color:var(--on-band)" />
+      <p>AURORA Private is een begeleidingstraject, geen behandeling. We bieden geen detox, geen medische zorg en geen vervanging voor ggz-behandeling. Heb je die nodig, dan helpen we je bij de intake de juiste plek te vinden.</p>
+    </div>
+    <div><span class="eyebrow">Bestemmingen</span><ul>{LOCATIONS.map((l) => <li><a href={`/${l.key}`}>{l.name}</a></li>)}</ul></div>
+    <div><span class="eyebrow">Privacy</span><ul><li>Esc sluit deze site direct</li><li>Contact via het kanaal dat jij kiest</li><li><a href={talk}>Eerste gesprek</a></li><li><a href="/privacy">Privacy</a></li></ul></div>
+  </div>
+  <div class="legal"><span>Een sanctuary, geen kliniek.</span><span>Beelden zijn sfeerconcepten, geen foto’s van geboekte accommodaties.</span></div>
+</div></footer>

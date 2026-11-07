@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Privacy · AURORA Private" description="Hoe AURORA Private omgaat met je gegevens: geen cookies, geen tracking, niets opgeslagen op de website." og="home" talk="/#gesprek" crumbs={[{ name: 'Privacy', path: '/privacy' }]}>
+<section class="legal-page"><div class="wrap" style="max-width:820px">
+  <span class="eyebrow">Privacy · concept, definitief bij livegang</span>
+  <h1 class="display" style="font-size:clamp(2.4rem,5vw,4rem);margin-top:16px">Wat we niet doen, is het belangrijkste.</h1>
+  <p class="lead" style="margin-top:24px">Wie deze site bezoekt, zoekt soms iets wat nog niemand mag weten. De site is daarom zo gebouwd dat er zo min mogelijk over jou achterblijft.</p>
+
+  <h2>Geen cookies, geen tracking</h2>
+  <p>Deze website plaatst geen cookies en gebruikt geen analytics, advertentie- of socialmediapixels. Lettertypen en beelden staan op onze eigen server, zodat je browser geen verbindingen legt met derden zoals Google Fonts. Daarom zie je ook geen cookiemelding.</p>
+
+  <h2>Snel weg</h2>
+  <p>De knop Snel weg en de Esc-toets vervangen de pagina direct door een neutrale zoekpagina. De site stuurt daarbij geen verwijzing (referrer) mee. Je browsergeschiedenis kunnen we niet wissen: gebruik daarvoor een privévenster of wis je geschiedenis zelf.</p>
+
+  <h2>Een eerste gesprek aanvragen</h2>
+  {SITE.intakeLive ? (
+    <p>Vul je het formulier in, dan sturen we je antwoorden één keer versleuteld door naar één begeleider. Op de website wordt niets opgeslagen. We gebruiken je gegevens alleen om contact met je op te nemen via het kanaal dat jij kiest, en verwijderen het bericht na opvolging. Voor het doorsturen gebruiken we een e-maildienst als verwerker.</p>
+  ) : (
+    <p>Het formulier staat nu in voorvertoning: het verstuurt en bewaart niets. Je vragen blijven op je eigen scherm. Zodra het contactkanaal opengaat, lees je hier precies wat er met je gegevens gebeurt.</p>
+  )}
+
+  <h2>Hosting</h2>
+  <p>De site draait bij Vercel. Zoals elke webserver registreert Vercel technische gegevens zoals je IP-adres om de site veilig te laten werken. Wij gebruiken die gegevens niet om je te volgen of te herkennen.</p>
+
+  <h2>Je rechten</h2>
+  <p>Onder de AVG heb je recht op inzage, correctie en verwijdering van gegevens die we van je hebben. Vraag het ons via het kanaal waarlangs we contact hadden. Je kunt ook een klacht indienen bij de Autoriteit Persoonsgegevens.</p>
+
+  <p class="credit" style="margin-top:48px">Laatst bijgewerkt: november 2026.</p>
+</div></section>
+</Base>
