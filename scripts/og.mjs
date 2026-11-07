@@ -18,6 +18,7 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 fs.mkdirSync('public/og', { recursive: true });
 
 for (const j of jobs) {
+  if (j.photo.startsWith('unsplash:')) continue; // keep the previously generated preview
   const overlay = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#1E2624" stop-opacity="0"/><stop offset="1" stop-color="#1E2624" stop-opacity=".82"/></linearGradient></defs>
   <rect width="1200" height="630" fill="url(#g)"/>

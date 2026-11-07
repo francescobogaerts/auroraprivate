@@ -74,23 +74,23 @@
       "when": "Dag 4, middag",
       "text": "Met de kajak door de mangroven aan de oostkust.",
       "teaser": "Peddelen door ondiep water en mangrove. Wie wil, legt de peddel even neer en drijft.",
-      "photo": "img/bonaire"
+      "photo": "unsplash:1791084640292-377a296ab2bd"
     },
     "beats": [
       {
-        "photo": "img/bonaire",
+        "photo": "unsplash:1791084640292-377a296ab2bd",
         "alt": "Lac Bay: oostkust (sfeerbeeld)",
         "eyebrow": "Bonaire · 12°06′N 68°14′W",
         "line": "Ondiep, helder water achter het rif."
       },
       {
-        "photo": "img/kb-1",
+        "photo": "unsplash:1768639401082-f45f9241c768",
         "alt": "Lac Bay: mangrove (sfeerbeeld)",
         "label": "02 · Mangrove",
         "line": "Smalle doorgangen, koel en stil. Het ritme van de peddel neemt het over."
       },
       {
-        "photo": "img/kb-3",
+        "photo": "unsplash:1762118139497-5df5c64ce1d3",
         "alt": "Lac Bay: terug (sfeerbeeld)",
         "label": "03 · Terug",
         "line": "Op de rug drijven in de baai voordat de middag omslaat."
@@ -210,7 +210,7 @@
         "line": "Bij de opvang leven de ezels van het eiland in vrijheid. Je kijkt, je voert niet zonder uitleg."
       },
       {
-        "photo": "img/ez-2",
+        "photo": "img/bonaire",
         "alt": "Ezelopvang en Pekelmeer: het zuiden (sfeerbeeld)",
         "label": "02 · Het zuiden",
         "line": "Roze zoutpannen en witte bergen zout tot aan de horizon."
@@ -326,23 +326,23 @@
       "when": "Avond, in het ritme",
       "text": "De avondceremonie aan de oever van de Ganges in Varanasi.",
       "teaser": "Vuur, bellen en gezang bij het vallen van de avond. Je kijkt vanaf het water of vanaf de treden.",
-      "photo": "img/india-river"
+      "photo": "img/india-closing"
     },
     "beats": [
       {
-        "photo": "img/india-river",
+        "photo": "img/india-closing",
         "alt": "Ganga Aarti: schemer",
         "eyebrow": "India · 25°19′N 82°58′E",
         "line": "De treden aan de rivier lopen vol."
       },
       {
-        "photo": "img/india-closing",
+        "photo": "unsplash:1757693352771-0e7ac1f790a4",
         "alt": "Ganga Aarti: de ceremonie",
         "label": "02 · De ceremonie",
         "line": "Vuur, bellen en gezang. Je hoeft niets te begrijpen om het te voelen."
       },
       {
-        "photo": "img/india",
+        "photo": "unsplash:1678878486375-31b888e046c5",
         "alt": "Ganga Aarti: het water",
         "label": "03 · Het water",
         "line": "Kleine lichtjes drijven weg. Daarna is het stil."
@@ -452,7 +452,7 @@
       "when": "Ochtend, in het ritme",
       "text": "Een bezoek bij zonsopkomst, voor de drukte van de dag.",
       "teaser": "Vroeg op, voor de rest van de dag begint. Het marmer kleurt mee met het eerste licht.",
-      "photo": "img/india-garden"
+      "photo": "unsplash:1764753555146-2bd90c9d33f2"
     },
     "beats": [
       {
@@ -462,13 +462,13 @@
         "line": "Vertrek in het donker. Niemand praat veel."
       },
       {
-        "photo": "img/india-courtyard",
+        "photo": "unsplash:1764753555146-2bd90c9d33f2",
         "alt": "Taj Mahal: het eerste licht",
         "label": "02 · Het eerste licht",
         "line": "Het marmer kleurt rozig, dan wit."
       },
       {
-        "photo": "img/india-terrace",
+        "photo": "unsplash:1763992659220-83b86132f335",
         "alt": "Taj Mahal: de tuinen",
         "label": "03 · De tuinen",
         "line": "Tijd om te zitten voordat de drukte komt."
@@ -515,23 +515,23 @@
       "when": "Middag, in het ritme",
       "text": "Het heilige kratermeer in het binnenland van het eiland.",
       "teaser": "Een kratermeer hoog in het binnenland, met tempels aan de oever. Koeler dan de kust, en stiller.",
-      "photo": "img/mauritius-lagoon"
+      "photo": "unsplash:1668265704519-8c0f8222c35d"
     },
     "beats": [
       {
-        "photo": "img/mauritius-lagoon",
+        "photo": "img/mauritius-forest",
         "alt": "Ganga Talao: het binnenland (sfeerbeeld)",
         "eyebrow": "Mauritius · 20°25′S 57°30′E",
         "line": "De weg klimt weg van de kust, de lucht koelt af."
       },
       {
-        "photo": "img/mauritius-rain",
+        "photo": "unsplash:1668265704519-8c0f8222c35d",
         "alt": "Ganga Talao: het meer (sfeerbeeld)",
         "label": "02 · Het meer",
         "line": "Een kratermeer met tempels aan de oever."
       },
       {
-        "photo": "img/mauritius-forest",
+        "photo": "img/mauritius-lagoon",
         "alt": "Ganga Talao: stilte (sfeerbeeld)",
         "label": "03 · Stilte",
         "line": "Even zitten aan het water. Niemand vraagt iets."
@@ -578,23 +578,23 @@
       "when": "Middag, in het ritme",
       "text": "De gekleurde aarde en de waterval van Chamarel.",
       "teaser": "Duinen van gekleurde vulkanische aarde en een waterval die diep het groen in valt.",
-      "photo": "img/ch-3"
+      "photo": "unsplash:1692722387928-0155436b02b6"
     },
     "beats": [
       {
-        "photo": "img/ch-3",
+        "photo": "unsplash:1692722387928-0155436b02b6",
         "alt": "Chamarel: de aarde (sfeerbeeld)",
         "eyebrow": "Mauritius · 20°26′S 57°23′E",
         "line": "Vulkanische grond in banen van rood, paars en oker."
       },
       {
-        "photo": "img/mauritius-forest",
+        "photo": "img/br-2",
         "alt": "Chamarel: de waterval (sfeerbeeld)",
         "label": "02 · De waterval",
         "line": "Het water valt diep het groen in."
       },
       {
-        "photo": "img/br-2",
+        "photo": "img/br-1",
         "alt": "Chamarel: het uitzicht (sfeerbeeld)",
         "label": "03 · Het uitzicht",
         "line": "Vanaf de rand zie je hoe jong dit eiland eigenlijk is."
@@ -767,17 +767,17 @@
       "when": "Middag, in het ritme",
       "text": "De kloof van El Chorro en de brug over de kloof van Ronda.",
       "teaser": "Kalksteenwanden bij El Chorro, daarna Ronda: de brug over de kloof en de kerk Santa María la Mayor, gebouwd op een voormalige moskee.",
-      "photo": "img/marbella-sierra"
+      "photo": "unsplash:1767708281243-fd3117bb123e"
     },
     "beats": [
       {
-        "photo": "img/marbella-sierra",
+        "photo": "unsplash:1767708281243-fd3117bb123e",
         "alt": "El Chorro en Ronda: el chorro",
         "eyebrow": "Marbella · 36°54′N 4°45′W",
         "line": "Kalksteenwanden en water diep onder je."
       },
       {
-        "photo": "img/marbella",
+        "photo": "unsplash:1756319862650-9f7c94377a55",
         "alt": "El Chorro en Ronda: ronda",
         "label": "02 · Ronda",
         "line": "De brug over de kloof. Het stadje staat letterlijk op de rand."
@@ -830,23 +830,23 @@
       "when": "Dag in het ritme",
       "text": "De paleizen en tuinen van Granada.",
       "teaser": "Paleizen, binnenplaatsen en tuinen boven Granada, met de Sierra Nevada op de achtergrond.",
-      "photo": "img/marbella-patio"
+      "photo": "unsplash:1770922907390-a2c9707b0501"
     },
     "beats": [
       {
-        "photo": "img/marbella-patio",
+        "photo": "unsplash:1770922907390-a2c9707b0501",
         "alt": "Alhambra: de heuvel",
         "eyebrow": "Marbella · 37°11′N 3°35′W",
         "line": "Rode muren boven de stad, de bergen erachter."
       },
       {
-        "photo": "img/marbella-garden",
+        "photo": "unsplash:1675367167657-2e2cd8bfee02",
         "alt": "Alhambra: de paleizen",
         "label": "02 · De paleizen",
         "line": "Binnenplaatsen, water en licht. Gebouwd om langzaam door te lopen."
       },
       {
-        "photo": "img/marbella-sierra",
+        "photo": "unsplash:1669231337651-96cbe5abbb22",
         "alt": "Alhambra: de tuinen",
         "label": "03 · De tuinen",
         "line": "Schaduw, fonteinen en een bank met uitzicht."
@@ -893,23 +893,23 @@
       "when": "Middag, in het ritme",
       "text": "De Rots en de berberapen, op afstand bekeken.",
       "teaser": "Omhoog langs de Rots, met uitzicht over de Straat naar Afrika. De berberapen bekijk je op afstand.",
-      "photo": "img/marbella-sea"
+      "photo": "unsplash:1660596709371-6c1f2c8a0190"
     },
     "beats": [
       {
-        "photo": "img/marbella-sea",
+        "photo": "unsplash:1660596709371-6c1f2c8a0190",
         "alt": "Gibraltar: de rots",
         "eyebrow": "Marbella · 36°08′N 5°21′W",
         "line": "Kalksteen recht uit zee."
       },
       {
-        "photo": "img/marbella-sierra",
+        "photo": "unsplash:1769234097857-3521d0b40af2",
         "alt": "Gibraltar: boven",
         "label": "02 · Boven",
         "line": "Over de Straat zie je Afrika liggen."
       },
       {
-        "photo": "img/marbella",
+        "photo": "unsplash:1767022086034-d4cba965345f",
         "alt": "Gibraltar: de apen",
         "label": "03 · De apen",
         "line": "Berberapen, op afstand bekeken. Niet voeren, tassen dicht."

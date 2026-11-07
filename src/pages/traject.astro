@@ -24,7 +24,7 @@ const days: [string, string, string, string, string][] = [
 const moves: Record<number, string> = { 0: 'Aankomen · dag 1–4', 4: 'Kijken · dag 5–11', 11: 'Vormgeven · dag 12–14' };
 ---
 <Base title="Het traject · AURORA Private" description="Zes maanden persoonlijke begeleiding met veertien dagen op locatie als keerpunt. Voorbereiding, de veertien dagen dag voor dag, integratie en de prijs." og="traject" current={null} crumbs={[{ name: 'Het traject', path: '/traject' }]}>
-<PageHero photo="photography/aurora-red-room" alt="Ochtendlicht op kalkpleister in een rustige kamer, een raam open naar zee." eyebrow="Het traject" title="Het begint voor je vertrekt en houdt niet op als je thuiskomt." sub="Zes maanden persoonlijke begeleiding, met veertien dagen op Bonaire als keerpunt." coords="4 weken voorbereiding · 14 dagen Bonaire · 5 maanden integratie" focal="40% 60%" />
+<PageHero photo="unsplash:1781969472422-41e137ffe157" alt="Laag licht boven zee en een donkere kustlijn." eyebrow="Het traject" title="Het begint voor je vertrekt en houdt niet op als je thuiskomt." sub="Zes maanden persoonlijke begeleiding, met veertien dagen op Bonaire als keerpunt." coords="4 weken voorbereiding · 14 dagen Bonaire · 5 maanden integratie" focal="40% 60%" />
 
 <section class="section" aria-labelledby="fases-t"><div class="wrap">
   <span class="eyebrow">Drie fases</span>
@@ -48,7 +48,7 @@ const moves: Record<number, string> = { 0: 'Aankomen · dag 1–4', 4: 'Kijken �
         {days.map((d, i) => (
           <>
             {moves[i] && <tr class="move"><td colspan="6">{moves[i]}</td></tr>}
-            <tr class:list={{ quiet: d[0] === 'Stilte' }}><td>{i + 1}</td><td>{d[0]}</td><td>{d[1]}</td><td>{d[2]}</td><td>{d[3]}</td><td>{d[4]}</td></tr>
+            <tr class:list={{ quiet: d[0] === 'Stilte' }}><td data-l="Dag">{i + 1}</td><td data-l="Thema">{d[0]}</td><td data-l="Ochtend">{d[1]}</td><td data-l="1-op-1">{d[2]}</td><td data-l="Middag">{d[3]}</td><td data-l="Avond">{d[4]}</td></tr>
           </>
         ))}
       </tbody>

@@ -16,6 +16,10 @@ const siblings = excursions.filter((x) => x.loc === e.loc);
 const others = siblings.filter((x) => x.slug !== e.slug);
 const arrow = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const talk = `/${e.loc}#gesprek`;
+const hasStock = e.beats.some((b) => b.photo.startsWith('unsplash:'));
+const credit = hasStock
+  ? 'Tijden en duur zijn indicatief en volgen bij de planning van de editie. Beelden zijn tijdelijke stockfoto’s (Unsplash) en sfeerconcepten, geen foto’s van de excursie of een partner.'
+  : e.credit;
 ---
 <Base
   title={e.metaTitle}
@@ -25,7 +29,7 @@ const talk = `/${e.loc}#gesprek`;
   talk={talk}
   crumbs={[{ name, path: `/${e.loc}` }, { name: e.title, path: `/${e.loc}/${e.slug}` }]}
 >
-<div class="ribbon" style={`--loc:var(--${e.loc})`}><div class="wrap"><span>Onderdeel van AURORA Private · <a href={`/${e.loc}`}>{name}</a></span><span>{e.when}</span><span class="n">Excursie {e.order} van {siblings.length}</span></div></div>
+<div class="ribbon" style={`--loc:var(--${e.loc})`}><div class="wrap"><span>Onderdeel van AURORA Private · <a href={`/${e.loc}`}>{name}</a></span><span class="rw">{e.when.split(' · ')[0]}<span class="rw-x">{e.when.includes(' · ') ? ' · ' + e.when.split(' · ').slice(1).join(' · ') : ''}</span></span><span class="n">Excursie {e.order} van {siblings.length}</span></div></div>
 <section class="story" aria-labelledby="exc-h"><div class="frames">
   {e.beats.map((b, i) => (
     <div class:list={['beat', { on: i === 0 }]}>
@@ -49,15 +53,15 @@ const talk = `/${e.loc}#gesprek`;
   ))}
 </div></section>
 <section class="section" aria-labelledby="praktisch-t"><div class="wrap">
-  <div class="split"><div class="stack"><span class="eyebrow">Praktisch</span><h2 class="h2" id="praktisch-t" style="font-size:clamp(2rem,3.6vw,3.25rem)">{e.practical.heading}</h2></div>
+  <div class="split"><div class="stack"><span class="eyebrow">Praktisch</span><h2 class="h2" id="praktisch-t">{e.practical.heading}</h2></div>
   <div class="stack"><p class="lead">{e.practical.lead}</p><p class="soft">{e.practical.body}</p></div></div>
   <dl class="facts" style="margin-top:48px">{e.facts.map((f) => <div><dt>{f.dt}</dt><dd>{f.dd}</dd></div>)}</dl>
-  <p class="credit" style="margin-top:24px">{e.credit}</p>
+  <p class="credit" style="margin-top:24px">{credit}</p>
 </div></section>
 <section class="section" aria-labelledby="meer-t" style={`--loc:var(--${e.loc})`}><div class="wrap">
   <span class="eyebrow">Meer in {name}</span>
-  <h2 class="h2" id="meer-t" style="margin-top:16px;font-size:clamp(2rem,3.6vw,3.25rem)">De andere middagen</h2>
-  <div class="excs" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+  <h2 class="h2" id="meer-t" style="margin-top:16px">De andere middagen</h2>
+  <div class="excs excs--3">
     {others.map((o) => (
       <a class="exc" href={`/${o.loc}/${o.slug}`}>
         <Photo src={o.card.photo} alt="" class="thumb" />
@@ -65,6 +69,6 @@ const talk = `/${e.loc}#gesprek`;
       </a>
     ))}
   </div>
-  <p style="margin-top:48px"><a class="btn btn--ghost" href={`/${e.loc}#excursies`}>Terug naar {name} <Fragment set:html={arrow} /></a> <a class="btn" href={talk} style="margin-left:8px">Een eerste gesprek <Fragment set:html={arrow} /></a></p>
+  <p style="margin-top:48px"><a class="btn btn--ghost" href={`/${e.loc}#excursies`}>Terug naar {name} <Fragment set:html={arrow} /></a> <a class="btn" href={talk}>Een eerste gesprek <Fragment set:html={arrow} /></a></p>
 </div></section>
 </Base>

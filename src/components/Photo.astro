@@ -1,40 +1,57 @@
 ---
-// Responsive, art-directed photo. Every image is resized at build time into
-// AVIF + WebP + JPEG at several widths, so phones never download the 1672px master.
+// Responsive photo.
+//  • Local key ("img/kb-1", "photography/aurora-red-sea"): resized at build into AVIF/WebP/JPG.
+//  • Stock placeholder ("unsplash:<photo-id>"): served by Unsplash's image CDN at matching widths.
+//    Placeholders are listed in src/data/stock.json (credits on /privacy) and replaced 1-for-1 by own imagery.
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
-  src: string;            // "img/kb-1" or "photography/aurora-red-sea"
+  src: string;
   alt?: string;
-  class?: string;         // extra classes on the <figure> (e.g. "thumb")
-  style?: string;         // e.g. "--focal:40% 55%"
-  priority?: boolean;     // above the fold: eager + fetchpriority high
+  class?: string;
+  style?: string;
+  priority?: boolean;
   sizes?: string;
+  video?: string;        // comma-separated mp4 URLs for an ambient loop on top of the photo
 }
 
-const { src, alt = '', class: cls = '', style, priority = false, sizes } = Astro.props;
-const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpg,jpeg,png}', { eager: true });
-const key = `/src/assets/${src}.jpg`;
-const mod = all[key] ?? all[`/src/assets/${src}.png`];
-if (!mod) throw new Error(`Photo not found: ${src}`);
-
+const { src, alt = '', class: cls = '', style, priority = false, sizes, video } = Astro.props;
 const isThumb = /\bthumb\b/.test(cls);
 const resolvedSizes = sizes ?? (isThumb ? '(max-width: 860px) 100vw, 34vw' : '100vw');
+const stock = src.startsWith('unsplash:') ? src.slice(9) : null;
+
+let mod: { default: ImageMetadata } | undefined;
+if (!stock) {
+  const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpg,jpeg,png}', { eager: true });
+  mod = all[`/src/assets/${src}.jpg`] ?? all[`/src/assets/${src}.png`];
+  if (!mod) throw new Error(`Photo not found: ${src}`);
+}
 const widths = isThumb ? [400, 640, 900] : [640, 960, 1280, 1672];
+const u = (w: number, fm?: string) => `https://images.unsplash.com/photo-${stock}?auto=format&fit=crop&w=${w}&q=70${fm ? `&fm=${fm}` : ''}`;
+const stockSet = (fm?: string) => (isThumb ? [400, 640, 900] : [640, 960, 1280, 1800]).map((w) => `${u(w, fm)} ${w}w`).join(', ');
 ---
-<figure class:list={['photo', cls]} style={style}>
-  <Picture
-    src={mod.default}
-    alt={alt}
-    formats={['avif', 'webp']}
-    fallbackFormat="jpg"
-    widths={widths.filter((w) => w <= mod.default.width)}
-    sizes={resolvedSizes}
-    quality={72}
-    loading={priority ? 'eager' : 'lazy'}
-    fetchpriority={priority ? 'high' : 'auto'}
-    decoding={priority ? 'sync' : 'async'}
-  />
+<figure class:list={['photo', cls, { 'is-stock': !!stock }]} style={style} data-video={video}>
+  {stock ? (
+    <picture>
+      <source type="image/avif" srcset={stockSet('avif')} sizes={resolvedSizes} />
+      <img src={u(1280)} srcset={stockSet()} sizes={resolvedSizes} alt={alt}
+        loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} decoding="async"
+        width="1280" height="1920" referrerpolicy="no-referrer" />
+    </picture>
+  ) : (
+    <Picture
+      src={mod!.default}
+      alt={alt}
+      formats={['avif', 'webp']}
+      fallbackFormat="jpg"
+      widths={widths.filter((w) => w <= mod!.default.width)}
+      sizes={resolvedSizes}
+      quality={72}
+      loading={priority ? 'eager' : 'lazy'}
+      fetchpriority={priority ? 'high' : 'auto'}
+      decoding={priority ? 'sync' : 'async'}
+    />
+  )}
   <slot />
 </figure>

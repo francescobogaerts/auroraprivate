@@ -6,7 +6,7 @@ import Intake from '../components/Intake.astro';
 ---
 <Base title="AURORA Private Bonaire" description="Bonaire: Koraalsteen, zoutvlaktes en open water. Veertien dagen op locatie binnen het traject van zes maanden." current="bonaire" og="bonaire" crumbs={[{"name":"Bonaire","path":"/bonaire"}]}>
 <section class="opening" aria-labelledby="hero-t" style="--loc:var(--bonaire)">
-  <Photo src="photography/aurora-red-bonaire" alt={"Zoutvlakte op Bonaire in het eerste licht, met cactussen aan de waterkant en een vlakke horizon."} style="--focal:45% 70%" priority />
+  <Photo video="https://assets.mixkit.co/videos/44392/44392-720.mp4,https://assets.mixkit.co/videos/44392/44392-360.mp4" src="photography/aurora-red-bonaire" alt={"Zoutvlakte op Bonaire in het eerste licht, met cactussen aan de waterkant en een vlakke horizon."} style="--focal:45% 70%" priority />
   <div class="shade" aria-hidden="true"></div>
   <div class="copy"><div class="wrap">
     <span class="eyebrow">AURORA Private · Editie 01 · nu open</span>
@@ -22,7 +22,7 @@ import Intake from '../components/Intake.astro';
 <section class="section" aria-labelledby="intro-t"><div class="wrap split">
   <div class="stack">
     <span class="eyebrow">Caribische ruimte</span>
-    <h2 class="h2" id="intro-t" style="font-size:clamp(2rem,3.6vw,3.25rem)">Zes maanden persoonlijke begeleiding, met veertien dagen op Bonaire als keerpunt.</h2>
+    <h2 class="h2" id="intro-t">Zes maanden persoonlijke begeleiding, met veertien dagen op Bonaire als keerpunt.</h2>
     <p class="soft">Bonaire is de eerste editie van AURORA Private. Een plat, droog eiland met helder water rondom: de zee bepaalt het ritme van de veertien dagen. Ochtenden aan het rif, middagen in het binnenland of op het water, avonden onder een donkere hemel.</p>
     
   </div>
@@ -67,7 +67,7 @@ import Intake from '../components/Intake.astro';
   <Photo src="photography/aurora-red-room" alt={"Ochtendlicht op kalkpleister in een rustige kamer, een raam open naar zee en een rode linnen plaid op een houten bank."} />
   <div class="stack">
     <span class="eyebrow">Het verblijf</span>
-    <h2 class="h2" id="verblijf-t" style="font-size:clamp(2rem,3.6vw,3.25rem)">Een eigen kamer. Niets dat afleidt.</h2>
+    <h2 class="h2" id="verblijf-t">Een eigen kamer. Niets dat afleidt.</h2>
     <p class="soft">Het verblijf is privé en eenvoudig van opzet. Het beeld is een sfeerconcept, geen foto van een geboekte accommodatie.</p>
     <ul class="list-lines"><li>Eigen kamer met zeezicht</li><li>Privé chef en transfers</li><li>Wasservice</li><li>Geen telefoon in het groepsprogramma, wel op je kamer</li><li>Excursies ingepland in het ritme, niet los te boeken</li></ul>
   </div>
@@ -75,14 +75,14 @@ import Intake from '../components/Intake.astro';
 
 <section class="section" id="excursies" aria-labelledby="exc-t" style="--loc:var(--bonaire)"><div class="wrap">
   <span class="eyebrow">Excursies in het ritme</span>
-  <h2 class="h2" id="exc-t" style="margin-top:16px;font-size:clamp(2rem,3.6vw,3.25rem)">Bonaire buiten de deur</h2>
+  <h2 class="h2" id="exc-t" style="margin-top:16px">Bonaire buiten de deur</h2>
   <p class="lead" style="margin-top:16px">Ingepland in de middagen van de veertien dagen, niet los te boeken.</p>
-  <div class="excs"><a class="exc" href="/bonaire/washingtonslagbaai" data-peek="" data-teaser="Het noorden van het eiland, zonder dorp of weg in zicht. Je loopt in je eigen tempo."><Photo src="img/wsb-1" alt={"Washington Slagbaai (sfeerbeeld)"} class="thumb" /><span class="when">Dag 3, middag</span><h3>Washington Slagbaai</h3><p class="soft">Wandeling door het nationale park in het noorden: cactusbos, kalksteenkust en stille baaien.</p><span class="go">Bekijk <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a class="exc" href="/bonaire/lacbay" data-peek="" data-teaser="Peddelen door ondiep water en mangrove. Wie wil, legt de peddel even neer en drijft."><Photo src="img/bonaire" alt={"Lac Bay (sfeerbeeld)"} class="thumb" /><span class="when">Dag 4, middag</span><h3>Lac Bay</h3><p class="soft">Met de kajak door de mangroven aan de oostkust.</p><span class="go">Bekijk <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a class="exc" href="/bonaire/kleinbonaire" data-peek="" data-teaser="Een korte oversteek naar een eilandje waar niemand woont. Zwemmen boven het rif, dan terug in het late licht."><Photo src="img/kb-1" alt={"Klein Bonaire (sfeerbeeld)"} class="thumb" /><span class="when">Dag 6, middag</span><h3>Klein Bonaire</h3><p class="soft">Zeilen naar het onbewoonde eilandje voor de kust en zwemmen boven het rif.</p><span class="go">Bekijk <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a class="exc" href="/bonaire/ezels-pekelmeer" data-peek="" data-teaser="Eerst de opvang voor de ezels van het eiland, daarna de zoutpannen in het zuiden waar flamingo’s foerageren."><Photo src="img/ez-1" alt={"Ezelopvang en Pekelmeer (sfeerbeeld)"} class="thumb" /><span class="when">Dag 8, middag</span><h3>Ezelopvang en Pekelmeer</h3><p class="soft">De ezelopvang in het binnenland en de flamingo’s bij het Pekelmeer, op afstand bekeken.</p><span class="go">Bekijk <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+  <div class="excs"><a class="exc" href="/bonaire/washingtonslagbaai" data-peek="" data-teaser="Het noorden van het eiland, zonder dorp of weg in zicht. Je loopt in je eigen tempo."><Photo src="img/wsb-1" alt={"Washington Slagbaai (sfeerbeeld)"} class="thumb" /><span class="when">Dag 3, middag</span><h3>Washington Slagbaai</h3><p class="soft">Wandeling door het nationale park in het noorden: cactusbos, kalksteenkust en stille baaien.</p><span class="go">Bekijk <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a class="exc" href="/bonaire/lacbay" data-peek="" data-teaser="Peddelen door ondiep water en mangrove. Wie wil, legt de peddel even neer en drijft."><Photo src="unsplash:1791084640292-377a296ab2bd" alt={"Lac Bay (sfeerbeeld)"} class="thumb" /><span class="when">Dag 4, middag</span><h3>Lac Bay</h3><p class="soft">Met de kajak door de mangroven aan de oostkust.</p><span class="go">Bekijk <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a class="exc" href="/bonaire/kleinbonaire" data-peek="" data-teaser="Een korte oversteek naar een eilandje waar niemand woont. Zwemmen boven het rif, dan terug in het late licht."><Photo src="img/kb-1" alt={"Klein Bonaire (sfeerbeeld)"} class="thumb" /><span class="when">Dag 6, middag</span><h3>Klein Bonaire</h3><p class="soft">Zeilen naar het onbewoonde eilandje voor de kust en zwemmen boven het rif.</p><span class="go">Bekijk <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a class="exc" href="/bonaire/ezels-pekelmeer" data-peek="" data-teaser="Eerst de opvang voor de ezels van het eiland, daarna de zoutpannen in het zuiden waar flamingo’s foerageren."><Photo src="img/ez-1" alt={"Ezelopvang en Pekelmeer (sfeerbeeld)"} class="thumb" /><span class="when">Dag 8, middag</span><h3>Ezelopvang en Pekelmeer</h3><p class="soft">De ezelopvang in het binnenland en de flamingo’s bij het Pekelmeer, op afstand bekeken.</p><span class="go">Bekijk <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
 </div></section>
 <section class="section" id="editie" aria-labelledby="editie-t"><div class="wrap edition">
   <div>
     <span class="eyebrow">Eén prijs, het hele traject</span>
-    <h2 class="h2" id="editie-t" style="margin:16px 0 24px;font-size:clamp(2rem,3.6vw,3.25rem)">Editie 01, Bonaire</h2>
+    <h2 class="h2" id="editie-t" style="margin:16px 0 24px">Editie 01, Bonaire</h2>
     <div class="price num">€17.500</div>
     <p class="lead" style="margin-top:12px">Het volledige traject van zes maanden. Niet de prijs van twee weken.</p>
     <div class="seats" role="img" aria-label="Zes plekken per editie"><span></span><span></span><span></span><span></span><span></span><span></span></div>
@@ -99,16 +99,16 @@ import Intake from '../components/Intake.astro';
 </div></section>
 
 <section class="section band" id="organisaties" aria-labelledby="org-t"><div class="wrap split" style="align-items:end">
-  <div class="stack"><span class="eyebrow">Voor organisaties</span><h2 class="h2" id="org-t" style="font-size:clamp(2rem,3.6vw,3.25rem)">Uw medewerker is veertien dagen afwezig. De begeleiding loopt zes maanden.</h2></div>
+  <div class="stack"><span class="eyebrow">Voor organisaties</span><h2 class="h2" id="org-t">Uw medewerker is veertien dagen afwezig. De begeleiding loopt zes maanden.</h2></div>
   <div class="stack">
     <p class="lead">Zakelijke facturatie, één liaison voor HR, dezelfde voorwaarden als particulier. Wat er gedeeld wordt, bepaalt de deelnemer. De afspraken over gegevensdeling leggen we per opdracht apart vast.</p>
-    <p><a class="btn" href="/organisaties" style="margin-right:8px">Hoe het werkt</a> <a class="btn btn--ghost" href="#gesprek" data-org="">Zakelijk contact <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></p>
+    <p><a class="btn" href="/organisaties">Hoe het werkt</a> <a class="btn btn--ghost" href="#gesprek" data-org="">Zakelijk contact <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></p>
   </div>
 </div></section>
 
 <section class="section boundary" id="grens" aria-labelledby="grens-t"><div class="wrap">
   <span class="eyebrow">De grens</span>
-  <h2 class="h2" id="grens-t" style="margin-top:16px;font-size:clamp(2rem,3.6vw,3.25rem)">Wat AURORA niet is</h2>
+  <h2 class="h2" id="grens-t" style="margin-top:16px">Wat AURORA niet is</h2>
   <blockquote>AURORA Private is een begeleidingstraject, geen behandeling. We bieden geen detox, geen medische zorg en geen vervanging voor ggz-behandeling. Heb je die nodig, dan helpen we je bij de intake de juiste plek te vinden.</blockquote>
   <div class="cols">
     <div><h3 class="h3">Je kunt meedoen als je</h3><ul><li>stabiel genoeg bent om zonder medisch toezicht te reizen en veertien dagen in een groep te zijn;</li><li>zelf kiest voor het traject, niet onder druk van werkgever of familie;</li><li>bereid bent tot zes maanden begeleiding, ook na thuiskomst.</li></ul></div>
