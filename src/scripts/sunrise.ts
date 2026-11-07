@@ -15,7 +15,7 @@ precision highp float;
 uniform vec2 uRes; uniform float uTime; uniform float uRise; uniform float uHorizon;
 uniform float uYaw; uniform float uSunAz; uniform float uClock; uniform vec4 uRip[8];
 // scene: 0 open sea (home), 1 Bonaire, 2 India, 3 Mauritius, 4 Marbella
-uniform float uScene; uniform vec3 uWater; uniform vec3 uShallow; uniform float uHaze; uniform float uWave;
+uniform float uFade; uniform float uScene; uniform vec3 uWater; uniform vec3 uShallow; uniform float uHaze; uniform float uWave;
 #define PI 3.14159265
 bool isScene(float k){ return abs(uScene - k) < .5; }
 const float RP = 6371e3; const float RA = 6471e3;
@@ -483,6 +483,7 @@ void main(){
   col = mix(col, col * vec3(1.03, 0.99, 0.95), 0.6);
   vec2 q = uv - .5; col *= 1. - dot(q, q) * 0.45;
   col += (h2(frag + fract(uTime) * 91.) - .5) * 0.012;
+  col = mix(col, vec3(.010, .011, .013), uFade);
   gl_FragColor = vec4(col, 1.);
 }`;
 const VERT = `attribute vec2 a; void main(){ gl_Position = vec4(a,0.,1.); }`;
@@ -520,8 +521,16 @@ function init(){
         mauritius: { k: 3, water: [.9, 1.1, 1.0],  shallow: [.012, .070, .055],    haze: 1.1, wave: .30 },
         marbella:  { k: 4, water: [.85, .95, 1.2], shallow: [0, 0, 0],             haze: .9,  wave: .50 },
       };
-      const SC = SCENES[sky.getAttribute('data-scene') || 'home'] || SCENES.home;
+      let SC = SCENES[sky.getAttribute('data-scene') || 'home'] || SCENES.home;
       const uScene = U('uScene'), uWater = U('uWater'), uShallow = U('uShallow'), uHaze = U('uHaze'), uWave = U('uWave');
+      const uFade = U('uFade'); const fx = { f: 0 };
+      // a film cut between worlds: dip to dark, swap the place, come up again (used by the lab)
+      sky.addEventListener('aurora:scene', (e) => {
+        const next = SCENES[e.detail]; if(!next || next === SC) return;
+        gsap.killTweensOf(fx);
+        gsap.timeline().to(fx, { f: 1, duration: .6, ease: 'power2.in', onComplete: () => { SC = next; sky.setAttribute('data-scene', e.detail); } })
+          .to(fx, { f: 0, duration: 1.1, ease: 'power2.out' });
+      });
       const uYaw = U('uYaw'), uSunAz = U('uSunAz'), uClock = U('uClock'), uRip = U('uRip');
       // pointer: look around, sun follows a little, ripples on the water
       const look = { x: 0, y: 0, tx: 0, ty: 0 };
@@ -573,7 +582,7 @@ function init(){
         gl.uniform1f(uClock, clock());
         gl.uniform4fv(uRip, rips);
         gl.uniform1f(uScene, SC.k); gl.uniform3fv(uWater, SC.water); gl.uniform3fv(uShallow, SC.shallow);
-        gl.uniform1f(uHaze, SC.haze); gl.uniform1f(uWave, SC.wave);
+        gl.uniform1f(uHaze, SC.haze); gl.uniform1f(uWave, SC.wave); gl.uniform1f(uFade, fx.f);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       };
       // render only while the hero is on screen

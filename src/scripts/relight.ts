@@ -44,7 +44,7 @@ const VERT = `attribute vec2 a; varying vec2 vUv; void main(){ vUv = a * .5 + .5
 
 function init(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const figs = [...document.querySelectorAll('.gallery .photo, .day-pic .photo, .interlude .photo, .strip .slide .photo')];
+  const figs = [...document.querySelectorAll('.gallery .photo, .day-pic .photo, .interlude .photo, .strip .slide .photo, .lab-plate .photo')];
   if(!figs.length) return;
   const gc = document.createElement('canvas');
   const gl = gc.getContext('webgl', { premultipliedAlpha: false, preserveDrawingBuffer: true, antialias: false });
@@ -113,6 +113,8 @@ function init(){
     const fa = r.width / r.height, ia = it.iw / it.ih;
     let sx = 1, sy = 1; if(ia > fa) sx = fa / ia; else sy = ia / fa;
     const [ox, oy] = pos(it.img);
+    const pp = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight + r.height)));
+    if(it.fig.closest('[data-push]')){ const z = 1 - .14 * pp; sx *= z; sy *= z; }   // a slow dolly in, like a film plate
     gl.uniform4f(uMap, sx, sy, (1 - sx) * ox, (1 - sy) * oy);
     gl.uniform2f(uRes, it.iw, it.ih);
     // progress: the photo entering at the bottom (0) to leaving at the top (1)

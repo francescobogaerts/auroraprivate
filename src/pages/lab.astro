@@ -1,0 +1,90 @@
+---
+// LAB — "Daybreak": one continuous film. Live sunrise, world cuts between destinations,
+// a call sheet instead of a brochure, and film plates where the AI shots will land.
+// Concept branch only; not linked from the site.
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import IntakeSection from '../components/IntakeSection.astro';
+const worlds = [
+  { key: 'bonaire', name: 'Bonaire', note: 'Rif en zout' },
+  { key: 'india', name: 'India', note: 'Rivier en tempel' },
+  { key: 'mauritius', name: 'Mauritius', note: 'Lagune en zeil' },
+  { key: 'marbella', name: 'Marbella', note: 'Sierra en dorp' },
+];
+const crew = [
+  ['Begeleider', 'Eén vaste persoon, elke dag. Ook de vijf maanden daarna.'],
+  ['Chef', 'Kookt voor zes. Vraagt wat je mist, niet wat je mag.'],
+  ['Trainer', 'Zee, berg of mat. Op jouw tempo, op jouw tijd.'],
+  ['Arts', 'Op afroep, in de buurt. Je merkt alleen dat het geregeld is.'],
+  ['Chauffeur', 'Van vliegtuig tot voordeur. Geen bord met je naam.'],
+  ['Fixer', 'Regelt wat thuis blijft liggen, zodat jij dat niet hoeft.'],
+];
+const plates = [
+  { src: 'img/kb-3', t: 'Bonaire', s: 'Dag 03 · 06:41 · het rif bij eerste licht', alt: 'Ondiep turquoise water langs een kalkstenen kust op Bonaire.' },
+  { src: 'img/india-river', t: 'India', s: 'Dag 07 · 05:58 · mist boven de rivier', alt: 'Ochtendmist boven een brede rivier in Noord-India.' },
+  { src: 'img/marbella-sea', t: 'Marbella', s: 'Dag 12 · 07:20 · de zee onder de sierra', alt: 'De Middellandse Zee bij Marbella in zacht ochtendlicht.' },
+];
+---
+<Base title="AURORA Private · Daybreak (lab)" description="Conceptstudie." current="home" og="home" noindex>
+<div class="dawn lab">
+
+<section class="sky lab-sky" data-scene="bonaire" aria-labelledby="hero-t">
+  <div class="sky-in">
+    <span class="lab-bar lab-bar--t" aria-hidden="true"></span><span class="lab-bar lab-bar--b" aria-hidden="true"></span>
+    <span class="eyebrow">AURORA Private presenteert</span>
+    <h1 class="sky-word" id="hero-t">DAYBREAK</h1>
+    <div class="horizon" aria-hidden="true"><span class="glow"></span><span class="sun"></span><span class="line"></span><span class="glint g1"></span><span class="glint g2"></span><span class="glint g3"></span></div>
+    <div class="sky-lines">
+      <p>Een ochtend die je <em>zelf</em> kiest.</p>
+      <p>Veertien dagen. Eén ploeg. Niemand die het hoeft te weten.</p>
+      <p>Daarna vijf maanden waarin je de regie houdt.</p>
+      <p class="sky-sub">Kies je horizon.<br><em>Raak het water aan.</em></p>
+    </div>
+    <nav class="lab-worlds" aria-label="Kies een bestemming">
+      {worlds.map((w, i) => <button type="button" data-world={w.key} aria-pressed={i === 0 ? 'true' : 'false'}><b>{w.name}</b><span>{w.note}</span></button>)}
+    </nav>
+  </div>
+</section>
+
+<section class="section tone-night lab-call" aria-labelledby="call-t"><div class="wrap">
+  <p class="eyebrow">Call sheet · dag 01 · zonsopkomst 06:12</p>
+  <h2 class="h2" id="call-t">Geen goeroe. <em>Een ploeg.</em></h2>
+  <ol class="lab-crew">
+    {crew.map(([r, d], i) => <li class="reveal"><span class="n">{String(i + 1).padStart(2, '0')}</span><b>{r}</b><span>{d}</span></li>)}
+  </ol>
+  <p class="lab-fine">Zes deelnemers per editie. Wat je hier vertelt, blijft hier.</p>
+</div></section>
+
+<section class="section tone-dusk lab-plates" aria-labelledby="pl-t"><div class="wrap">
+  <p class="eyebrow">Shots</p>
+  <h2 class="h2" id="pl-t">Drie ochtenden <em>uit veertien.</em></h2>
+  <div class="lab-plate-row">
+    {plates.map((p) => (
+      <figure class="lab-plate" data-push>
+        <Photo src={p.src} alt={p.alt} sizes="(max-width: 860px) 100vw, 33vw" />
+        <figcaption><b>{p.t}</b><span>{p.s}</span></figcaption>
+      </figure>
+    ))}
+  </div>
+  <p class="lab-fine">Conceptstudie: hier komen de gefilmde of gegenereerde shots. Elk shot begint op het laatste frame van de live zonsopkomst, zodat de overgang niet te zien is.</p>
+</div></section>
+
+<section class="lab-end tone-night" aria-labelledby="end-t">
+  <p class="eyebrow">Einde van de eerste ochtend</p>
+  <h2 class="h2" id="end-t">De rest schrijven we <em>samen.</em></h2>
+  <a class="btn" href="#gesprek">Eerste gesprek</a>
+</section>
+
+<IntakeSection />
+</div>
+<script>
+  import '../scripts/sunrise.ts';
+  import '../scripts/relight.ts';
+  const sky = document.querySelector('.lab-sky');
+  const btns = [...document.querySelectorAll('.lab-worlds button')];
+  btns.forEach((b) => b.addEventListener('click', () => {
+    btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    sky?.dispatchEvent(new CustomEvent('aurora:scene', { detail: b.getAttribute('data-world') }));
+  }));
+</script>
+</Base>
