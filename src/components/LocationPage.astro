@@ -27,18 +27,19 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
   <span class="cue" aria-hidden="true"></span>
 </section>
 
-<section class="section" aria-labelledby="intro-t"><div class="wrap still reveal">
+<div class="dawn">
+<section class="section tone-night" aria-labelledby="intro-t"><div class="wrap still reveal">
   <span class="eyebrow" id="intro-t">{L.region}</span>
   <p class="statement">{L.place}</p>
   <span class="rule" aria-hidden="true"></span>
   <p class="soft">{L.lede}</p>
 </div></section>
 
-<section class="section section--tight-top" aria-label={`Sfeer van ${L.name}`}><div class="wrap gallery reveal">
+<section class="section section--tight-top tone-dusk" aria-label={`Sfeer van ${L.name}`}><div class="wrap gallery reveal">
   {L.gallery.map((g) => <Photo src={g.src} alt={g.alt} sizes="(max-width: 760px) 100vw, 55vw" />)}
 </div></section>
 
-<section class="section" id="veertien" aria-labelledby="dg-t"><div class="wrap">
+<section class="section tone-dusk" id="veertien" aria-labelledby="dg-t"><div class="wrap">
   <div class="head reveal">
     <div class="stack"><span class="eyebrow">De veertien dagen</span><h2 class="h2" id="dg-t">Elke dag hetzelfde <em>ritme</em>.</h2></div>
     <a class="link" href="/traject">Het hele traject <Fragment set:html={arrow} /></a>
@@ -59,7 +60,7 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
   )}
 </div></section>
 
-<section class="section" id="excursies" aria-labelledby="exc-t" style={`--loc:var(--${L.key})`}><div class="wrap">
+<section class="section tone-dawn" id="excursies" aria-labelledby="exc-t" style={`--loc:var(--${L.key})`}><div class="wrap">
   <div class="head reveal">
     <div class="stack"><span class="eyebrow">De middagen</span><h2 class="h2" id="exc-t">{L.name} buiten de deur</h2></div>
     <p class="soft small">Ingepland in het ritme, niet los te boeken.</p>
@@ -86,7 +87,7 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
   </div></div></div>
 </section>
 
-<section class="section" id="editie" aria-labelledby="editie-t"><div class="wrap">
+<section class="section tone-day" id="editie" aria-labelledby="editie-t"><div class="wrap">
   <div class="facts-row reveal" style="margin-bottom:clamp(80px,10vw,140px)">
     <div><b>6</b><span>Deelnemers per editie</span></div>
     <div><b>1</b><span>Vaste begeleider</span></div>
@@ -107,6 +108,7 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
   </div>
 </div></section>
 
+</div>
 <IntakeSection loc={L.key as LocKey} />
 
 <a class="next" href={`/${N.key}`}>

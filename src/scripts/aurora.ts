@@ -47,7 +47,7 @@
 
   /* Header glass follows what is underneath it: dark glass over photography and ink bands */
   var hdr2 = document.querySelector('.site-head');
-  var darks = document.querySelectorAll('.opening,.interlude,.manifesto,.intake--glass,.story,.band,.next,.site-foot');
+  var darks = document.querySelectorAll('.opening,.interlude,.manifesto,.intake--glass,.story,.band,.next,.site-foot,.sky,.tone-night,.tone-dusk');
   if(hdr2 && darks.length){
     var probe = function(){
       var y = 44, on = false;
@@ -56,6 +56,21 @@
     };
     window.addEventListener('scroll', probe, {passive:true}); window.addEventListener('resize', probe); probe();
   }
+
+  /* Design B: the sun rises behind AURORA as you leave the night */
+  var sky = document.querySelector('.sky');
+  if(sky && !still){
+    var riseUpd = function(){ var span = sky.offsetHeight - innerHeight; var p = Math.min(1, Math.max(0, window.scrollY / Math.max(1, span * .85))); sky.style.setProperty('--rise', (0.04 + p * 0.96).toFixed(3)); };
+    window.addEventListener('scroll', riseUpd, {passive:true}); riseUpd();
+  }
+  /* Drag to scroll the destination strip (mouse only; touch scrolls natively) */
+  document.querySelectorAll('.strip').forEach(function(st){
+    var down = false, x0 = 0, s0 = 0, moved = false;
+    st.addEventListener('pointerdown', function(e){ if(e.pointerType !== 'mouse') return; down = true; moved = false; x0 = e.clientX; s0 = st.scrollLeft; st.style.scrollSnapType = 'none'; });
+    window.addEventListener('pointermove', function(e){ if(!down) return; var dx = e.clientX - x0; if(Math.abs(dx) > 4) moved = true; st.scrollLeft = s0 - dx; });
+    window.addEventListener('pointerup', function(){ if(!down) return; down = false; st.style.scrollSnapType = ''; });
+    st.addEventListener('click', function(e){ if(moved){ e.preventDefault(); moved = false; } }, true);
+  });
 
   /* Quiet reveal: sections rise in once */
   var rv = document.querySelectorAll('.reveal');

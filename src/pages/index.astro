@@ -1,4 +1,5 @@
 ---
+// Design B — "Dawn": the page itself goes from night to first light as you scroll.
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import IntakeSection from '../components/IntakeSection.astro';
@@ -12,18 +13,23 @@ const hints: Record<string, string> = {
 };
 ---
 <Base title="AURORA Private" description="Zes maanden persoonlijke begeleiding met veertien dagen op Bonaire, India, Mauritius of Marbella als keerpunt." current="home" og="home">
-<section class="opening" aria-labelledby="hero-t">
-  <Photo src="photography/aurora-red-sea" alt="Open zee vlak voor zonsopkomst, een band van mineraalrood licht boven een rotsige kust." style="--focal:40% 55%" priority />
-  <div class="shade" aria-hidden="true"></div>
-  <div class="copy"><div class="wrap">
+<div class="dawn">
+
+<section class="sky" aria-labelledby="hero-t">
+  <div class="sky-in">
     <span class="eyebrow">Een sanctuary, geen kliniek</span>
-    <h1 class="display" id="hero-t" style="max-width:none">Zes maanden begeleiding.<br> Veertien dagen keerpunt.</h1>
-    <span class="coords glass glass--chip">Bonaire · India · Mauritius · Marbella</span>
-  </div></div>
-  <span class="cue" aria-hidden="true"></span>
+    <h1 class="sky-word" id="hero-t" aria-label="AURORA Private. Zes maanden begeleiding, veertien dagen keerpunt.">AURORA</h1>
+    <div class="horizon" aria-hidden="true">
+      <span class="glow"></span><span class="sun"></span>
+      <span class="line"></span>
+      <span class="glint g1"></span><span class="glint g2"></span><span class="glint g3"></span>
+    </div>
+    <p class="sky-sub">Zes maanden begeleiding.<br><em>Veertien dagen keerpunt.</em></p>
+  </div>
+  <span class="sky-scroll" aria-hidden="true">Scroll naar het eerste licht</span>
 </section>
 
-<section class="manifesto" aria-label="Een sanctuary, geen kliniek"><div class="pin"><div class="wrap">
+<section class="manifesto tone-night" aria-label="Een sanctuary, geen kliniek"><div class="pin"><div class="wrap">
   <div class="lines">
     <p class="m-line">Je hebt het al gevoeld, lang voordat iemand anders het zag.</p>
     <p class="m-line">Dit is geen diagnose. Het is een <em>keuze</em>, op jouw moment.</p>
@@ -33,86 +39,65 @@ const hints: Record<string, string> = {
   <div class="m-foot" aria-hidden="true"><span class="count"></span><span class="m-bar"><i></i></span></div>
 </div></div></section>
 
-<section class="section" id="herken" aria-labelledby="herken-t"><div class="wrap recog-wrap">
-  <div class="stack reveal">
-    <span class="eyebrow">Herken je dit?</span>
-    <h2 class="h2" id="herken-t">Kies wat het <em>dichtst</em> bij komt.</h2>
-    <p class="soft">Voor wie functioneert, maar voelt dat het zo niet verder kan.</p>
-  </div>
-  <div class="recog reveal">
-    <details class="rc" name="herken" data-k="p"><summary><span class="i num">01</span><span class="q">“Ik functioneer. Daar zit het probleem.”</span><span class="pm" aria-hidden="true"></span></summary>
-      <div class="a"><h3>Je kunt niet weg. Dat hoeft ook maar veertien dagen.</h3><p>Voorbereiding en integratie passen naast je werk.</p><a class="link" href="/traject">Bekijk het traject <Fragment set:html={arrow} /></a></div></details>
-    <details class="rc" name="herken" data-k="r"><summary><span class="i num">02</span><span class="q">“Ik weet wat ik moet doen. Ik doe het niet.”</span><span class="pm" aria-hidden="true"></span></summary>
-      <div class="a"><h3>Daarom duurt het zes maanden, niet twee weken.</h3><p>Dezelfde begeleider tot dag 180. De verandering wordt thuis gemaakt.</p><a class="link" href="/traject">Bekijk het traject <Fragment set:html={arrow} /></a></div></details>
-    <details class="rc" name="herken" data-k="c"><summary><span class="i num">03</span><span class="q">“Niemand mag het weten.”</span><span class="pm" aria-hidden="true"></span></summary>
-      <div class="a"><h3>Zes mensen, geen namen, geen sporen.</h3><p>Contact via Signal als je wilt. Esc sluit deze site direct.</p><a class="link" href="#gesprek">Vertrouwelijk contact <Fragment set:html={arrow} /></a></div></details>
-    <details class="rc" name="herken" data-k="n"><summary><span class="i num">04</span><span class="q">“Ik zie het bij iemand van wie ik hou.”</span><span class="pm" aria-hidden="true"></span></summary>
-      <div class="a"><h3>Je kunt het eerste gesprek voor een ander aanvragen.</h3><p>Meedoen blijft een eigen keuze van de deelnemer.</p><a class="link" href="/voor-naasten">Voor naasten <Fragment set:html={arrow} /></a></div></details>
-    <details class="rc" name="herken" data-k="o"><summary><span class="i num">05</span><span class="q">“Onze beste mensen branden op.”</span><span class="pm" aria-hidden="true"></span></summary>
-      <div class="a"><h3>Veertien dagen afwezig, zes maanden begeleiding.</h3><p>Zakelijke facturatie en één liaison voor HR.</p><a class="link" href="/organisaties">Voor organisaties <Fragment set:html={arrow} /></a></div></details>
-  </div>
-</div></section>
-
-<section class="section section--tight-top" id="bestemmingen" aria-labelledby="best-t"><div class="wrap">
-  <div class="head reveal">
+<section class="section tone-dusk" id="bestemmingen" aria-labelledby="best-t">
+  <div class="wrap head reveal">
     <div class="stack"><span class="eyebrow">Vier bestemmingen</span><h2 class="h2" id="best-t">Waar het <em>keerpunt</em> ligt.</h2></div>
-    <p class="soft small">Overal hetzelfde traject. Bonaire opent als eerste.</p>
+    <p class="soft small">Overal hetzelfde traject. Bonaire opent als eerste. Sleep of scroll opzij.</p>
   </div>
-  <div class="dests reveal">
-    {locations.map((l) => (
-      <a class="dest" href={`/${l.key}`}>
-        <Photo src={l.photo} alt={l.alt} style={`--focal:${l.focal}`} sizes="(max-width: 960px) 50vw, 25vw" />
-        <span class="info glass">
-          <span class:list={['status', { open: l.open }]}><i aria-hidden="true"></i>{l.open ? 'Editie 01' : 'Wachtlijst'}</span>
-          <h3>{l.name}</h3>
+  <div class="strip reveal" tabindex="0" aria-label="Bestemmingen">
+    {locations.map((l, i) => (
+      <a class="slide" href={`/${l.key}`}>
+        <Photo src={l.photo} alt={l.alt} style={`--focal:${l.focal}`} sizes="(max-width: 760px) 86vw, 44vw" />
+        <span class="no num">0{i + 1}</span>
+        <span class="cap">
+          <span class:list={['status', { open: l.open }]}><i aria-hidden="true"></i>{l.open ? 'Editie 01 · nu open' : 'Wachtlijst'}</span>
+          <span class="nm">{l.name}</span>
           <span class="hint">{hints[l.key]}</span>
         </span>
       </a>
     ))}
   </div>
+</section>
+
+<section class="section tone-dusk" id="herken" aria-labelledby="herken-t"><div class="wrap recog-wrap">
+  <div class="stack reveal">
+    <span class="eyebrow">Herken je dit?</span>
+    <h2 class="h2" id="herken-t">Kies wat het <em>dichtst</em> bij komt.</h2>
+  </div>
+  <div class="recog reveal">
+    <details class="rc" name="herken" data-k="p"><summary><span class="i num">01</span><span class="q">“Ik functioneer. Daar zit het probleem.”</span><span class="pm" aria-hidden="true"></span></summary><div class="a"><h3>Je kunt niet weg. Dat hoeft ook maar veertien dagen.</h3><p>Voorbereiding en integratie passen naast je werk.</p><a class="link" href="/traject">Bekijk het traject <Fragment set:html={arrow} /></a></div></details>
+    <details class="rc" name="herken" data-k="r"><summary><span class="i num">02</span><span class="q">“Ik weet wat ik moet doen. Ik doe het niet.”</span><span class="pm" aria-hidden="true"></span></summary><div class="a"><h3>Daarom duurt het zes maanden, niet twee weken.</h3><p>Dezelfde begeleider tot dag 180. De verandering wordt thuis gemaakt.</p><a class="link" href="/traject">Bekijk het traject <Fragment set:html={arrow} /></a></div></details>
+    <details class="rc" name="herken" data-k="c"><summary><span class="i num">03</span><span class="q">“Niemand mag het weten.”</span><span class="pm" aria-hidden="true"></span></summary><div class="a"><h3>Zes mensen, geen namen, geen sporen.</h3><p>Contact via Signal als je wilt. Esc sluit deze site direct.</p><a class="link" href="#gesprek">Vertrouwelijk contact <Fragment set:html={arrow} /></a></div></details>
+    <details class="rc" name="herken" data-k="n"><summary><span class="i num">04</span><span class="q">“Ik zie het bij iemand van wie ik hou.”</span><span class="pm" aria-hidden="true"></span></summary><div class="a"><h3>Je kunt het eerste gesprek voor een ander aanvragen.</h3><p>Meedoen blijft een eigen keuze van de deelnemer.</p><a class="link" href="/voor-naasten">Voor naasten <Fragment set:html={arrow} /></a></div></details>
+    <details class="rc" name="herken" data-k="o"><summary><span class="i num">05</span><span class="q">“Onze beste mensen branden op.”</span><span class="pm" aria-hidden="true"></span></summary><div class="a"><h3>Veertien dagen afwezig, zes maanden begeleiding.</h3><p>Zakelijke facturatie en één liaison voor HR.</p><a class="link" href="/organisaties">Voor organisaties <Fragment set:html={arrow} /></a></div></details>
+  </div>
 </div></section>
 
-<section class="section" id="traject" aria-labelledby="traject-t"><div class="wrap">
+<section class="section tone-dawn" id="traject" aria-labelledby="traject-t"><div class="wrap">
   <div class="head reveal">
     <div class="stack"><span class="eyebrow">Het traject</span><h2 class="h2" id="traject-t">Het begint <em>voor</em> je vertrekt.</h2></div>
     <a class="link" href="/traject">Dag voor dag <Fragment set:html={arrow} /></a>
   </div>
-  <div class="trio reveal">
-    <div><span class="n num">4<small>weken</small></span><h3>Voorbereiding</h3><p>Intake, je vaste begeleider en een eigen AURORA Plan.</p></div>
-    <div class="core"><span class="n num">14<small>dagen</small></span><h3>Op locatie</h3><p>Vertragen, eerlijk kijken, je leven thuis opnieuw vormgeven.</p></div>
-    <div><span class="n num">5<small>maanden</small></span><h3>Integratie</h3><p>Sessies thuis en evaluaties tot dag 180. Dezelfde begeleider.</p></div>
-  </div>
+  <ol class="arc reveal">
+    <li><span class="big num">4</span><span class="unit">weken</span><h3>Voorbereiding</h3><p>Intake, je vaste begeleider en een eigen AURORA Plan.</p></li>
+    <li class="core"><span class="big num">14</span><span class="unit">dagen</span><h3>Op locatie</h3><p>Vertragen, eerlijk kijken, je leven thuis opnieuw vormgeven.</p></li>
+    <li><span class="big num">5</span><span class="unit">maanden</span><h3>Integratie</h3><p>Sessies thuis en evaluaties tot dag 180. Dezelfde begeleider.</p></li>
+  </ol>
 </div></section>
 
-<section class="interlude" aria-labelledby="verblijf-t">
-  <Photo src="photography/aurora-red-room" alt="Ochtendlicht op kalkpleister in een rustige kamer, een raam open en een rode linnen plaid op een houten bank." />
-  <div class="shade" aria-hidden="true"></div>
-  <div class="copy"><div class="wrap"><div class="glass glass--card">
-    <span class="eyebrow">Het verblijf</span>
-    <h2 class="statement" id="verblijf-t" style="margin-top:20px">Een eigen kamer. Een vast ritme. Ruimte voor stilte.</h2>
-    <p class="meta">Privé chef · Transfers · Excursies in het ritme</p>
-  </div></div></div>
-</section>
-
-<section class="section" id="editie" aria-labelledby="editie-t"><div class="wrap">
-  <div class="edition reveal">
-    <span class="eyebrow" id="editie-t">Editie 01 · Bonaire</span>
-    <div class="price num">€17.500</div>
-    <p class="soft">Het volledige traject van zes maanden. Niet de prijs van twee weken.</p>
-    <div class="seats" role="img" aria-label="Zes plekken per editie"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="actions">
-      <a class="btn" href="#gesprek">Een eerste gesprek</a>
-      <a class="btn btn--ghost" href="/particulier-of-zakelijk">Particulier of zakelijk</a>
+<section class="section tone-day" id="editie" aria-labelledby="editie-t"><div class="wrap">
+  <div class="day-split reveal">
+    <figure class="day-pic"><Photo src="photography/aurora-red-room" alt="Ochtendlicht op kalkpleister in een rustige kamer, een raam open en een rode linnen plaid op een houten bank." sizes="(max-width: 860px) 100vw, 50vw" /></figure>
+    <div class="edition" style="text-align:left;justify-items:start">
+      <span class="eyebrow" id="editie-t">Editie 01 · Bonaire</span>
+      <div class="price num">€17.500</div>
+      <p class="soft">Het volledige traject van zes maanden. Niet de prijs van twee weken. Eigen kamer, privé chef, transfers en excursies.</p>
+      <div class="seats" role="img" aria-label="Zes plekken per editie" style="justify-content:flex-start"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="actions" style="justify-content:flex-start"><a class="btn" href="#gesprek">Een eerste gesprek</a><a class="btn btn--ghost" href="/particulier-of-zakelijk">Particulier of zakelijk</a></div>
     </div>
   </div>
 </div></section>
 
-<section class="section section--s band" aria-labelledby="voor-t"><div class="wrap">
-  <div class="head reveal" style="margin-bottom:0">
-    <div class="stack"><span class="eyebrow" id="voor-t">Je vraagt voor een ander</span><p class="lead">Voor iemand van wie je houdt, of voor iemand in je organisatie. Meedoen blijft een eigen keuze.</p></div>
-    <div class="actions"><a class="btn btn--ghost" href="/voor-naasten">Voor naasten</a><a class="btn btn--ghost" href="/organisaties">Voor organisaties</a></div>
-  </div>
-</div></section>
-
+</div>
 <IntakeSection />
 </Base>
