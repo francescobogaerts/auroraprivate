@@ -68,6 +68,25 @@
     st.addEventListener('click', function(e){ if(moved){ e.preventDefault(); moved = false; } }, true);
   });
 
+  /* Vergelijk: tabs with arrow-key support */
+  document.querySelectorAll('.cmp').forEach(function(sec){
+    var tabs = Array.prototype.slice.call(sec.querySelectorAll('[role="tab"]'));
+    function pick(i, focus){
+      tabs.forEach(function(t, j){
+        var on = i === j; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
+        var p = document.getElementById(t.getAttribute('aria-controls')); if(p){ p.classList.toggle('on', on); if(on) p.classList.add('in'); }
+      });
+      if(focus) tabs[i].focus();
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ pick(i); });
+      t.addEventListener('keydown', function(e){
+        if(e.key === 'ArrowRight'){ e.preventDefault(); pick((i + 1) % tabs.length, true); }
+        if(e.key === 'ArrowLeft'){ e.preventDefault(); pick((i - 1 + tabs.length) % tabs.length, true); }
+      });
+    });
+  });
+
   /* Quiet reveal: sections rise in once */
   var rv = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window && rv.length){

@@ -3,6 +3,7 @@
 import Base from '../layouts/Base.astro';
 import Photo from './Photo.astro';
 import IntakeSection from './IntakeSection.astro';
+import LocCompare from './LocCompare.astro';
 import locations from '../data/locations.json';
 import excursions from '../data/excursions.json';
 import type { LocKey } from '../data/site';
@@ -34,6 +35,8 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
 <section class="section section--tight-top tone-dusk" aria-label={`Sfeer van ${L.name}`}><div class="wrap gallery reveal">
   {L.gallery.map((g) => <Photo src={g.src} alt={g.alt} sizes="(max-width: 760px) 100vw, 55vw" />)}
 </div></section>
+
+<LocCompare current={L.key as LocKey} />
 
 <section class="section tone-dusk" id="veertien" aria-labelledby="dg-t"><div class="wrap">
   <div class="head reveal">

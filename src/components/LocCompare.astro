@@ -1,0 +1,37 @@
+---
+// "Vier keer anders": one theme at a time, the four destinations side by side.
+import data from '../data/compare.json';
+import { LOCATIONS, type LocKey } from '../data/site';
+interface Props { current?: LocKey; tone?: string }
+const { current, tone = 'tone-dusk' } = Astro.props;
+const title = current ? `Zo anders is ${LOCATIONS.find((l) => l.key === current)!.name}.` : 'Vier keer hetzelfde traject. Vier keer anders.';
+const pct = (v: number, a: number, b: number) => Math.max(0, Math.min(100, ((v - a) / (b - a)) * 100));
+---
+<section class:list={['section', tone, 'cmp']} aria-labelledby="cmp-t" data-current={current}><div class="wrap">
+  <div class="head reveal">
+    <div class="stack"><span class="eyebrow">Vergelijk</span><h2 class="h2" id="cmp-t">{title}</h2></div>
+    <div class="cmp-tabs" role="tablist" aria-label="Vergelijk op">
+      {data.tabs.map((t, i) => (
+        <button type="button" role="tab" id={`cmp-tab-${t.key}`} aria-controls={`cmp-p-${t.key}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{t.label}</button>
+      ))}
+    </div>
+  </div>
+  {data.tabs.map((t: any, i) => (
+    <div class:list={['cmp-panel', 'reveal', { on: i === 0 }]} role="tabpanel" id={`cmp-p-${t.key}`} aria-labelledby={`cmp-tab-${t.key}`}>
+      {LOCATIONS.map((l) => {
+        const it = t.items[l.key];
+        return (
+          <a class:list={['cmp-col', { me: current === l.key }]} href={`/${l.key}`} aria-current={current === l.key ? 'page' : undefined}>
+            <span class="cmp-name">{l.name}</span>
+            <span class="cmp-big">{it.big}</span>
+            {t.max && <span class="cmp-bar" aria-hidden="true"><i style={`width:${pct(it.v, 0, t.max)}%`}></i></span>}
+            {t.range && <span class="cmp-axis" aria-hidden="true"><b style={`left:50%`}></b><i style={`left:${pct(it.v, t.range[0], t.range[1])}%`}></i></span>}
+            {t.scale && <span class="cmp-range" aria-hidden="true"><i style={`left:${pct(it.lo, t.scale[0], t.scale[1])}%;right:${100 - pct(it.hi, t.scale[0], t.scale[1])}%`}></i></span>}
+            <span class="cmp-small">{it.small}</span>
+          </a>
+        );
+      })}
+    </div>
+  ))}
+  <p class="credit cmp-note">{data.note}</p>
+</div></section>

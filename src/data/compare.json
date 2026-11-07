@@ -1,0 +1,35 @@
+{
+  "note": "Indicatief, vanaf Amsterdam. Tijdsverschil in de Nederlandse wintertijd.",
+  "tabs": [
+    { "key": "reizen", "label": "Reizen", "unit": "uur", "max": 14,
+      "items": {
+        "bonaire":   { "v": 10,  "big": "± 10 uur", "small": "Direct, dagelijks" },
+        "india":     { "v": 10,  "big": "± 8 + 1 uur", "small": "Via Delhi, dan naar de uitlopers" },
+        "mauritius": { "v": 13,  "big": "± 13 uur", "small": "Eén overstap" },
+        "marbella":  { "v": 3,   "big": "± 3 uur", "small": "Direct naar Málaga" } } },
+    { "key": "tijd", "label": "Tijd", "unit": "uur", "range": [-6, 6],
+      "items": {
+        "bonaire":   { "v": -5,  "big": "−5 uur", "small": "Je dag begint als hier de lunch voorbij is" },
+        "india":     { "v": 4.5, "big": "+4½ uur", "small": "Ochtendstilte als Nederland nog slaapt" },
+        "mauritius": { "v": 3,   "big": "+3 uur", "small": "Bijna geen jetlag" },
+        "marbella":  { "v": 0,   "big": "Zelfde tijd", "small": "Geen jetlag" } } },
+    { "key": "klimaat", "label": "Klimaat", "unit": "°C overdag", "scale": [0, 40],
+      "items": {
+        "bonaire":   { "lo": 28, "hi": 32, "big": "28–32°", "small": "Het hele jaar warm en droog, altijd wind" },
+        "india":     { "lo": 19, "hi": 37, "big": "19–37°", "small": "Seizoenen; koele nachten in de winter" },
+        "mauritius": { "lo": 24, "hi": 30, "big": "24–30°", "small": "Tropisch, warme regen die komt en gaat" },
+        "marbella":  { "lo": 17, "hi": 30, "big": "17–30°", "small": "Mild in de winter, warm in de zomer" } } },
+    { "key": "landschap", "label": "Landschap",
+      "items": {
+        "bonaire":   { "big": "Rif en zoutpan", "small": "Koraal, cactusbos, flamingo’s, open water" },
+        "india":     { "big": "Rivier en mist", "small": "Riviersteen, tempeltreden, gelaagde heuvels" },
+        "mauritius": { "big": "Lagune en basalt", "small": "Jadegroen water, bergpaden, regenwoud" },
+        "marbella":  { "big": "Sierra en zee", "small": "Olijven, wit pleisterwerk, de Middellandse Zee" } } },
+    { "key": "ritme", "label": "Ritme",
+      "items": {
+        "bonaire":   { "big": "De zee bepaalt de dag", "small": "Ochtenden aan het rif, avonden onder een donkere hemel" },
+        "india":     { "big": "Stilte voorop", "small": "Vroeg op, ademwerk, een trager tempo" },
+        "mauritius": { "big": "Zacht en hard", "small": "Lagune in de ochtend, bos en berg in de middag" },
+        "marbella":  { "big": "Dicht bij huis", "small": "Voor wie snel terug moet kunnen" } } }
+  ]
+}
