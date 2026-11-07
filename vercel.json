@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
-  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     {
@@ -43,6 +42,31 @@
       "source": "/pitch",
       "destination": "/intern/pitch.html",
       "permanent": false
+    },
+    {
+      "source": "/aurora-private-:loc(bonaire|india|mauritius|marbella)",
+      "destination": "/:loc",
+      "permanent": true
+    },
+    {
+      "source": "/:loc(bonaire|india|mauritius|marbella)",
+      "destination": "/:loc",
+      "permanent": true
+    },
+    {
+      "source": "/excursie-:loc(bonaire|india|mauritius|marbella)-:slug",
+      "destination": "/:loc/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/aurora-private-:loc(bonaire|india|mauritius|marbella)-excursie-:slug",
+      "destination": "/:loc",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [
