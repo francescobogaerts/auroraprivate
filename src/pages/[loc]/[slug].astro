@@ -30,7 +30,7 @@ const credit = hasStock
   crumbs={[{ name, path: `/${e.loc}` }, { name: e.title, path: `/${e.loc}/${e.slug}` }]}
 >
 <section class="story" aria-labelledby="exc-h">
-<div class="ribbon"><div class="wrap"><span><a href={`/${e.loc}`}>{name}</a> · Excursie {e.order} van {siblings.length}</span><span class="rw">{e.when.split(' · ')[0]}</span></div></div>
+<div class="ribbon"><div class="wrap"><div class="glass glass--bar"><span><a href={`/${e.loc}`}>{name}</a> · Excursie {e.order} van {siblings.length}</span><span class="rw">{e.when.split(' · ')[0]}</span></div></div></div>
 <div class="frames">
   {e.beats.map((b, i) => (
     <div class:list={['beat', { on: i === 0 }]}>

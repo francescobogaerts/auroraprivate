@@ -45,6 +45,18 @@
     window.addEventListener('scroll', solid, {passive:true}); solid();
   }
 
+  /* Header glass follows what is underneath it: dark glass over photography and ink bands */
+  var hdr2 = document.querySelector('.site-head');
+  var darks = document.querySelectorAll('.opening,.interlude,.manifesto,.intake--glass,.story,.band,.next,.site-foot');
+  if(hdr2 && darks.length){
+    var probe = function(){
+      var y = 44, on = false;
+      for(var i = 0; i < darks.length; i++){ var r = darks[i].getBoundingClientRect(); if(r.top <= y && r.bottom > y){ on = true; break; } }
+      hdr2.classList.toggle('over-dark', on && window.scrollY > 10);
+    };
+    window.addEventListener('scroll', probe, {passive:true}); window.addEventListener('resize', probe); probe();
+  }
+
   /* Quiet reveal: sections rise in once */
   var rv = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window && rv.length){
@@ -207,7 +219,6 @@
       Array.prototype.forEach.call(lines, function(l, i){ l.classList.toggle('lit', i === k); l.classList.toggle('past', i < k); });
       if(count) count.textContent = String(k + 1).padStart(2,'0') + ' / ' + String(lines.length).padStart(2,'0');
       if(bar) bar.style.setProperty('--mp', p.toFixed(3));
-      var hdr = document.querySelector('.site-head'); if(hdr) hdr.classList.toggle('over-dark', r.top <= 0 && r.bottom > 80);
     });
   });
 

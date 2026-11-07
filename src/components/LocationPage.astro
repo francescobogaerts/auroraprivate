@@ -19,10 +19,10 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
   <Photo video={L.video ?? undefined} src={L.photo} alt={L.alt} style={`--focal:${L.focal}`} priority />
   <div class="shade" aria-hidden="true"></div>
   <div class="copy"><div class="wrap">
-    <span class:list={['status', { open: L.open }]}><i aria-hidden="true"></i>{L.open ? 'Editie 01 · nu open' : 'Volgende editie · wachtlijst'}</span>
+    <span class:list={['status', 'glass', 'glass--chip', { open: L.open }]}><i aria-hidden="true"></i>{L.open ? 'Editie 01 · nu open' : 'Volgende editie · wachtlijst'}</span>
     <h1 class="name" id="hero-t">{L.name}</h1>
     <p class="sub">{L.tagline}</p>
-    <span class="coords">{L.coords}</span>
+    <span class="coords glass glass--chip">{L.coords}</span>
   </div></div>
   <span class="cue" aria-hidden="true"></span>
 </section>
@@ -79,11 +79,11 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
 <section class="interlude" id="verblijf" aria-labelledby="verblijf-t">
   <Photo src="photography/aurora-red-room" alt="Ochtendlicht op kalkpleister in een rustige kamer, een raam open en een rode linnen plaid op een houten bank." />
   <div class="shade" aria-hidden="true"></div>
-  <div class="copy"><div class="wrap">
+  <div class="copy"><div class="wrap"><div class="glass glass--card">
     <span class="eyebrow">Het verblijf</span>
     <h2 class="statement" id="verblijf-t" style="margin-top:20px">Een eigen kamer. <em>Niets</em> dat afleidt.</h2>
     <p class="meta">Privé chef · Transfers · Wasservice · Telefoon op je kamer, niet in de groep</p>
-  </div></div>
+  </div></div></div>
 </section>
 
 <section class="section" id="editie" aria-labelledby="editie-t"><div class="wrap">
@@ -111,6 +111,6 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
 
 <a class="next" href={`/${N.key}`}>
   <Photo src={N.photo} alt="" style={`--focal:${N.focal}`} />
-  <span class="copy"><span class="eyebrow">Volgende bestemming</span><span class="name">{N.name}</span></span>
+  <span class="copy"><span class="eyebrow glass glass--chip">Volgende bestemming</span><span class="name">{N.name}</span></span>
 </a>
 </Base>

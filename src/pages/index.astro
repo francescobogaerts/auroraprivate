@@ -18,7 +18,7 @@ const hints: Record<string, string> = {
   <div class="copy"><div class="wrap">
     <span class="eyebrow">Een sanctuary, geen kliniek</span>
     <h1 class="display" id="hero-t" style="max-width:none">Zes maanden begeleiding.<br> Veertien dagen keerpunt.</h1>
-    <span class="coords">Bonaire · India · Mauritius · Marbella</span>
+    <span class="coords glass glass--chip">Bonaire · India · Mauritius · Marbella</span>
   </div></div>
   <span class="cue" aria-hidden="true"></span>
 </section>
@@ -62,7 +62,7 @@ const hints: Record<string, string> = {
     {locations.map((l) => (
       <a class="dest" href={`/${l.key}`}>
         <Photo src={l.photo} alt={l.alt} style={`--focal:${l.focal}`} sizes="(max-width: 960px) 50vw, 25vw" />
-        <span class="info">
+        <span class="info glass">
           <span class:list={['status', { open: l.open }]}><i aria-hidden="true"></i>{l.open ? 'Editie 01' : 'Wachtlijst'}</span>
           <h3>{l.name}</h3>
           <span class="hint">{hints[l.key]}</span>
@@ -87,11 +87,11 @@ const hints: Record<string, string> = {
 <section class="interlude" aria-labelledby="verblijf-t">
   <Photo src="photography/aurora-red-room" alt="Ochtendlicht op kalkpleister in een rustige kamer, een raam open en een rode linnen plaid op een houten bank." />
   <div class="shade" aria-hidden="true"></div>
-  <div class="copy"><div class="wrap">
+  <div class="copy"><div class="wrap"><div class="glass glass--card">
     <span class="eyebrow">Het verblijf</span>
     <h2 class="statement" id="verblijf-t" style="margin-top:20px">Een eigen kamer. Een vast ritme. Ruimte voor stilte.</h2>
     <p class="meta">Privé chef · Transfers · Excursies in het ritme</p>
-  </div></div>
+  </div></div></div>
 </section>
 
 <section class="section" id="editie" aria-labelledby="editie-t"><div class="wrap">

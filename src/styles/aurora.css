@@ -602,3 +602,95 @@ h1 em,h2 em,h3 em,.statement em,.display em,.lead em,.m-line em,.name em{font-st
 .site-foot .mark .brand svg{height:64px!important;--sun:var(--first-light)}
 @media (max-width:760px){.site-head .brand svg{height:32px!important}}
 .site-head.is-solid .brand,body:not(.over) .site-head .brand{--sun:var(--red)}.site-head.over-dark .brand,.menu-open .site-head .brand{--sun:currentColor}
+
+/* ===== v3.2 Glass layer (after Runway): frosted panels that float over photography =====
+   Light, cool glass: Salt at 8–14% with a strong blur, a fine light edge and a top highlight.
+   Only on imagery and dark bands; never on the plain Salt ground. Square corners stay. */
+:root{
+  --glass-bg:rgba(236,238,234,.10);
+  --glass-bg-strong:rgba(236,238,234,.14);
+  --glass-edge:rgba(236,238,234,.24);
+  --glass-hi:inset 0 1px 0 rgba(255,255,255,.22),inset 0 0 0 1px rgba(255,255,255,.04);
+  --glass-blur:blur(22px) saturate(1.35);
+  --glass-light-bg:rgba(250,250,247,.62);
+  --glass-light-edge:rgba(30,38,36,.10);
+}
+.glass{background:var(--glass-bg);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-edge);box-shadow:var(--glass-hi),0 24px 60px -30px rgba(10,14,13,.45);color:var(--salt)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgba(30,38,36,.62)}}
+.glass--chip{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;line-height:1;box-shadow:var(--glass-hi);text-shadow:none}
+.glass--card{display:inline-grid;gap:0;padding:clamp(24px,3vw,40px) clamp(24px,3.4vw,48px);max-width:min(620px,100%);text-shadow:none}
+.glass--bar{display:flex;justify-content:space-between;align-items:center;gap:18px;width:100%;padding:12px 18px}
+
+/* Hero chips */
+.opening .copy .status.glass{margin-bottom:6px}
+.opening .coords.glass{margin-top:var(--s5);color:var(--salt)}
+.opening .coords.glass::before{display:none}
+
+/* Header: a floating glass bar over imagery, light glass once scrolled */
+.site-head{padding:12px clamp(10px,2vw,24px) 0;background:transparent!important;border-bottom:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.over .site-head::before{display:none!important}
+.site-head .bar{border:1px solid transparent;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease);min-height:64px}
+body.over .site-head:not(.is-solid) .bar,.site-head.over-dark .bar{background:var(--glass-bg);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border-color:var(--glass-edge);box-shadow:var(--glass-hi)}
+.site-head.is-solid:not(.over-dark) .bar,body:not(.over) .site-head:not(.over-dark) .bar{background:var(--glass-light-bg);-webkit-backdrop-filter:blur(22px) saturate(1.4);backdrop-filter:blur(22px) saturate(1.4);border-color:var(--glass-light-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 18px 40px -28px rgba(30,38,36,.35)}
+.menu-open .site-head .bar{background:transparent!important;border-color:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
+.site-head .progress{left:1px;right:1px;width:auto;bottom:0}
+.quick-exit{border-color:color-mix(in srgb,currentColor 30%,transparent)}
+:root{--head-h:88px}
+.legal-page{padding-top:calc(var(--head-h) + clamp(48px,7vw,96px))}
+
+/* Destination cards: frosted caption plate */
+.dest::after{opacity:.55}
+.dest .info.glass{left:12px;right:12px;bottom:12px;padding:16px 18px;gap:8px;inset:auto 12px 12px 12px}
+.dest:hover .info.glass{background:var(--glass-bg-strong)}
+
+/* Interlude: copy on a glass card */
+.interlude .copy .glass--card .statement{margin-top:16px!important;font-size:clamp(1.6rem,1.1rem + 1.8vw,2.7rem)}
+.interlude .copy .glass--card .meta{margin-top:14px}
+
+/* Next destination chip */
+.next .eyebrow.glass{color:var(--salt)}
+
+/* Excursion ribbon as a glass bar */
+.ribbon .wrap{border-top:0;padding-block:12px}
+.ribbon{pointer-events:auto}
+
+/* Consultation on photography: glass text column + glass form */
+.intake--glass{position:relative;color:var(--salt);overflow:hidden;background:var(--band)}
+.intake--glass > .photo.bg{position:absolute;inset:0}
+.intake--glass > .photo.bg img{transform:scale(1.06);filter:saturate(.9)}
+.intake--glass > .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,26,25,.35),rgba(20,26,25,.55))}
+.intake--glass > .wrap{position:relative}
+.intake--glass .eyebrow,.intake--glass .soft{color:color-mix(in srgb,var(--salt) 82%,transparent)}
+.intake--glass .h2{color:var(--salt)}
+.intake--glass .trust li{color:color-mix(in srgb,var(--salt) 85%,transparent)}
+.intake--glass .trust li::before{background:var(--first-light)}
+.intake--glass .vault{background:var(--glass-bg);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-edge);box-shadow:var(--glass-hi),0 40px 80px -40px rgba(10,14,13,.6)}
+.intake--glass .vault .bar{border-bottom-color:var(--glass-edge);color:color-mix(in srgb,var(--salt) 80%,transparent)}
+.intake--glass .vault .bar .chip{color:color-mix(in srgb,var(--salt) 60%,transparent)}
+.intake--glass .vault .bar .dot{background:var(--first-light);box-shadow:0 0 0 4px rgba(216,187,166,.2)}
+.intake--glass legend,.intake--glass label{color:color-mix(in srgb,var(--salt) 78%,transparent)!important}
+.intake--glass .chips label{color:var(--salt)!important;border-color:var(--glass-edge);background:rgba(236,238,234,.04)}
+.intake--glass .chips label:hover{border-color:rgba(236,238,234,.5)}
+.intake--glass .chips input:checked+label{background:var(--salt);border-color:var(--salt);color:var(--ink)!important}
+.intake--glass input[type=text],.intake--glass select,.intake--glass textarea{color:var(--salt);border-bottom-color:rgba(236,238,234,.4)}
+.intake--glass input:focus,.intake--glass select:focus,.intake--glass textarea:focus{border-bottom-color:var(--salt)}
+.intake--glass select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23ECEEEA'/%3E%3C/svg%3E")}
+.intake--glass select option{color:var(--ink)}
+.intake--glass textarea::placeholder{color:rgba(236,238,234,.5)}
+.intake--glass .note{color:color-mix(in srgb,var(--salt) 75%,transparent)}
+.intake--glass .note a{color:var(--salt)}
+.intake--glass .btn{background:var(--salt);color:var(--ink);border-color:var(--salt)}
+.intake--glass .btn:hover{background:transparent;color:var(--salt)}
+.intake--glass .btn--ghost{background:transparent;color:var(--salt);border-color:var(--glass-edge)}
+.intake--glass .prepared{background:rgba(236,238,234,.08);border-color:var(--glass-edge);color:var(--salt)}
+.intake--glass .form-status{color:color-mix(in srgb,var(--salt) 80%,transparent)}
+
+/* Menu overlay gets a glass link list over its photo on wide screens */
+.nav .pic::after{background:linear-gradient(90deg,var(--band),rgba(30,38,36,.2) 40%)}
+
+@media (max-width:760px){
+  .site-head{padding:8px 8px 0}
+  .dest .info.glass{inset:auto 8px 8px 8px;padding:12px}
+  .glass--card{padding:22px}
+}
+@media (max-width:520px){.opening .coords.glass{letter-spacing:.12em;font-size:.6rem;padding:9px 12px;white-space:nowrap}}

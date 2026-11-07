@@ -1,11 +1,15 @@
 ---
 import Intake from './Intake.astro';
+import Photo from './Photo.astro';
 import type { LocKey } from '../data/site';
 interface Props { loc?: LocKey; title?: string; lead?: string }
 const { loc = 'bonaire', title = 'Je hoeft nog niet alle antwoorden te hebben.', lead = 'Vertrouwelijk en vrijblijvend, via het kanaal dat jij kiest.' } = Astro.props;
 ---
-<section class="section paper intake" id="gesprek" aria-labelledby="gesprek-t"><div class="wrap split">
-  <div class="stack reveal">
+<section class="section intake intake--glass" id="gesprek" aria-labelledby="gesprek-t">
+  <Photo src="photography/aurora-red-sea" alt="" class="bg" style="--focal:50% 70%" />
+  <div class="shade" aria-hidden="true"></div>
+  <div class="wrap split">
+  <div class="stack reveal on-dark">
     <span class="eyebrow">Een eerste gesprek</span>
     <h2 class="h2" id="gesprek-t">{title}</h2>
     <p class="soft">{lead}</p>
