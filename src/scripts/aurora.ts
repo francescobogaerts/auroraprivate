@@ -52,14 +52,12 @@
     rv.forEach(function(el){ var r = el.getBoundingClientRect(); if(r.top < innerHeight) el.classList.add('in'); else io.observe(el); });
   } else rv.forEach(function(el){ el.classList.add('in'); });
 
-  /* Herken je dit? */
-  var rb = Array.prototype.slice.call(document.querySelectorAll('.recog button'));
-  rb.forEach(function(b){
-    b.addEventListener('click', function(){
-      rb.forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
-      document.querySelectorAll('.answer').forEach(function(a){ a.hidden = true; });
-      var a = document.getElementById('a-' + b.dataset.k); if(a){ a.hidden = false; }
-      var who = {n:'wie-naaste', o:'wie-org'}[b.dataset.k] || 'wie-zelf';
+  /* Herken je dit? — native <details>, one open; picking a line preselects who the enquiry is for */
+  document.querySelectorAll('details.rc').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if(!d.open) return;
+      document.querySelectorAll('details.rc').forEach(function(x){ if(x !== d) x.open = false; });
+      var who = {n:'wie-naaste', o:'wie-org'}[d.getAttribute('data-k')] || 'wie-zelf';
       var r = document.getElementById(who); if(r) r.checked = true;
     });
   });
@@ -195,19 +193,21 @@
     var p = v.play(); if(p && p.catch) p.catch(function(){});
   });
 
-  /* Pinned manifesto */
+  /* Pinned manifesto: one line at a time */
   document.querySelectorAll('.manifesto').forEach(function(sec){
     var lines = sec.querySelectorAll('.m-line'); if(!lines.length || still) return;
     sec.style.setProperty('--n', lines.length);
     sec.classList.add('is-pinned');
-    var count = sec.querySelector('.count');
+    var count = sec.querySelector('.count'), bar = sec.querySelector('.m-bar');
     onScroll.push(function(){
       var r = sec.getBoundingClientRect();
       var span = sec.offsetHeight - innerHeight;
       var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 1;
-      var lit = Math.min(lines.length, Math.floor(p * (lines.length + .35)) + 1);
-      Array.prototype.forEach.call(lines, function(l, i){ l.classList.toggle('lit', i < lit); });
-      if(count) count.textContent = String(lit).padStart(2,'0') + ' / ' + String(lines.length).padStart(2,'0');
+      var k = Math.min(lines.length - 1, Math.floor(p * lines.length));
+      Array.prototype.forEach.call(lines, function(l, i){ l.classList.toggle('lit', i === k); l.classList.toggle('past', i < k); });
+      if(count) count.textContent = String(k + 1).padStart(2,'0') + ' / ' + String(lines.length).padStart(2,'0');
+      if(bar) bar.style.setProperty('--mp', p.toFixed(3));
+      var hdr = document.querySelector('.site-head'); if(hdr) hdr.classList.toggle('over-dark', r.top <= 0 && r.bottom > 80);
     });
   });
 
