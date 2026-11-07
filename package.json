@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/postbuild.mjs && node scripts/check-links.mjs",
+    "build": "node scripts/check-redirects.mjs && astro build && node scripts/postbuild.mjs && node scripts/check-links.mjs",
     "og": "node scripts/og.mjs",
     "preview": "astro preview",
     "check": "node scripts/check-links.mjs"

@@ -49,11 +49,6 @@
       "permanent": true
     },
     {
-      "source": "/:loc(bonaire|india|mauritius|marbella)",
-      "destination": "/:loc",
-      "permanent": true
-    },
-    {
       "source": "/excursie-:loc(bonaire|india|mauritius|marbella)-:slug",
       "destination": "/:loc/:slug",
       "permanent": true
