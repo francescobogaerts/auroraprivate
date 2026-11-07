@@ -15,26 +15,22 @@ const arrow = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d=
 const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.tagline} Veertien dagen op locatie binnen het traject van zes maanden.`;
 ---
 <Base title={`AURORA Private ${L.name}`} description={desc} current={L.key as LocKey} og={L.key} crumbs={[{ name: L.name, path: `/${L.key}` }]}>
-<section class="opening" aria-labelledby="hero-t" style={`--loc:var(--${L.key})`}>
-  <Photo video={L.video ?? undefined} src={L.photo} alt={L.alt} style={`--focal:${L.focal}`} priority />
-  <div class="shade" aria-hidden="true"></div>
-  <div class="copy"><div class="wrap">
-    <span class:list={['status', 'glass', 'glass--chip', { open: L.open }]}><i aria-hidden="true"></i>{L.open ? 'Editie 01 · nu open' : 'Volgende editie · wachtlijst'}</span>
-    <h1 class="name" id="hero-t">{L.name}</h1>
-    <p class="sub">{L.tagline}</p>
-    <span class="coords glass glass--chip">{L.coords}</span>
-  </div></div>
-  <span class="cue" aria-hidden="true"></span>
+<section class="sky sky--loc" data-scene={L.key} aria-labelledby="hero-t">
+  <div class="sky-in">
+    <Photo src={L.photo} alt={L.alt} class="sky-photo" style={`--focal:${L.focal}`} priority />
+    <span class:list={['eyebrow', 'status', { open: L.open }]}><i aria-hidden="true"></i>{L.open ? 'Editie 01 · nu open' : 'Volgende editie · wachtlijst'}</span>
+    <h1 class="sky-word" id="hero-t">{L.name.toUpperCase()}</h1>
+    <div class="horizon" aria-hidden="true"><span class="glow"></span><span class="sun"></span><span class="line"></span><span class="glint g1"></span><span class="glint g2"></span><span class="glint g3"></span></div>
+    <div class="sky-lines" aria-label={L.region}>
+      <p>{L.place}</p>
+      <p>{L.lede}</p>
+      <p class="sky-sub">{L.tagline}<br><em>{L.coords}</em></p>
+    </div>
+  </div>
+  <span class="sky-scroll" aria-hidden="true">Scroll naar het eerste licht · raak het water aan</span>
 </section>
 
 <div class="dawn">
-<section class="section tone-night" aria-labelledby="intro-t"><div class="wrap still reveal">
-  <span class="eyebrow" id="intro-t">{L.region}</span>
-  <p class="statement">{L.place}</p>
-  <span class="rule" aria-hidden="true"></span>
-  <p class="soft">{L.lede}</p>
-</div></section>
-
 <section class="section section--tight-top tone-dusk" aria-label={`Sfeer van ${L.name}`}><div class="wrap gallery reveal">
   {L.gallery.map((g) => <Photo src={g.src} alt={g.alt} sizes="(max-width: 760px) 100vw, 55vw" />)}
 </div></section>
@@ -110,6 +106,9 @@ const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.taglin
 
 </div>
 <IntakeSection loc={L.key as LocKey} />
+<script>
+  import '../scripts/sunrise.ts';
+</script>
 
 <a class="next" href={`/${N.key}`}>
   <Photo src={N.photo} alt="" style={`--focal:${N.focal}`} />

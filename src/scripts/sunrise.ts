@@ -14,7 +14,10 @@ const FRAG = `
 precision highp float;
 uniform vec2 uRes; uniform float uTime; uniform float uRise; uniform float uHorizon;
 uniform float uYaw; uniform float uSunAz; uniform float uClock; uniform vec4 uRip[8];
+// scene: 0 open sea (home), 1 Bonaire, 2 India, 3 Mauritius, 4 Marbella
+uniform float uScene; uniform vec3 uWater; uniform vec3 uShallow; uniform float uHaze; uniform float uWave;
 #define PI 3.14159265
+bool isScene(float k){ return abs(uScene - k) < .5; }
 const float RP = 6371e3; const float RA = 6471e3;
 const vec3 kRlh = vec3(5.5e-6, 13.0e-6, 22.4e-6); const float kMie = 21e-6;
 const float shRlh = 8e3; const float shMie = 1.2e3; const float gMie = .76;
@@ -80,10 +83,10 @@ vec3 sky(vec3 rd, vec3 sd, bool cheap){
   // the disc itself (slightly larger than life), limb darkened
   float cs = dot(r, sd);
   float ang = acos(clamp(cs, -1., 1.));
-  float R = 0.019;
+  float R = isScene(2.) ? 0.027 : 0.019;
   float disc = smoothstep(R, R*0.92, ang);
   float limb = clamp(ang / R, 0., 1.);
-  vec3 sl = sunLight(sd);
+  vec3 sl = sunLight(sd) * (isScene(2.) ? vec3(1., .62, .42) : vec3(1.));
   if(!cheap) col += disc * (sl + vec3(.02,.004,.002)) * mix(vec3(70.), vec3(30.), limb*limb) * step(0.0, rd.y);
   return col;
 }
@@ -126,13 +129,81 @@ float waves(vec2 pos, int it){
 vec3 oceanNormal(vec2 p, float dist){
   int it = dist < 60. ? 18 : (dist < 300. ? 12 : 7);
   float e = 0.02 + dist * 0.0015;
-  float H = 0.55;
+  float H = uWave;
   float c = waves(p, it) * H;
   float dx = waves(p + vec2(e, 0.), it) * H;
   float dz = waves(p + vec2(0., e), it) * H;
   return normalize(vec3(c - dx, e, c - dz));
 }
 
+// ---- land on the horizon, one signature per destination ----
+float landH(float a){
+  if(isScene(1.)){ // Bonaire: Klein Bonaire, a low flat island to the left
+    float isl = .011 * smoothstep(-.66, -.58, a) * (1. - smoothstep(-.30, -.22, a));
+    return isl > .0005 ? isl + .0012 * noise(vec2(a * 60., 1.)) : -1.;
+  }
+  if(isScene(2.)) return .050 + .028 * fbm(vec2(a * 4.5, 1.7));          // India: far foothills
+  if(isScene(3.)){ // Mauritius: Le Morne, a sheer basalt block with a sloping shoulder, to the right
+    float body = smoothstep(.22, .30, a) * (1. - smoothstep(.47, .50, a));
+    float top = .092 + .016 * smoothstep(.26, .46, a);
+    float pk = body * top;
+    pk = max(pk, .040 * smoothstep(.12, .24, a) * (1. - smoothstep(.24, .30, a)));
+    pk = max(pk, .028 * (1. - smoothstep(.48, .90, a)) * step(.46, a));
+    pk += .006 * fbm(vec2(a * 22., 2.)) * step(.003, pk);
+    return pk > .004 ? pk : -1.;
+  }
+  if(isScene(4.)){ // Marbella: Sierra ridge on the right, the Rock far left
+    float r = (.050 * smoothstep(.02, .30, a) + .045 * exp(-pow((a - .46) / .055, 2.))) * (.82 + .30 * fbm(vec2(a * 7., 3.))) * (1. - smoothstep(.85, 1.1, a));
+    float rock = .022 * exp(-pow((a + .56) / .040, 2.)) * (1. + .2 * noise(vec2(a * 90., 4.)));
+    float hh = max(r, rock);
+    return hh > .003 ? hh : -1.;
+  }
+  return -1.;
+}
+float landH2(float a){ // India: a nearer, darker ridge
+  return isScene(2.) ? .024 + .018 * fbm(vec2(a * 10., 7.)) : -1.;
+}
+vec3 withLand(vec3 col, vec3 rd, vec3 sd){
+  float a = atan(rd.x, rd.z);
+  float lh = landH(a);
+  if(lh > 0. && rd.y < lh){
+    vec3 hz = sky(normalize(vec3(rd.x, .003, rd.z)), sd, true);
+    float far = isScene(2.) ? .62 : (isScene(1.) ? .30 : .38);
+    vec3 land = hz * (1. - far) * .18 + hz * far * .55 + vec3(.006, .008, .010);
+    land += sunLight(sd) * exp(-(lh - rd.y) * 260.) * .25;   // rim light on the ridge
+    col = land;
+  }
+  float l2 = landH2(a);
+  if(l2 > 0. && rd.y < l2){
+    vec3 hz = sky(normalize(vec3(rd.x, .003, rd.z)), sd, true);
+    col = hz * .30 + vec3(.004, .006, .008);
+  }
+  if(isScene(1.)){ // Bonaire: the white salt pyramids of the south, catching the first pink light
+    float pyr = -1., cb = 0.;
+    for(int i = 0; i < 6; i++){
+      float fi = float(i);
+      float c = .34 + fi * .036 + .014 * sin(fi * 7.1) + .01 * h2(vec2(fi, 2.));
+      float w = .014 + .009 * h2(vec2(fi, 5.));
+      float hh = (w - abs(a - c)) * (.50 + .12 * h2(vec2(fi, 8.)));
+      if(hh > pyr){ pyr = hh; cb = c; }
+    }
+    pyr -= .0006 * noise(vec2(a * 400., 1.));
+    if(pyr > 0. && rd.y < pyr){
+      vec3 hz = sky(normalize(vec3(rd.x, .003, rd.z)), sd, true);
+      float lit = a < cb ? .34 : .12;   // the face turned to the sun
+      col = hz * 1.22 + sunLight(sd) * lit + vec3(.022, .018, .020);
+      col = mix(col, hz, .12);          // distance haze
+    }
+  }
+  if(isScene(4.) && rd.y < .0045 && a > -.05 && a < .95){ // Marbella: the coast road still lit
+    float cell = floor(a * 520.);
+    float on = step(.80, h2(vec2(cell, 3.)));
+    float cx = (cell + .5) / 520.;
+    float d = length(vec2((a - cx) * 520., (rd.y - .0018 - .0012 * h2(vec2(cell, 9.))) * 900.));
+    col += vec3(1., .72, .42) * on * exp(-d * d * 1.6) * 2.2 * (1. - smoothstep(.15, .7, uRise)) * (.7 + .3 * sin(uTime * 3. + cell));
+  }
+  return col;
+}
 vec3 aces(vec3 x){ return clamp((x*(2.51*x+0.03))/(x*(2.43*x+0.59)+0.14), 0., 1.); }
 
 void main(){
@@ -155,8 +226,9 @@ void main(){
     vec3 s = sky(rd, sd, false);
     vec4 c = clouds(rd, sd, s);
     col = mix(s, c.rgb, c.a);
+    col = withLand(col, rd, sd);
     // haze band low on the horizon
-    col = mix(col, sky(vec3(rd.x, 0.003, rd.z), sd, true) * 1.05, exp(-rd.y * 60.0) * 0.55);
+    col = mix(col, sky(vec3(rd.x, 0.003, rd.z), sd, true) * 1.05, exp(-rd.y * 60.0 / uHaze) * min(0.55 * uHaze, 0.85));
     // lens glare around the sun
     float g = max(dot(rd, sd), 0.0);
     col += sunLight(sd) * (pow(g, 2200.0) * 40.0 + pow(g, 260.0) * 2.4 + pow(g, 30.0) * 0.25) * smoothstep(-0.03, 0.02, sd.y);
@@ -181,17 +253,28 @@ void main(){
     n = normalize(mix(n, vec3(0,1,0), smoothstep(200., 2200., t)));
     vec3 refl = reflect(rd, n); refl.y = max(abs(refl.y), 0.015);
     float fres = 0.02 + 0.98 * pow(1.0 - max(dot(n, -rd), 0.0), 5.0);
-    vec3 skyR = sky(refl, sd, true);
+    vec3 skyR = withLand(sky(refl, sd, true), refl, sd);
     vec4 cl = clouds(refl, sd, skyR); skyR = mix(skyR, cl.rgb, cl.a * 0.8);
     vec3 sl = sunLight(sd);
     vec3 water = vec3(0.004, 0.016, 0.022) * (0.25 + 2.5 * max(sd.y + 0.05, 0.0)) + sl * 0.012 * max(n.y,0.);
-    col = mix(water, skyR * 0.72, fres);
+    // shallow, clear water near the viewer (Bonaire, Mauritius)
+    float near = exp(-t * 0.028);
+    water = mix(water, uShallow * (0.08 + 1.6 * max(sd.y + 0.04, 0.0)) + uShallow * sl * 0.18, near * step(0.001, uShallow.r + uShallow.g + uShallow.b));
+    water *= uWater;
+    col = mix(water, skyR * 0.72, fres * (1.0 - near * 0.35 * step(0.001, uShallow.g)));
+    // Mauritius: surf on the reef
+    if(isScene(3.)){
+      float band = smoothstep(52., 60., t) * (1. - smoothstep(66., 78., t));
+      float f = smoothstep(.45, .85, noise(vec2(pos.x * .22 + uTime * .15, pos.z * .05)) * (.6 + .4 * sin(uTime * 1.3 + pos.x * .05)));
+      col = mix(col, (sl * 0.9 + skyR * 0.5), band * f * 0.75);
+    }
     // sun glitter: tight specular + broader sheen
     float sp = max(dot(refl, sd), 0.0);
     col += sl * (pow(sp, 1400.0) * 180.0 + pow(sp, 120.0) * 1.4) * smoothstep(-0.02, 0.02, sd.y);
     // aerial perspective
     vec3 hz = sky(normalize(vec3(rd.x, 0.002, rd.z)), sd, true);
-    col = mix(col, hz, 1.0 - exp(-t * 0.0011));
+    col = mix(col, hz, 1.0 - exp(-t * 0.0011 * uHaze));
+    if(isScene(2.)) col = mix(col, hz * 1.1, exp(-(-rd.y) * 45.) * 0.6); // river mist
   }
   // exposure follows the light, ACES, slight grade toward the brand dawn
   float expo = mix(2.2, 0.5, smoothstep(-0.10, 0.08, sd.y));
@@ -230,6 +313,15 @@ function init(){
       const loc = gl.getAttribLocation(prog, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
       const U = (n) => gl.getUniformLocation(prog, n);
       const uRes = U('uRes'), uTime = U('uTime'), uRise = U('uRise'), uHor = U('uHorizon');
+      const SCENES = {
+        home:      { k: 0, water: [1, 1, 1],       shallow: [0, 0, 0],             haze: 1.0, wave: .55 },
+        bonaire:   { k: 1, water: [.9, 1.08, 1.12], shallow: [.012, .110, .115],    haze: .75, wave: .42 },
+        india:     { k: 2, water: [1.1, 1.0, .85], shallow: [0, 0, 0],             haze: 2.4, wave: .14 },
+        mauritius: { k: 3, water: [.9, 1.1, 1.0],  shallow: [.012, .070, .055],    haze: 1.1, wave: .30 },
+        marbella:  { k: 4, water: [.85, .95, 1.2], shallow: [0, 0, 0],             haze: .9,  wave: .50 },
+      };
+      const SC = SCENES[sky.getAttribute('data-scene') || 'home'] || SCENES.home;
+      const uScene = U('uScene'), uWater = U('uWater'), uShallow = U('uShallow'), uHaze = U('uHaze'), uWave = U('uWave');
       const uYaw = U('uYaw'), uSunAz = U('uSunAz'), uClock = U('uClock'), uRip = U('uRip');
       // pointer: look around, sun follows a little, ripples on the water
       const look = { x: 0, y: 0, tx: 0, ty: 0 };
@@ -280,6 +372,8 @@ function init(){
         gl.uniform1f(uSunAz, look.x * 0.13);
         gl.uniform1f(uClock, clock());
         gl.uniform4fv(uRip, rips);
+        gl.uniform1f(uScene, SC.k); gl.uniform3fv(uWater, SC.water); gl.uniform3fv(uShallow, SC.shallow);
+        gl.uniform1f(uHaze, SC.haze); gl.uniform1f(uWave, SC.wave);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       };
       // render only while the hero is on screen
@@ -308,7 +402,8 @@ function init(){
     .fromTo('.sky-word', { letterSpacing: '0.34em' }, { letterSpacing: '0.24em', duration: 1 }, 0);
   const lines = gsap.utils.toArray('.sky-lines p:not(.sky-sub)');
   lines.forEach((el, i) => {
-    const at = .08 + i * .17;
+    const step = Math.min(.17, .66 / Math.max(lines.length, 1));
+    const at = .08 + i * step;
     tl.fromTo(el, { autoAlpha: 0, y: 18, filter: 'blur(6px)' }, { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: .06 }, at)
       .to(el, { autoAlpha: 0, y: -14, filter: 'blur(6px)', duration: .06 }, at + .12);
   });

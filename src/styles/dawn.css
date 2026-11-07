@@ -220,3 +220,16 @@ html.lenis,html.lenis body{height:auto}
 
 .sky.has-gl{cursor:crosshair}
 .sky-hint{position:absolute;left:0;right:0;bottom:30px;z-index:2;text-align:center;font:500 var(--fs-label)/1 var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;color:rgba(236,238,234,.55);pointer-events:none}
+
+/* Destination sunrises */
+.sky--loc{height:480vh;height:480svh}
+@media (max-width:760px){.sky--loc{height:420vh;height:420svh}}
+.sky--loc .sky-word{letter-spacing:.3em!important;margin-right:-.3em}
+.sky--loc .eyebrow.status{display:inline-flex;gap:10px;align-items:center;color:color-mix(in srgb,var(--salt) 75%,transparent)}
+.sky--loc .sky-sub em{font-family:var(--font-body);font-style:normal;font-size:.7em;letter-spacing:.24em;text-transform:uppercase;color:color-mix(in srgb,var(--salt) 70%,transparent)}
+
+/* Destination fallback: the photograph when there is no WebGL or motion is reduced */
+.sky-in > .sky-photo{position:absolute;inset:0;z-index:0}
+.sky-in > .sky-photo::after{content:"";position:absolute;inset:0;background:var(--veil)}
+.sky.has-gl .sky-in > .sky-photo{display:none}
+.sky--loc:not(.has-gl) .horizon{visibility:hidden}
