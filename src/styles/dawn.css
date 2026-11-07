@@ -185,3 +185,19 @@
 .horizon .sun{width:clamp(56px,5.2vw,92px)}
 .horizon .glow{width:min(70vw,900px);height:34vh;background:radial-gradient(50% 50% at 50% 70%,rgba(216,187,166,.42),rgba(151,85,92,.14) 45%,transparent 72%)}
 @media (max-width:760px){.horizon .glow{width:140vw}}
+
+/* Cinematic sunrise: WebGL layer under the type; CSS sun becomes the fallback */
+.sky-gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+.sky.has-gl .horizon .sun,.sky.has-gl .horizon .glow,.sky.has-gl .horizon .glint{display:none}
+.sky.has-gl .horizon .line{opacity:.35}
+.sky.has-gl .sky-in{background:#0a0f0f}
+.sky.has-gl .sky-word{background:linear-gradient(180deg,rgba(250,246,240,1),rgba(240,232,222,.96));-webkit-background-clip:text;background-clip:text;text-shadow:none;filter:drop-shadow(0 1px 2px rgba(40,20,16,.35)) drop-shadow(0 4px 28px rgba(30,16,14,.4))}
+.sky.has-gl .sky-sub{text-shadow:0 1px 18px rgba(10,14,13,.55)}
+.sky.has-gl .sky-sub em{color:#F3D9C6}
+.sky{height:260vh;height:260svh}
+.sky{height:420vh;height:420svh}
+.sky-lines{position:relative;z-index:2;display:grid;grid-template-areas:"l";justify-items:center;margin-top:5vh;min-height:7em;width:100%}
+.sky-lines p{grid-area:l;max-width:24ch;font:400 clamp(1.5rem,1rem + 1.8vw,2.6rem)/1.2 var(--font-display);color:var(--salt);text-shadow:0 1px 18px rgba(10,14,13,.6);text-wrap:balance}
+.sky-lines p em{color:#F3D9C6}
+.sky-lines .sky-sub{margin-top:0;font-size:clamp(1.15rem,.95rem + .8vw,1.7rem)}
+@media (prefers-reduced-motion:reduce){.sky{height:auto}.sky-in{position:relative;height:auto;min-height:100svh;padding:18vh 0 12vh}.sky-lines{grid-template-areas:none;gap:18px}.sky-lines p{grid-area:auto}}

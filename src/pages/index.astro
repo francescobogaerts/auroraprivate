@@ -24,20 +24,18 @@ const hints: Record<string, string> = {
       <span class="line"></span>
       <span class="glint g1"></span><span class="glint g2"></span><span class="glint g3"></span>
     </div>
-    <p class="sky-sub">Zes maanden begeleiding.<br><em>Veertien dagen keerpunt.</em></p>
+    <div class="sky-lines" aria-label="Een sanctuary, geen kliniek">
+      <p>Je hebt het al gevoeld, lang voordat iemand anders het zag.</p>
+      <p>Dit is geen diagnose. Het is een <em>keuze</em>, op jouw moment.</p>
+      <p>Geen wachtkamer. Geen dossier. Geen naam op een lijst.</p>
+      <p>Alleen ruimte, en de tijd om weer bij jezelf te komen.</p>
+      <p class="sky-sub">Zes maanden begeleiding.<br><em>Veertien dagen keerpunt.</em></p>
+    </div>
   </div>
   <span class="sky-scroll" aria-hidden="true">Scroll naar het eerste licht</span>
 </section>
 
-<section class="manifesto tone-night" aria-label="Een sanctuary, geen kliniek"><div class="pin"><div class="wrap">
-  <div class="lines">
-    <p class="m-line">Je hebt het al gevoeld, lang voordat iemand anders het zag.</p>
-    <p class="m-line">Dit is geen diagnose. Het is een <em>keuze</em>, op jouw moment.</p>
-    <p class="m-line">Geen wachtkamer. Geen dossier. Geen naam op een lijst.</p>
-    <p class="m-line">Alleen ruimte, en de tijd om weer bij jezelf te komen.</p>
-  </div>
-  <div class="m-foot" aria-hidden="true"><span class="count"></span><span class="m-bar"><i></i></span></div>
-</div></div></section>
+
 
 <section class="section tone-dusk" id="bestemmingen" aria-labelledby="best-t">
   <div class="wrap head reveal">
@@ -100,4 +98,7 @@ const hints: Record<string, string> = {
 
 </div>
 <IntakeSection />
+<script>
+  import '../scripts/sunrise.ts';
+</script>
 </Base>

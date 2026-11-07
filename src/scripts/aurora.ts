@@ -57,12 +57,8 @@
     window.addEventListener('scroll', probe, {passive:true}); window.addEventListener('resize', probe); probe();
   }
 
-  /* Design B: the sun rises behind AURORA as you leave the night */
-  var sky = document.querySelector('.sky');
-  if(sky && !still){
-    var riseUpd = function(){ var span = sky.offsetHeight - innerHeight; var p = Math.min(1, Math.max(0, window.scrollY / Math.max(1, span * .85))); sky.style.setProperty('--rise', (0.04 + p * 0.96).toFixed(3)); };
-    window.addEventListener('scroll', riseUpd, {passive:true}); riseUpd();
-  }
+  /* Sunrise hero: driven by src/scripts/sunrise.ts (GSAP + WebGL) */
+
   /* Drag to scroll the destination strip (mouse only; touch scrolls natively) */
   document.querySelectorAll('.strip').forEach(function(st){
     var down = false, x0 = 0, s0 = 0, moved = false;
