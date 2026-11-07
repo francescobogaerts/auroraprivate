@@ -1,0 +1,15 @@
+---
+import Photo from './Photo.astro';
+interface Props { photo: string; alt: string; eyebrow: string; title: string; sub?: string; focal?: string; coords?: string }
+const { photo, alt, eyebrow, title, sub, focal, coords } = Astro.props;
+---
+<section class="opening opening--sub" aria-labelledby="hero-t">
+  <Photo src={photo} alt={alt} style={focal ? `--focal:${focal}` : undefined} priority />
+  <div class="shade" aria-hidden="true"></div>
+  <div class="copy"><div class="wrap">
+    <span class="eyebrow">{eyebrow}</span>
+    <h1 class="display" id="hero-t">{title}</h1>
+    {sub && <p class="sub">{sub}</p>}
+    {coords && <span class="coords">{coords}</span>}
+  </div></div>
+</section>

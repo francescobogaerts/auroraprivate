@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Boundary from '../components/Boundary.astro';
+import IntakeSection from '../components/IntakeSection.astro';
+---
+<Base title="Voor naasten · AURORA Private" description="Je ziet het bij iemand van wie je houdt. Hoe je het gesprek begint, wat je wel en niet kunt doen, en hoe je een eerste gesprek aanvraagt." og="naasten" crumbs={[{ name: 'Voor naasten', path: '/voor-naasten' }]}>
+<PageHero photo="img/india-courtyard" alt="Een stille binnenplaats in de ochtend, een koperen kruik met bloemen op de stenen vloer." eyebrow="Voor naasten" title="Je ziet het bij iemand van wie je houdt." sub="Je kunt het niet voor een ander oplossen. Je kunt wel de eerste stap makkelijker maken." focal="50% 70%" />
+
+<section class="section" aria-labelledby="b-t"><div class="wrap">
+  <span class="eyebrow">Het gesprek beginnen</span>
+  <h2 class="h2" id="b-t" style="margin-top:16px;max-width:20ch">Zonder ultimatum. Zonder diagnose.</h2>
+  <ol class="steps">
+    <li><div><h3>Kies een rustig moment</h3><p>Niet na een ruzie, niet als er gedronken is, niet tussen twee afspraken door. Een wandeling of een autorit werkt vaak beter dan tegenover elkaar aan tafel.</p></div></li>
+    <li><div><h3>Vertel wat je ziet, niet wat de ander is</h3><p>“Ik zie dat je ’s nachts nog werkt en ’s ochtends op bent” in plaats van een oordeel of een label. Spreek vanuit jezelf: wat het met jou doet.</p></div></li>
+    <li><div><h3>Luister langer dan je praat</h3><p>Je hoeft niet alle antwoorden te hebben. Vraag wat de ander zelf merkt, en laat stiltes bestaan.</p></div></li>
+    <li><div><h3>Laat de keuze bij de ander</h3><p>Meedoen aan AURORA is altijd een eigen keuze. Druk werkt meestal tegen. Je kunt wel aanbieden om samen een eerste gesprek te voeren.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="section band" aria-labelledby="w-t"><div class="wrap split">
+  <div class="stack"><span class="eyebrow">Wat wij kunnen doen</span><h2 class="h2" id="w-t">Je kunt het eerste gesprek ook voor iemand anders aanvragen.</h2></div>
+  <div class="stack">
+    <p class="lead">We denken met je mee over hoe je het onderwerp aansnijdt en wat AURORA wel en niet kan betekenen.</p>
+    <ul class="ticklist">
+      <li>Vertrouwelijk, via het kanaal dat jij kiest</li>
+      <li>Je hoeft geen namen te noemen</li>
+      <li>De intake zelf voeren we altijd met de deelnemer</li>
+      <li>Past AURORA niet, dan helpen we de juiste plek te vinden</li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="section" aria-labelledby="acuut-t"><div class="wrap">
+  <span class="eyebrow">Als het acuut is</span>
+  <h2 class="h2" id="acuut-t" style="margin-top:16px">Wacht niet op een intake.</h2>
+  <div class="notice"><p>Is er direct gevaar, bel 112. Maak je je zorgen dat iemand aan zelfdoding denkt, bel of chat met 113 Zelfmoordpreventie via 0800-0113 of 113.nl, gratis en anoniem, ook als je naaste bent. De huisarts is daarnaast het eerste aanspreekpunt voor zorg.</p></div>
+</div></section>
+
+<Boundary />
+<IntakeSection title="Een gesprek als naaste." lead="Kies ‘Voor een naaste’. Je hoeft nog niets te beslissen, en de ander hoeft er nog niet van te weten." />
+</Base>

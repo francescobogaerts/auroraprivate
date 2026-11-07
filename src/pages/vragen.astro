@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import IntakeSection from '../components/IntakeSection.astro';
+import { SITE } from '../data/site';
+
+const groups: { title: string; items: [string, string][] }[] = [
+  { title: 'Het traject', items: [
+    ['Hoe lang duurt het?', 'Zes maanden. Ongeveer vier weken voorbereiding thuis, veertien dagen op locatie en ongeveer vijf maanden integratie thuis, met evaluaties op dag 30, 60, 90 en 180.'],
+    ['Waarom zes maanden en geen twee weken?', 'Een retraite werkt zolang je er bent. De verandering wordt thuis gemaakt. Daarom houd je dezelfde begeleider tot dag 180.'],
+    ['Hoeveel tijd kost het naast mijn werk?', 'Alleen de veertien dagen op locatie vragen dat je er echt niet bent. Daarvoor en daarna is het één sessie per week, later één per twee weken, plus groepssessies met je editie.'],
+    ['Is het een groepsprogramma?', 'Deels. Maximaal zes deelnemers per editie. De ochtenden zijn samen, daarnaast heb je minimaal zes privé sessies op locatie. Dag 7 en dag 11 zijn bewust leeg.'],
+    ['Waar vindt het plaats?', 'Editie 01 is op Bonaire. India, Mauritius en Marbella volgen met hetzelfde traject; daarvoor kun je je op de wachtlijst zetten.'],
+  ]},
+  { title: 'Wat AURORA wel en niet is', items: [
+    ['Is dit een kliniek of een behandeling?', 'Nee. AURORA Private is een begeleidingstraject, geen behandeling. We bieden geen detox, geen medische zorg en geen vervanging voor ggz-behandeling.'],
+    ['Wat als ik eigenlijk zorg nodig heb?', 'Dan zeggen we dat eerlijk bij de intake en helpen we je de juiste plek te vinden. Soms is AURORA een goede volgende stap ná die zorg.'],
+    ['Wie kan meedoen?', 'Wie stabiel genoeg is om zonder medisch toezicht te reizen en veertien dagen in een kleine groep te zijn, zelf kiest voor het traject en bereid is tot zes maanden begeleiding.'],
+  ]},
+  { title: 'Kosten', items: [
+    ['Wat kost het?', '€17.500 voor het volledige traject van zes maanden, inclusief verblijf, privé chef, transfers, excursies en alle sessies. Het is niet de prijs van twee weken.'],
+    ['Wordt het vergoed?', 'Nee. Omdat het geen behandeling is, valt het niet onder de zorgverzekering. Je betaalt zelf of je werkgever betaalt, op dezelfde voorwaarden.'],
+    ['Kan mijn werkgever betalen?', 'Ja. Zakelijke facturatie met één liaison voor HR. Wat er gedeeld wordt, bepaal jij.'],
+  ]},
+  { title: 'Privacy en discretie', items: [
+    ['Wie weet dat ik meedoe?', 'Je begeleider en hooguit vijf andere deelnemers van je editie. Geen namen naar buiten, ook niet naar een werkgever die betaalt, tenzij jij dat wilt.'],
+    ['Wat doet de knop Snel weg?', 'Die vervangt de pagina direct door een neutrale zoekpagina. Esc werkt ook. Je browsergeschiedenis kunnen we niet wissen; gebruik een privévenster als je dat zekerder wilt.'],
+    ['Volgt deze website mij?', 'Nee. Geen cookies, geen analytics, geen advertentiepixels, geen externe lettertypen. Lees de privacyverklaring.'],
+  ]},
+];
+const live = SITE.intakeLive;
+---
+<Base title="Vragen · AURORA Private" description="Antwoorden op de vragen die mensen meestal als eerste hebben: duur, tijd naast werk, kosten, vergoeding, wie kan meedoen en discretie." og="home" crumbs={[{ name: 'Vragen', path: '/vragen' }]}>
+<section class="legal-page"><div class="wrap" style="max-width:960px">
+  <span class="eyebrow">Vragen</span>
+  <h1 class="display" style="font-size:clamp(2.4rem,5vw,4.2rem);margin-top:16px;max-width:18ch">Wat mensen meestal als eerste willen weten.</h1>
+  <p class="lead" style="margin-top:24px">Staat je vraag er niet bij, stel hem dan in een eerste gesprek. {live ? 'Vertrouwelijk, via het kanaal dat jij kiest.' : ''}</p>
+  <div class="faq">
+    {groups.map((g) => (
+      <>
+        <h2>{g.title}</h2>
+        {g.items.map(([q, a]) => <details><summary>{q}</summary><div><p>{a}</p></div></details>)}
+      </>
+    ))}
+  </div>
+  <p class="soft" style="margin-top:40px">Is er direct gevaar, bel 112. Denk je aan zelfdoding of maak je je zorgen om iemand, bel of chat met 113 Zelfmoordpreventie: 0800-0113 of 113.nl.</p>
+</div></section>
+<script type="application/ld+json" is:inline set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: groups.flatMap((g) => g.items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } }))) })} />
+<IntakeSection />
+</Base>

@@ -72,7 +72,14 @@ tools/                    migratiescript v1.3 → v2.0 + de originele v1.3-bron
 3. De kaart op de locatiepagina toevoegen in `src/pages/<locatie>.astro`.
 4. `npm run og` voor het deelbeeld, daarna `npm run build`.
 
+## Pagina's
+Home · 4 locaties · 16 excursies · /traject · /organisaties · /voor-naasten · /particulier-of-zakelijk · /vragen · /privacy · 404 · /intern/*
+
 ## Nog open (inhoud, niet techniek)
+- India-excursies liggen 300–900 km uit elkaar (Jaipur, Varanasi, Agra, Rishikesh) maar staan als "middag/avond in het ritme". Dat is logistiek niet haalbaar vanuit één verblijf: kies een basis of maak er reisdagen van.
+- De Zilveren Kruis-blog is vervangen door /particulier-of-zakelijk zonder verzekeraarsclaims; de oorspronkelijke claim kon niet opnieuw geverifieerd worden.
+- Toelating/uitsluiting op /traject is concept (Programma 2.0): juridische en BIG-toets voor livegang.
+- Beeldprompts voor alle beelden: Drive 08-CLAUDE-VISUAL-PROMPTS.md.
 - 8 excursies tonen een sfeerbeeld van de bestemming. De eigen beelden liggen nog bij ChatGPT (opdracht 06 in de Drive-map).
 - Kaarten van India en Marbella ontbreken. Die blokken worden automatisch weggelaten tot de SVG in `public/atlas/` staat.
 - Contactadres, KvK-gegevens en reactietermijn: daarna `/privacy` definitief maken en `PUBLIC_INTAKE_LIVE` aanzetten.

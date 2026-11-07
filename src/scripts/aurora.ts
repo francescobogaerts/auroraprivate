@@ -69,6 +69,9 @@
     show(0);
   }
 
+  /* Business-contact buttons preselect "voor mijn organisatie" */
+  document.querySelectorAll('[data-org]').forEach(function(b){ b.addEventListener('click', function(){ var r = document.getElementById('wie-org'); if(r) r.checked = true; }); });
+
   /* Waiting-list buttons preselect the destination in the enquiry. */
   document.querySelectorAll('[data-wait]').forEach(function(b){
     b.addEventListener('click', function(){

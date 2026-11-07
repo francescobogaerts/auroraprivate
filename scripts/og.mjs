@@ -8,6 +8,10 @@ const LOC = { bonaire: 'Bonaire', india: 'India', mauritius: 'Mauritius', marbel
 const jobs = [
   { out: 'home', photo: 'photography/aurora-red-sea', title: 'Zes maanden begeleiding.', sub: 'Veertien dagen keerpunt.' },
   ...Object.entries(LOC).map(([k, n]) => ({ out: k, photo: `photography/aurora-red-${k}`, title: n, sub: k === 'bonaire' ? 'Editie 01 · veertien dagen op locatie' : 'Veertien dagen op locatie · wachtlijst' })),
+  { out: 'traject', photo: 'photography/aurora-red-room', title: 'Het traject', sub: '4 weken · 14 dagen · 5 maanden' },
+  { out: 'organisaties', photo: 'img/marbella-patio', title: 'Voor organisaties', sub: '14 dagen afwezig · 6 maanden begeleiding' },
+  { out: 'naasten', photo: 'img/india-courtyard', title: 'Voor naasten', sub: 'Het gesprek beginnen' },
+  { out: 'betalen', photo: 'img/marbella-garden', title: 'Particulier of zakelijk', sub: '€17.500 · het volledige traject' },
   ...ex.map((e) => ({ out: `${e.loc}-${e.slug}`, photo: e.beats[0].photo, title: e.title, sub: `Excursie · ${LOC[e.loc]}` })),
 ];
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');

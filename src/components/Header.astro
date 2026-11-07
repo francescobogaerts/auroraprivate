@@ -8,7 +8,7 @@ const { current = null, talk } = Astro.props;
 <header class="site-head"><div class="wrap">
   <Brand />
   <nav class="nav" id="nav" aria-label="Hoofdmenu">
-    <a href={current === 'home' ? '#traject' : '/#traject'}>Het traject</a>
+    <a href="/traject" aria-current={Astro.url.pathname.startsWith('/traject') ? 'page' : undefined}>Het traject</a>
     {LOCATIONS.map((l) => (
       <a href={`/${l.key}`} aria-current={current === l.key ? 'page' : undefined}>{l.name}</a>
     ))}

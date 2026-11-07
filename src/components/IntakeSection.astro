@@ -1,0 +1,15 @@
+---
+import Intake from './Intake.astro';
+import type { LocKey } from '../data/site';
+interface Props { loc?: LocKey; title?: string; lead?: string }
+const { loc = 'bonaire', title = 'Je hoeft nog niet alle antwoorden te hebben.', lead = 'Een eerste gesprek geeft ruimte om vragen te stellen. Vertrouwelijk en vrijblijvend, via het kanaal dat jij kiest.' } = Astro.props;
+---
+<section class="section intake" id="gesprek" aria-labelledby="gesprek-t"><div class="wrap split">
+  <div class="stack">
+    <span class="eyebrow">Een eerste gesprek</span>
+    <h2 class="h2" id="gesprek-t">{title}</h2>
+    <p class="lead">{lead}</p>
+    <div class="closing-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="var(--red)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 39 L24 8 L42 39 M8 32 H40 M13 32 A11 11 0 0 1 35 32"/></g></svg><hr class="rule-red"></div>
+  </div>
+  <div><Intake loc={loc} /></div>
+</div></section>
