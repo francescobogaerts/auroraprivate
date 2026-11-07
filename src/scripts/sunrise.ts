@@ -13,6 +13,7 @@ const FRAG = `
 // procedural ocean (exp-sine waves, after afl_ext's MIT ocean), cloud deck, ACES tonemapping.
 precision highp float;
 uniform vec2 uRes; uniform float uTime; uniform float uRise; uniform float uHorizon;
+uniform float uYaw; uniform float uSunAz; uniform float uClock; uniform vec4 uRip[8];
 #define PI 3.14159265
 const float RP = 6371e3; const float RA = 6471e3;
 const vec3 kRlh = vec3(5.5e-6, 13.0e-6, 22.4e-6); const float kMie = 21e-6;
@@ -142,10 +143,12 @@ void main(){
   float rise = uRise;
   // sun from 4° below to ~12° above the horizon, straight ahead
   float el = mix(-0.115, 0.085, 1.0 - pow(1.0 - rise, 1.5));
-  vec3 sd = normalize(vec3(0.0, sin(el), cos(el)));
+  vec3 sd = normalize(vec3(sin(uSunAz) * cos(el), sin(el), cos(uSunAz) * cos(el)));
   // camera: horizon pinned at uHorizon
   float fov = 1.25;
   vec3 rd = normalize(vec3((uv.x - 0.5) * aspect, (uv.y - h), fov));
+  float cy = cos(uYaw), sy = sin(uYaw);
+  rd = vec3(rd.x * cy + rd.z * sy, rd.y, -rd.x * sy + rd.z * cy);
   vec3 col;
   float camH = 7.0;
   if(rd.y >= 0.0){
@@ -161,6 +164,20 @@ void main(){
     float t = camH / -rd.y;
     vec3 pos = vec3(0., camH, 0.) + rd * t;
     vec3 n = oceanNormal(pos.xz * 1.1, t);
+    // ripples you leave on the water
+    vec2 wp = pos.xz;
+    for(int i = 0; i < 8; i++){
+      vec4 R = uRip[i];
+      if(R.w <= 0.0) continue;
+      float age = uClock - R.z;
+      if(age < 0.0 || age > 6.0) continue;
+      vec2 dd = wp - R.xy; float rr = length(dd) + 1e-4;
+      float front = age * 5.0;
+      float env = exp(-age * 0.6) * smoothstep(front + 4.0, front - 1.0, rr) * smoothstep(0.0, 0.8, rr) * R.w / (1.0 + rr * 0.04);
+      float ph = rr * 1.25 - age * 7.0;
+      n.xz += (dd / rr) * cos(ph) * env * 1.6;
+    }
+    n = normalize(n);
     n = normalize(mix(n, vec3(0,1,0), smoothstep(200., 2200., t)));
     vec3 refl = reflect(rd, n); refl.y = max(abs(refl.y), 0.015);
     float fres = 0.02 + 0.98 * pow(1.0 - max(dot(n, -rd), 0.0), 5.0);
@@ -213,6 +230,33 @@ function init(){
       const loc = gl.getAttribLocation(prog, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
       const U = (n) => gl.getUniformLocation(prog, n);
       const uRes = U('uRes'), uTime = U('uTime'), uRise = U('uRise'), uHor = U('uHorizon');
+      const uYaw = U('uYaw'), uSunAz = U('uSunAz'), uClock = U('uClock'), uRip = U('uRip');
+      // pointer: look around, sun follows a little, ripples on the water
+      const look = { x: 0, y: 0, tx: 0, ty: 0 };
+      const rips = new Float32Array(32); let ripI = 0, lastRip = 0, lastPt = null;
+      const clock = () => (performance.now() - t0) / 1000;
+      const addRipple = (cx, cy, strength) => {
+        const r = canvas.getBoundingClientRect();
+        const ux = (cx - r.left) / r.width, uy = 1 - (cy - r.top) / r.height;
+        const aspect = r.width / r.height, yaw = look.x * 0.26;
+        let dx = (ux - .5) * aspect, dy = uy - horizon, dz = 1.25;
+        const l = Math.hypot(dx, dy, dz); dx /= l; dy /= l; dz /= l;
+        if(dy >= -0.002) return;
+        const rx = dx * Math.cos(yaw) + dz * Math.sin(yaw), rz = -dx * Math.sin(yaw) + dz * Math.cos(yaw);
+        const t = 7.0 / -dy;
+        rips.set([rx * t, rz * t, clock(), strength], (ripI % 8) * 4); ripI++;
+      };
+      const onMove = (e) => {
+        const r = stage.getBoundingClientRect();
+        look.tx = ((e.clientX - r.left) / r.width - .5) * 2;
+        look.ty = ((e.clientY - r.top) / r.height - .5) * 2;
+        const now = performance.now();
+        if(lastPt && now - lastRip > 110 && Math.hypot(e.clientX - lastPt[0], e.clientY - lastPt[1]) > 14){ addRipple(e.clientX, e.clientY, 0.8); lastRip = now; }
+        lastPt = [e.clientX, e.clientY];
+      };
+      sky.addEventListener('pointermove', onMove, { passive: true });
+      sky.addEventListener('pointerdown', (e) => addRipple(e.clientX, e.clientY, 2.2));
+      sky.addEventListener('pointerleave', () => { look.tx = 0; look.ty = 0; lastPt = null; });
       stage.insertBefore(canvas, stage.firstChild);
       sky.classList.add('has-gl');
       let horizon = .5;
@@ -231,6 +275,11 @@ function init(){
         gl.uniform1f(uTime, (performance.now() - t0) / 1000 * 0.55);
         gl.uniform1f(uRise, state.rise);
         gl.uniform1f(uHor, horizon);
+        look.x += (look.tx - look.x) * 0.035; look.y += (look.ty - look.y) * 0.035;
+        gl.uniform1f(uYaw, look.x * 0.26);
+        gl.uniform1f(uSunAz, look.x * 0.13);
+        gl.uniform1f(uClock, clock());
+        gl.uniform4fv(uRip, rips);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       };
       // render only while the hero is on screen
