@@ -270,3 +270,39 @@ html:not(.js) .cmp-panel{display:grid;margin-bottom:32px}
 @media (max-width:480px){.cmp-tabs button{padding:10px 12px;font-size:.62rem}.cmp-col{padding:24px 12px 28px 0}.cmp-col + .cmp-col{padding-left:12px}}
 .cmp .head .h2{max-width:22ch}
 @media (max-width:480px){.cmp-col:nth-child(3){padding-left:0}}
+
+/* ===== v5 hero type: readable, calm, no glow ===== */
+.sky-lines{margin-top:6vh;min-height:8.5em}
+.sky-lines::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:min(1100px,120vw);height:calc(100% + 18vh);transform:translate(-50%,-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(6,8,10,.46) 0%,rgba(6,8,10,.26) 48%,rgba(6,8,10,0) 100%);pointer-events:none}
+.sky-lines p,.sky.has-gl .sky-lines p{max-width:22ch;font:400 clamp(2rem,1.1rem + 2.7vw,3.6rem)/1.12 var(--font-display);letter-spacing:-.005em;color:#F6F2EC;text-shadow:0 1px 2px rgba(6,8,10,.35)}
+.sky-lines p em,.sky.has-gl .sky-lines p em{color:#F1D4BF}
+.sky-lines .sky-sub,.sky.has-gl .sky-lines .sky-sub{font-size:clamp(2rem,1.1rem + 2.7vw,3.6rem);line-height:1.12}
+.sky-lines .sky-sub em{display:inline-block;margin-top:.12em}
+.sky-scroll,.sky-hint{color:rgba(246,242,236,.78);text-shadow:0 1px 2px rgba(6,8,10,.4)}
+.sky .eyebrow{color:rgba(246,242,236,.82)}
+.sky.has-gl .sky-word{filter:drop-shadow(0 1px 2px rgba(10,8,8,.4))}
+
+/* Destinations: editorial, left-set — not a copy of the home sky */
+.sky--loc .sky-in{justify-items:start;text-align:left;padding-inline:var(--gutter);align-content:start;padding-top:clamp(108px,15vh,160px)}
+.sky--loc .sky-word{font-size:clamp(2rem,1rem + 3.4vw,4.4rem)!important;margin-top:1.4vh}
+.sky--loc .horizon{position:absolute;left:0;right:0;top:54%;margin:0}
+.sky--loc .sky-lines{position:absolute;left:var(--gutter);right:var(--gutter);bottom:clamp(84px,13vh,140px);margin:0;min-height:0;justify-items:start;width:auto}
+.sky--loc .sky-lines::before{left:-10vw;top:auto;bottom:-14vh;width:min(1000px,110vw);height:calc(100% + 30vh);transform:none;background:radial-gradient(60% 60% at 30% 60%,rgba(6,8,10,.5) 0%,rgba(6,8,10,.26) 50%,rgba(6,8,10,0) 100%)}
+.sky--loc .sky-lines p{max-width:20ch;font-size:clamp(1.9rem,1.1rem + 2.4vw,3.3rem)}
+.sky--loc .sky-lines .sky-sub{font-size:clamp(1.9rem,1.1rem + 2.4vw,3.3rem)}
+.sky--loc .sky-lines .sky-sub em{display:block;margin-top:18px;font:500 clamp(.82rem,.74rem + .25vw,.98rem)/1.4 var(--font-body);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,242,236,.86)}
+.sky--loc .sky-scroll{left:var(--gutter);right:auto;text-align:left;bottom:34px}
+.sky--loc .sky-scroll::after{margin:14px 0 0}
+@media (max-width:760px){.sky--loc .sky-lines{bottom:96px}.sky-lines p,.sky.has-gl .sky-lines p,.sky-lines .sky-sub{font-size:clamp(1.75rem,1.2rem + 3vw,2.3rem)}}
+
+/* ===== Relight: photos re-lit by scroll, text sections with a drifting pool of light ===== */
+.photo > .relight{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.2s var(--ease),transform 1.8s var(--ease)}
+.photo.is-relit > .relight{opacity:1}
+.slide:hover .photo > .relight{transform:scale(1.04)}
+.interlude .photo > .relight{z-index:0}
+.amb{position:relative;isolation:isolate;--amb:.5}
+.amb::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(42% 55% at calc(14% + 72% * var(--amb)) calc(78% - 50% * var(--amb)),var(--amb-c,rgba(216,187,166,.16)) 0%,transparent 70%)}
+.tone-night.amb{--amb-c:rgba(151,85,92,.16)}
+.tone-dawn.amb{--amb-c:rgba(255,236,214,.55)}
+.photo{isolation:isolate}
+.tone-day.amb{--amb-c:rgba(216,187,166,.22)}

@@ -204,6 +204,205 @@ vec3 withLand(vec3 col, vec3 rd, vec3 sd){
   }
   return col;
 }
+// ---- one regional icon per destination, ~5% of the frame, lit by the same sun ----
+// Coordinates: x = azimuth (rad), y = elevation (rd.y). Shapes are drawn in local units and scaled by S.
+float cover(float d, float px){ return clamp(d / px + .5, 0., 1.); }
+float sbox(vec2 p, vec2 c, vec2 hw){ vec2 q = hw - abs(p - c); return min(q.x, q.y); }
+float stri(vec2 p, vec2 a, vec2 b, vec2 c){ // >0 inside, either winding
+  vec2 e0 = b - a, e1 = c - b, e2 = a - c;
+  float s = sign(e0.y * e2.x - e0.x * e2.y);
+  float d0 = s * (e0.x * (p.y - a.y) - e0.y * (p.x - a.x)) / length(e0);
+  float d1 = s * (e1.x * (p.y - b.y) - e1.y * (p.x - b.x)) / length(e1);
+  float d2 = s * (e2.x * (p.y - c.y) - e2.y * (p.x - c.x)) / length(e2);
+  return min(min(d0, d1), d2);
+}
+// sunlight on a round body at azimuth a; u runs -1..1 across it. Wrapped so the rim glows when backlit.
+float roundLit(float u, float a, vec3 sd){
+  float th = a + PI - asin(clamp(u, -1., 1.));
+  vec3 n = vec3(sin(th), 0., cos(th));
+  return max(dot(n, normalize(vec3(sd.x, 0., sd.z))) + .28, 0.) / 1.28;
+}
+
+// Mauritius: a pirogue with its lateen sail, drifting, sail glowing when the sun stands behind it
+vec4 pirogue(vec2 q, float px, vec3 hz, vec3 sl, float day, float sunRel){
+  vec3 c = vec3(0.); float cov = 0.;
+  float t = q.x / .017;
+  if(abs(t) < 1.){
+    float bot = -.0030 + .0026 * t * t, top = .0006 + .0013 * pow(abs(t), 3.);
+    float d = min(min(top - q.y, q.y - bot), (1. - abs(t)) * .017);
+    float k = cover(d, px);
+    vec3 hull = hz * .10 + vec3(.004, .010, .014) + sl * .05 * day * smoothstep(.0, .0006, q.y - bot - .0018);
+    c = mix(c, hull, k); cov = max(cov, k);
+  }
+  float m = cover(min(.00045 - abs(q.x - .0035 - q.y * .03), min(q.y - .0004, .0365 - q.y)), px);
+  c = mix(c, hz * .12 + vec3(.01), m); cov = max(cov, m);
+  float s = cover(stri(q, vec2(-.016, .0085), vec2(.0125, .0445), vec2(.0110, .0035)), px);
+  if(s > 0.){
+    float seam = .85 + .15 * smoothstep(.2, .5, abs(fract(q.y * 260.) - .5));
+    vec3 cloth = vec3(.98, .90, .78);
+    vec3 lit = cloth * (hz * .55 + sl * (.25 + 1.1 * exp(-sunRel * sunRel * 9.))) * seam;
+    c = mix(c, mix(hz * .14, lit, .25 + .75 * day), s); cov = max(cov, s);
+  }
+  float yard = cover(.00035 - abs((q.y - .0085) - (q.x + .016) * (.036 / .0285)), px) * step(-.0165, q.x) * step(q.x, .0128);
+  c = mix(c, hz * .1, yard); cov = max(cov, yard);
+  return vec4(c, cov);
+}
+
+vec3 icon(vec3 col, vec3 rd, vec3 sd, bool refl){
+  if(isScene(0.)) return col;
+  float a = atan(rd.x, rd.z), y = rd.y;
+  float c0 = isScene(1.) ? .22 : (isScene(2.) ? .30 : (isScene(3.) ? .13 + .028 * sin(uTime * .021) : .31));
+  c0 *= clamp(uRes.x / uRes.y / 1.6, .3, 1.);   // keep it in frame on a phone
+  float span = isScene(2.) ? .15 : (isScene(4.) ? .11 : .085);
+  if(abs(a - c0) > span || y > .07 || y < (isScene(3.) ? -.03 : (isScene(2.) ? -.02 : -.001))) return col;
+  float S = isScene(2.) ? 1.05 : (isScene(4.) ? 1.35 : 1.);
+  float px = (refl ? 3. : 1.2) / (uRes.y * 1.25) / S;
+  vec2 q = vec2(a - c0, y) / S;
+  vec3 hz = sky(normalize(vec3(rd.x, .003, rd.z)), sd, true);
+  vec3 sl = sunLight(sd);
+  float day = smoothstep(-.09, .05, sd.y);
+  float night = 1. - smoothstep(.06, .5, uRise);
+  float sunRel = a - uSunAz;
+  vec3 ic = vec3(0.); float cov = 0.;
+
+  if(isScene(1.)){ // Bonaire: Willemstoren, the island's lighthouse on the southern point
+    float land = .0034 * exp(-pow((q.x + .006) / .028, 2.)) + .0010 * step(abs(q.x + .01), .07);
+    float kL = cover(min(land - q.y, q.y + .0005), px) * step(abs(q.x + .01), .07);
+    ic = mix(ic, hz * .22 + vec3(.006, .008, .009) + sl * .05 * day, kL); cov = max(cov, kL);
+    float tt = clamp((q.y - .003) / .037, 0., 1.);
+    float w = mix(.0043, .0033, tt);
+    float kT = cover(min(w - abs(q.x), min(.0400 - q.y, q.y - .0025)), px);
+    vec3 plaster = vec3(.90, .84, .74);
+    vec3 tower = plaster * (hz * .42 + sl * .85 * day * roundLit(q.x / w, a, sd) + .006);
+    ic = mix(ic, tower, kT); cov = max(cov, kT);
+    float kG = cover(sbox(q, vec2(0., .0408), vec2(.0041, .0008)), px);
+    ic = mix(ic, hz * .10, kG); cov = max(cov, kG);
+    float kLn = cover(sbox(q, vec2(0., .0442), vec2(.0026, .0026)), px);
+    float phi = uTime * .55;
+    float flash = pow(max(cos(phi), 0.), 30.);
+    vec3 lamp = vec3(1., .82, .55) * (.4 + 2.6 * night * (.5 + .5 * flash));
+    ic = mix(ic, mix(hz * .14, lamp, .35 + .65 * night), kLn); cov = max(cov, kLn);
+    float dy = (q.y - .0468) / .0036;
+    float kD = cover(min(min(.0029 * sqrt(max(1. - dy * dy, 0.)) - abs(q.x), q.y - .0468), .0504 - q.y), px);
+    ic = mix(ic, hz * .09 + sl * .05 * day, kD); cov = max(cov, kD);
+    col = mix(col, mix(ic, hz, .10), cov);
+    if(!refl && night > .01 && q.y > 0.){ // the sweeping beam and the flash when it faces you
+      vec2 L = vec2(0., .0442);
+      float dx = abs(q.x), side = sign(q.x);
+      float face = pow(max(sin(phi) * side, 0.), 3.);
+      float beam = exp(-dx * 14.) * smoothstep(.0012 + dx * .05, 0., abs(q.y - L.y)) * face * step(.0026, dx);
+      float halo = exp(-length((q - L) * vec2(1., 1.)) * 900.) * (.3 + 3. * flash);
+      col += vec3(1., .85, .6) * (beam * .55 + halo * .8) * night;
+    }
+    return col;
+  }
+
+  if(isScene(2.)){ // India: a Nagara temple above the ghats, oil lamps on the steps
+    float ex = min(q.x + .12, .12 - q.x);
+    float gTop = .0105 * clamp(ex / .035, 0., 1.);
+    float kG = cover(min(gTop - q.y, q.y + .0004), px);
+    float step_ = smoothstep(.75, .95, fract(q.y / .0013));
+    vec3 stone = vec3(.66, .52, .40);
+    vec3 ghat = stone * (hz * .38 + sl * .22 * day) * (1. - .35 * step_);
+    ic = mix(ic, ghat, kG); cov = max(cov, kG);
+    // temple: plinth, hall, curved spire (shikhara) with two smaller spires, amalaka, kalasha, flag
+    float kP = cover(sbox(q, vec2(.0, .0125), vec2(.021, .0021)), px);
+    float kM = max(cover(sbox(q, vec2(-.0115, .0185), vec2(.0080, .0040)), px), cover(stri(q, vec2(-.0205, .0222), vec2(-.0025, .0222), vec2(-.0115, .0290)), px));
+    float y0 = .0146, y1 = .0510, cs = .0045;
+    float tt = clamp((q.y - y0) / (y1 - y0), 0., 1.);
+    float w = .0102 * (1. - .78 * pow(tt, 1.7)) + .00035 * smoothstep(.3, .7, abs(fract(tt * 13.) - .5) * 2.);
+    float kS = cover(min(w - abs(q.x - cs), min(q.y - y0, y1 - q.y)), px);
+    float t2 = clamp((q.y - y0) / .022, 0., 1.);
+    float w2 = .0043 * (1. - .8 * pow(t2, 1.6));
+    float kU = cover(min(w2 - abs(abs(q.x - cs) - .0082), min(q.y - y0, y0 + .022 - q.y)), px);
+    float kA = cover((1. - length((q - vec2(cs, .0522)) / vec2(.0041, .0014))) * .0014, px);
+    float kK = max(cover(sbox(q, vec2(cs, .0548), vec2(.0008, .0013)), px), cover(stri(q, vec2(cs - .0006, .0560), vec2(cs + .0006, .0560), vec2(cs, .0578)), px));
+    float kPole = cover(sbox(q, vec2(cs + .0001, .0600), vec2(.00022, .0030)), px);
+    float wv = .0006 * sin(uTime * 2.4 + q.x * 900.);
+    float kF = cover(stri(q, vec2(cs + .0003, .0628), vec2(cs + .0003, .0602), vec2(cs + .0068, .0618 + wv)), px);
+    vec3 sand = vec3(.80, .58, .42);
+    float lit = roundLit((q.x - cs) / max(w, .001), a, sd);
+    vec3 temple = sand * (hz * .34 + sl * 1.25 * day * lit + .006);
+    temple += vec3(1., .55, .2) * .06 * night * exp(-(q.y - .0125) * 260.);
+    float kT = max(max(kP, kM), max(max(kS, kU), max(kA, kK)));
+    ic = mix(ic, temple, kT); cov = max(cov, kT);
+    ic = mix(ic, hz * .12, kPole); cov = max(cov, kPole);
+    ic = mix(ic, vec3(1., .42, .08) * (hz * .5 + sl * .9 * day + .02), kF); cov = max(cov, kF);
+    col = mix(col, mix(ic, hz, .16), cov);
+    // diyas: small flames along the steps, and their trembling streaks on the river
+    float lampOn = max(night, .35) * (1. - smoothstep(.55, .95, uRise));
+    if(!refl && lampOn > .01){
+      float row = floor(q.y / .0013);
+      if(q.y > 0. && row < 8. && kG > .5){
+        float cell = floor(q.x / .0052 + row * .5);
+        float cx = (cell + .5 - row * .5) * .0052;
+        float on = step(.80, h2(vec2(cell, row)));
+        float d = length((q - vec2(cx, (row + .75) * .0013)) * vec2(1., 1.6));
+        float fl = .75 + .25 * sin(uTime * 9. + cell * 3.1) * sin(uTime * 5.3 + row);
+        col += vec3(1., .58, .22) * on * exp(-d * 2400.) * 1.6 * fl * lampOn;
+      }
+      if(q.y < 0.){
+        float cell = floor(q.x / .0052);
+        float cx = (cell + .5) * .0052;
+        float on = step(.78, h2(vec2(cell, 0.))) * step(abs(q.x), .11);
+        float wob = .0006 * sin(q.y * 3000. + uTime * 4. + cell);
+        float st = exp(-abs(q.x - cx + wob) * 1500.) * exp(q.y * 160.);
+        col += vec3(1., .55, .2) * on * st * .5 * lampOn * (.6 + .4 * sin(uTime * 7. + cell));
+      }
+    }
+    return col;
+  }
+
+  if(isScene(3.)){ // Mauritius: a pirogue under sail
+    float bob = .00045 * sin(uTime * 1.3);
+    vec2 qb = q - vec2(0., bob);
+    vec4 b = pirogue(qb, px, hz, sl, day, sunRel);
+    col = mix(col, mix(b.rgb, hz, .08), b.a);
+    if(!refl && q.y < 0.){ // its reflection, broken by the swell
+      vec2 m = vec2(qb.x + .0009 * sin(q.y * 2600. + uTime * 3.), -qb.y - .0012);
+      vec4 r = pirogue(m, px * 3., hz, sl, day, sunRel);
+      col = mix(col, r.rgb * .6, r.a * .5 * exp(q.y * 90.));
+    }
+    return col;
+  }
+
+  if(isScene(4.)){ // Marbella: a pueblo blanco on the sierra slope, bell tower and all
+    float mound = .006 + .020 * exp(-pow((q.x - .004) / .046, 2.));
+    if(q.y > .0036 && q.y < mound){
+      float rh = .0034;
+      float row = floor((q.y - .0036) / rh);
+      float off = h2(vec2(row, 4.)) * .005;
+      float cell = floor((q.x + off) / .0049);
+      float id = h2(vec2(cell, row));
+      float cx = (cell + .5) * .0049 - off;
+      float hw = .0049 * .5 * (.70 + .24 * id);
+      float top = .0036 + row * rh + .0024 + .0008 * h2(vec2(cell, row + 7.));
+      float base = .0036 + row * rh;
+      float kH = cover(min(hw - abs(q.x - cx), min(top - q.y, q.y - base)), px) * step(.25, id);
+      vec3 wall = vec3(.94, .92, .88) * (hz * .80 + sl * .85 * day * (.7 + .3 * step(cx, q.x - hw * .4)) + .008);
+      vec3 roof = vec3(.66, .34, .23) * (hz * .5 + sl * .4 * day);
+      vec3 hc = mix(wall, roof, smoothstep(top - .00045, top - .00025, q.y));
+      float win = step(.62, h2(vec2(cell, row + 3.))) * cover(sbox(q, vec2(cx + .0006, base + .0011), vec2(.00045, .0005)), px);
+      hc = mix(hc, mix(hz * .1, vec3(1., .74, .42) * 1.8, night), win);
+      ic = mix(ic, hc, kH); cov = max(cov, kH);
+    }
+    // the church: nave and a whitewashed bell tower with its open belfry
+    float tb = .0236, tx = .010;
+    float kN = cover(sbox(q, vec2(tx - .0055, tb + .0015), vec2(.0050, .0022)), px);
+    float kTw = cover(sbox(q, vec2(tx, tb + .0090), vec2(.0022, .0095)), px);
+    float kCap = cover(stri(q, vec2(tx - .0026, tb + .0185), vec2(tx + .0026, tb + .0185), vec2(tx, tb + .0225)), px);
+    float kCr = max(cover(sbox(q, vec2(tx, tb + .0240), vec2(.00018, .0017)), px), cover(sbox(q, vec2(tx, tb + .0245), vec2(.0008, .00018)), px));
+    float kBel = cover(sbox(q, vec2(tx, tb + .0155), vec2(.0009, .0017)), px);
+    vec3 white = vec3(.95, .93, .89) * (hz * .62 + sl * .65 * day * roundLit((q.x - tx) / .0022, a, sd) + .008);
+    float kC = max(kN, kTw);
+    ic = mix(ic, white, kC); cov = max(cov, kC);
+    ic = mix(ic, vec3(.66, .34, .23) * (hz * .5 + sl * .4 * day), kCap); cov = max(cov, kCap);
+    ic = mix(ic, hz * .1, max(kCr, kBel * kTw));  cov = max(cov, kCr);
+    col = mix(col, mix(ic, hz, .14), cov);
+    return col;
+  }
+  return col;
+}
 vec3 aces(vec3 x){ return clamp((x*(2.51*x+0.03))/(x*(2.43*x+0.59)+0.14), 0., 1.); }
 
 void main(){
@@ -253,7 +452,7 @@ void main(){
     n = normalize(mix(n, vec3(0,1,0), smoothstep(200., 2200., t)));
     vec3 refl = reflect(rd, n); refl.y = max(abs(refl.y), 0.015);
     float fres = 0.02 + 0.98 * pow(1.0 - max(dot(n, -rd), 0.0), 5.0);
-    vec3 skyR = withLand(sky(refl, sd, true), refl, sd);
+    vec3 skyR = icon(withLand(sky(refl, sd, true), refl, sd), refl, sd, true);
     vec4 cl = clouds(refl, sd, skyR); skyR = mix(skyR, cl.rgb, cl.a * 0.8);
     vec3 sl = sunLight(sd);
     vec3 water = vec3(0.004, 0.016, 0.022) * (0.25 + 2.5 * max(sd.y + 0.05, 0.0)) + sl * 0.012 * max(n.y,0.);
@@ -276,6 +475,7 @@ void main(){
     col = mix(col, hz, 1.0 - exp(-t * 0.0011 * uHaze));
     if(isScene(2.)) col = mix(col, hz * 1.1, exp(-(-rd.y) * 45.) * 0.6); // river mist
   }
+  col = icon(col, rd, sd, false);
   // exposure follows the light, ACES, slight grade toward the brand dawn
   float expo = mix(2.2, 0.5, smoothstep(-0.10, 0.08, sd.y));
   col = aces(col * expo);
