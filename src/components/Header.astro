@@ -1,19 +1,36 @@
 ---
 import Brand from './Brand.astro';
+import Photo from './Photo.astro';
 import { LOCATIONS, type LocKey } from '../data/site';
 
 interface Props { current?: LocKey | 'home' | null; talk: string }
 const { current = null, talk } = Astro.props;
+const path = Astro.url.pathname;
+const status: Record<string, string> = { bonaire: 'Editie 01', india: 'Wachtlijst', mauritius: 'Wachtlijst', marbella: 'Wachtlijst' };
 ---
-<header class="site-head"><div class="wrap">
+<header class="site-head"><div class="bar">
+  <div class="left">
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false"><i aria-hidden="true"></i><span class="t">Menu</span><span class="sr">openen</span></button>
+  </div>
   <Brand />
-  <nav class="nav" id="nav" aria-label="Hoofdmenu">
-    <a href="/traject" aria-current={Astro.url.pathname.startsWith('/traject') ? 'page' : undefined}>Het traject</a>
-    {LOCATIONS.map((l) => (
-      <a href={`/${l.key}`} aria-current={current === l.key ? 'page' : undefined}>{l.name}</a>
-    ))}
-    <a href={talk}>Eerste gesprek</a>
-  </nav>
-  <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false">Menu</button>
-  <button class="quick-exit" type="button" data-quick-exit title="Sneltoets: Esc">Snel weg</button>
+  <div class="right">
+    <a class="head-link talk" href={talk}>Eerste gesprek</a>
+    <button class="quick-exit" type="button" data-quick-exit title="Sluit deze site direct (Esc)">Snel weg <kbd>Esc</kbd></button>
+  </div>
 </div></header>
+<nav class="nav" id="nav" aria-label="Hoofdmenu">
+  <div class="links">
+    {LOCATIONS.map((l) => (
+      <a href={`/${l.key}`} aria-current={current === l.key ? 'page' : undefined}>{l.name} <small>{status[l.key]}</small></a>
+    ))}
+    <a href="/traject" aria-current={path.startsWith('/traject') ? 'page' : undefined}>Het traject</a>
+    <div class="sub">
+      <a href="/organisaties">Voor organisaties</a>
+      <a href="/voor-naasten">Voor naasten</a>
+      <a href="/particulier-of-zakelijk">Prijs</a>
+      <a href="/vragen">Vragen</a>
+      <a href={talk}>Eerste gesprek</a>
+    </div>
+  </div>
+  <div class="pic" aria-hidden="true"><Photo src="photography/aurora-red-room" alt="" sizes="50vw" /></div>
+</nav>

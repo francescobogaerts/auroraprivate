@@ -5,14 +5,18 @@ interface Props { talk: string }
 const { talk } = Astro.props;
 ---
 <footer class="site-foot"><div class="wrap">
-  <div class="grid">
-    <div class="stack">
-      <Brand style="color:var(--on-band)" />
-      <p>AURORA Private is een begeleidingstraject, geen behandeling. We bieden geen detox, geen medische zorg en geen vervanging voor ggz-behandeling. Heb je die nodig, dan helpen we je bij de intake de juiste plek te vinden.</p>
-    </div>
-    <div><span class="eyebrow">Bestemmingen</span><ul>{LOCATIONS.map((l) => <li><a href={`/${l.key}`}>{l.name}</a></li>)}</ul></div>
-    <div><span class="eyebrow">Meer</span><ul><li><a href="/traject">Het traject</a></li><li><a href="/organisaties">Voor organisaties</a></li><li><a href="/voor-naasten">Voor naasten</a></li><li><a href="/particulier-of-zakelijk">Particulier of zakelijk</a></li><li><a href="/vragen">Vragen</a></li></ul></div>
-    <div><span class="eyebrow">Privacy</span><ul><li>Esc sluit deze site direct</li><li>Contact via het kanaal dat jij kiest</li><li><a href={talk}>Eerste gesprek</a></li><li><a href="/privacy">Privacy</a></li></ul></div>
+  <div class="mark">
+    <Brand />
+    <p class="bound">AURORA Private is een begeleidingstraject, geen behandeling. We bieden geen detox, geen medische zorg en geen vervanging voor ggz-behandeling. Heb je die nodig, dan helpen we je bij de intake de juiste plek te vinden.</p>
   </div>
-  <div class="legal"><span>Een sanctuary, geen kliniek.</span><span>Beelden zijn sfeerconcepten en tijdelijke stockfoto’s, geen foto’s van geboekte accommodaties.</span></div>
+  <nav aria-label="Voettekst">
+    {LOCATIONS.map((l) => <a href={`/${l.key}`}>{l.name}</a>)}
+    <a href="/traject">Het traject</a>
+    <a href="/organisaties">Organisaties</a>
+    <a href="/voor-naasten">Naasten</a>
+    <a href="/vragen">Vragen</a>
+    <a href="/privacy">Privacy</a>
+    <a href={talk}>Eerste gesprek</a>
+  </nav>
+  <div class="legal"><span>Een sanctuary, geen kliniek · Esc sluit deze site direct</span><span>Beelden zijn sfeerconcepten en tijdelijke stockfoto’s.</span></div>
 </div></footer>

@@ -13,7 +13,8 @@ interface Props {
   talk?: string;                     // where "Eerste gesprek" points
   crumbs?: Crumb[];
   noindex?: boolean;
-  bare?: boolean;                    // no header/footer (404 etc. still get them; intern pages don't use this layout)
+  bare?: boolean;
+  over?: boolean;                    // header floats transparent over a dark hero
 }
 
 const {
@@ -24,6 +25,7 @@ const {
   talk = '#gesprek',
   crumbs = [],
   noindex = false,
+  over = true,
 } = Astro.props;
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -81,7 +83,7 @@ if (crumbs.length) {
 <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
 <slot name="head" />
 </head>
-<body>
+<body class:list={{ over }}>
 <a class="skip" href="#main">Naar de inhoud</a>
 <Header current={current} talk={talk} />
 <main id="main">

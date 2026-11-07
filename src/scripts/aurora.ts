@@ -23,14 +23,34 @@
     if(e.key === 'Escape' && !document.querySelector('dialog[open]')) leave();
   });
 
-  /* Mobile menu */
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  /* Full-screen menu */
   var mb = document.querySelector('.menu-btn'), nav = document.querySelector('.nav');
-  if(mb && nav){
-    mb.addEventListener('click', function(){
-      var open = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', open);
-    });
-    nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); mb.setAttribute('aria-expanded', false); }); });
+  function setMenu(open){
+    nav.classList.toggle('open', open); root.classList.toggle('menu-open', open);
+    mb.setAttribute('aria-expanded', String(open));
+    var t = mb.querySelector('.t'); if(t) t.textContent = open ? 'Sluit' : 'Menu';
   }
+  if(mb && nav){
+    mb.addEventListener('click', function(){ setMenu(!nav.classList.contains('open')); });
+    nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  }
+
+  /* Header turns solid once you leave the hero */
+  var sh = document.querySelector('.site-head');
+  if(sh){
+    var solid = function(){ sh.classList.toggle('is-solid', window.scrollY > Math.min(innerHeight * .6, 420)); };
+    window.addEventListener('scroll', solid, {passive:true}); solid();
+  }
+
+  /* Quiet reveal: sections rise in once */
+  var rv = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && rv.length){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){ var r = el.getBoundingClientRect(); if(r.top < innerHeight) el.classList.add('in'); else io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('in'); });
 
   /* Herken je dit? */
   var rb = Array.prototype.slice.call(document.querySelectorAll('.recog button'));
@@ -52,7 +72,7 @@
     D.forEach(function(d, i){
       var b = document.createElement('button');
       b.type = 'button';
-      b.innerHTML = '<b class="num">' + (i + 1) + '</b><span>' + d[0] + '</span>';
+      b.innerHTML = '<b class="num">' + String(i + 1).padStart(2,'0') + '</b><span>' + d[0] + '</span>';
       b.setAttribute('aria-pressed', 'false');
       b.setAttribute('aria-label', 'Dag ' + (i + 1) + ', ' + d[0]);
       if(d[0] === 'Stilte') b.className = 'quiet';
@@ -213,7 +233,7 @@
     if(!peek){
       peek = document.createElement('dialog'); peek.className = 'peek';
       peek.innerHTML = '<button class="x" type="button" aria-label="Sluiten"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>' +
-        '<figure class="photo"><img alt=""></figure><div class="in"><span class="eyebrow"></span><h3></h3><p class="soft"></p><div class="row"><a class="btn" href="#">Bekijk de excursie</a><span class="credit">Ingepland in de veertien dagen</span></div></div>';
+        '<figure class="photo"><img alt=""></figure><div class="in"><span class="eyebrow"></span><h3></h3><p class="soft"></p><div class="row"><a class="link" href="#">Bekijk de excursie</a><span class="credit">Ingepland in de veertien dagen, niet los te boeken</span></div></div>';
       document.body.appendChild(peek);
       peek.querySelector('.x').addEventListener('click', function(){ peek.close(); });
       peek.addEventListener('click', function(e){ if(e.target === peek) peek.close(); });
@@ -225,7 +245,7 @@
     peek.querySelector('.eyebrow').textContent = a.querySelector('.when') ? a.querySelector('.when').textContent : '';
     peek.querySelector('h3').textContent = a.querySelector('h3').textContent;
     peek.querySelector('p').textContent = a.getAttribute('data-teaser') || (a.querySelector('p') ? a.querySelector('p').textContent : '');
-    peek.querySelector('.btn').setAttribute('href', a.getAttribute('href'));
+    peek.querySelector('.link').setAttribute('href', a.getAttribute('href'));
     if(peek.showModal) peek.showModal(); else location.href = a.getAttribute('href');
   }
   document.querySelectorAll('a.exc[data-peek]').forEach(function(a){

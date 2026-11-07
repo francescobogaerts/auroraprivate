@@ -1,0 +1,116 @@
+---
+// One template for the four destinations. Content: src/data/locations.json + excursions.json.
+import Base from '../layouts/Base.astro';
+import Photo from './Photo.astro';
+import IntakeSection from './IntakeSection.astro';
+import locations from '../data/locations.json';
+import excursions from '../data/excursions.json';
+import type { LocKey } from '../data/site';
+
+interface Props { loc: LocKey }
+const L = locations.find((l) => l.key === Astro.props.loc)!;
+const N = locations.find((l) => l.key === L.next)!;
+const excs = excursions.filter((e) => e.loc === L.key).sort((a, b) => a.order - b.order);
+const arrow = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 H21 M15 6 L21 12 L15 18" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const desc = `${L.name}: ${L.tagline.split('. ').slice(1).join('. ') || L.tagline} Veertien dagen op locatie binnen het traject van zes maanden.`;
+---
+<Base title={`AURORA Private ${L.name}`} description={desc} current={L.key as LocKey} og={L.key} crumbs={[{ name: L.name, path: `/${L.key}` }]}>
+<section class="opening" aria-labelledby="hero-t" style={`--loc:var(--${L.key})`}>
+  <Photo video={L.video ?? undefined} src={L.photo} alt={L.alt} style={`--focal:${L.focal}`} priority />
+  <div class="shade" aria-hidden="true"></div>
+  <div class="copy"><div class="wrap">
+    <span class:list={['status', { open: L.open }]}><i aria-hidden="true"></i>{L.open ? 'Editie 01 · nu open' : 'Volgende editie · wachtlijst'}</span>
+    <h1 class="name" id="hero-t">{L.name}</h1>
+    <p class="sub">{L.tagline}</p>
+    <span class="coords">{L.coords}</span>
+  </div></div>
+  <span class="cue" aria-hidden="true"></span>
+</section>
+
+<section class="section" aria-labelledby="intro-t"><div class="wrap still reveal">
+  <span class="eyebrow" id="intro-t">{L.region}</span>
+  <p class="statement">{L.place}</p>
+  <span class="rule" aria-hidden="true"></span>
+  <p class="soft">{L.lede}</p>
+</div></section>
+
+<section class="section section--tight-top" aria-label={`Sfeer van ${L.name}`}><div class="wrap gallery reveal">
+  {L.gallery.map((g) => <Photo src={g.src} alt={g.alt} sizes="(max-width: 760px) 100vw, 55vw" />)}
+</div></section>
+
+<section class="section" id="veertien" aria-labelledby="dg-t"><div class="wrap">
+  <div class="head reveal">
+    <div class="stack"><span class="eyebrow">De veertien dagen</span><h2 class="h2" id="dg-t">Elke dag hetzelfde ritme.</h2></div>
+    <a class="link" href="/traject">Het hele traject <Fragment set:html={arrow} /></a>
+  </div>
+  {L.days ? (
+    <div class="reveal">
+      <script type="application/json" id="days-data" is:inline set:html={JSON.stringify(L.days)} />
+      <div class="days" id="days" role="group" aria-label="Kies een dag"></div>
+      <div class="days-moves" aria-hidden="true"><span>Aankomen en kijken</span><span>Patronen en relaties</span><span>Vormgeven</span></div>
+      <dl class="day" id="day" aria-live="polite"></dl>
+    </div>
+  ) : (
+    <div class="rhythm reveal">
+      <div><span class="eyebrow">Ochtend</span><h3>Samen</h3><p>Workshops, ademwerk en gesprek in de groep.</p></div>
+      <div><span class="eyebrow">Middag</span><h3>Lichaam en omgeving</h3><p>Beweging, rust en de excursies van {L.name}.</p></div>
+      <div><span class="eyebrow">Avond</span><h3>Licht</h3><p>Samen eten. Dag 7 en dag 11 zijn bewust stil.</p></div>
+    </div>
+  )}
+</div></section>
+
+<section class="section" id="excursies" aria-labelledby="exc-t" style={`--loc:var(--${L.key})`}><div class="wrap">
+  <div class="head reveal">
+    <div class="stack"><span class="eyebrow">De middagen</span><h2 class="h2" id="exc-t">{L.name} buiten de deur</h2></div>
+    <p class="soft small">Ingepland in het ritme, niet los te boeken.</p>
+  </div>
+  <div class="excs reveal">
+    {excs.map((e) => (
+      <a class="exc" href={`/${e.loc}/${e.slug}`} data-peek data-teaser={e.card.teaser}>
+        <Photo src={e.card.photo} alt={`${e.title} (sfeerbeeld)`} class="thumb" sizes="(max-width: 960px) 50vw, 25vw" />
+        <span class="when">{e.card.when}</span>
+        <h3>{e.title}</h3>
+        <p>{e.card.text}</p>
+      </a>
+    ))}
+  </div>
+</div></section>
+
+<section class="interlude" id="verblijf" aria-labelledby="verblijf-t">
+  <Photo src="photography/aurora-red-room" alt="Ochtendlicht op kalkpleister in een rustige kamer, een raam open en een rode linnen plaid op een houten bank." />
+  <div class="shade" aria-hidden="true"></div>
+  <div class="copy"><div class="wrap">
+    <span class="eyebrow">Het verblijf</span>
+    <h2 class="statement" id="verblijf-t" style="margin-top:20px">Een eigen kamer. Niets dat afleidt.</h2>
+    <p class="meta">Privé chef · Transfers · Wasservice · Telefoon op je kamer, niet in de groep</p>
+  </div></div>
+</section>
+
+<section class="section" id="editie" aria-labelledby="editie-t"><div class="wrap">
+  <div class="facts-row reveal" style="margin-bottom:clamp(80px,10vw,140px)">
+    <div><b>6</b><span>Deelnemers per editie</span></div>
+    <div><b>1</b><span>Vaste begeleider</span></div>
+    <div><b>14</b><span>Dagen op locatie</span></div>
+    <div><b>180</b><span>Dagen begeleiding</span></div>
+  </div>
+  <div class="edition reveal">
+    <span class="eyebrow" id="editie-t">{L.open ? `Editie 01 · ${L.name}` : `${L.name} · volgende editie`}</span>
+    <div class="price num">€17.500</div>
+    <p class="soft">Het volledige traject van zes maanden. Niet de prijs van twee weken.</p>
+    <div class="seats" role="img" aria-label="Zes plekken per editie"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="actions">
+      {L.open
+        ? <a class="btn" href="#gesprek">Een eerste gesprek</a>
+        : <a class="btn" href="#gesprek" data-wait={L.name}>Op de wachtlijst</a>}
+      <a class="btn btn--ghost" href="/particulier-of-zakelijk">Particulier of zakelijk</a>
+    </div>
+  </div>
+</div></section>
+
+<IntakeSection loc={L.key as LocKey} />
+
+<a class="next" href={`/${N.key}`}>
+  <Photo src={N.photo} alt="" style={`--focal:${N.focal}`} />
+  <span class="copy"><span class="eyebrow">Volgende bestemming</span><span class="name">{N.name}</span></span>
+</a>
+</Base>
