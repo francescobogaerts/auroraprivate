@@ -59,7 +59,7 @@ for name,col,mk,bg in [('ink',INK,INK,None),('salt',SALT,SALT,None),('ink-red',I
     open(f'{OUT}/aurora-logo-horizontal-{name}.svg','w').write(svg(mw+gap+ww*0.62+4,H,body,'AURORA Private'))
     # stacked lockup
     W=max(ww*0.7,160); cx=W/2
-    body=mark(col,x=cx-64*1.9,y=0,k=1.9,red=sun)+wordmark(col,cx,122+62,0.7,sub=False,center=True)+\
+    body=mark(col,x=cx-64*1.9/2,y=0,k=1.9,red=sun)+wordmark(col,cx,122+62,0.7,sub=False,center=True)+\
          f'<path transform="translate({cx-sw_*1.0/2:.2f} {122+62+42}) scale(1.0)" d="{SUB}" fill="{col}"/>'
     open(f'{OUT}/aurora-logo-stacked-{name}.svg','w').write(svg(W,122+62+52,body,'AURORA Private'))
     # wordmark
