@@ -201,3 +201,15 @@
 .sky-lines p em{color:#F3D9C6}
 .sky-lines .sky-sub{margin-top:0;font-size:clamp(1.15rem,.95rem + .8vw,1.7rem)}
 @media (prefers-reduced-motion:reduce){.sky{height:auto}.sky-in{position:relative;height:auto;min-height:100svh;padding:18vh 0 12vh}.sky-lines{grid-template-areas:none;gap:18px}.sky-lines p{grid-area:auto}}
+
+/* v4 realistic sunrise: shorter pin, crisp upscale, no CSS horizon */
+.sky{height:340vh;height:340svh}
+.sky-gl{image-rendering:auto}
+.sky.has-gl .horizon .line{opacity:0}
+.sky.has-gl .sky-word{filter:drop-shadow(0 1px 2px rgba(20,12,10,.45)) drop-shadow(0 6px 30px rgba(10,8,8,.45))}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+.sky.has-gl .sky-in::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(8,10,12,.30) 0%,rgba(8,10,12,0) 26%,rgba(8,10,12,0) 52%,rgba(8,10,12,.38) 100%)}
+.sky.has-gl .sky-lines p{text-shadow:0 1px 3px rgba(10,8,8,.5),0 2px 26px rgba(10,8,8,.55)}
+.sky.has-gl .sky-in::after{background:linear-gradient(180deg,rgba(8,10,12,.30) 0%,rgba(8,10,12,calc(.08 + .18 * var(--rise))) 30%,rgba(8,10,12,calc(.05 + .22 * var(--rise))) 60%,rgba(8,10,12,.42) 100%)}
