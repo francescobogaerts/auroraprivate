@@ -85,3 +85,10 @@ Home · 4 locaties · 16 excursies · /traject · /organisaties · /voor-naasten
 - Contactadres, KvK-gegevens en reactietermijn: daarna `/privacy` definitief maken en `PUBLIC_INTAKE_LIVE` aanzetten.
 - Domeinnaam koppelen, daarna `PUBLIC_SITE_URL` en `PUBLIC_INDEXABLE` zetten.
 - `/intern/*` is niet geïndexeerd, maar wel openbaar bereikbaar. Wil je het afschermen, zet dan Vercel Deployment Protection aan of haal de map weg voor livegang.
+
+## Next: cinematic sunrise (hero)
+
+The homepage hero (`.sky` in `src/pages/index.astro`, styles in `src/styles/dawn.css`, scroll hook `--rise` in `src/scripts/aurora.ts`) is a placeholder for a real, cinematic sunrise:
+- GSAP + ScrollTrigger scrubbed to scroll (the section is already pinned, 190vh).
+- A WebGL/canvas layer (or particle system) for sky gradient, sun disc with atmospheric scattering, light path on the water and drifting haze; the CSS sun/horizon becomes the reduced-motion fallback.
+- Keep the CSP (`script-src 'self'`): bundle GSAP via npm, no CDN. Respect `prefers-reduced-motion`.

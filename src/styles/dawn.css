@@ -174,3 +174,14 @@
 .legal-head .lead,.legal-head .soft{color:var(--text-soft)}
 .legal-body{padding-top:clamp(64px,8vw,112px)!important;background:linear-gradient(180deg,#1A2422 0px,var(--dusk) 40px,var(--dawn-1) 120px,var(--dawn-2) 220px,var(--dawn-3) 360px,var(--surface) 620px)!important}
 .legal-body h2{color:var(--ink)}
+
+/* v3: subtler sky word — reads like the wordmark, the sunrise carries the scene */
+.sky-word{font-size:clamp(2.4rem,1rem + 5.2vw,6.4rem)!important;letter-spacing:.34em!important;margin-right:-.34em;line-height:1!important;margin-top:4vh}
+@media (prefers-reduced-motion:no-preference){.sky-word{animation:skyIn2 2.4s var(--ease) both}@keyframes skyIn2{from{opacity:0;letter-spacing:.5em}to{opacity:1;letter-spacing:.34em}}}
+.horizon{height:clamp(110px,18vh,180px);margin-top:1.2vh}
+.horizon .sun{width:clamp(84px,9vw,150px)}
+.horizon .glow{width:56vw;height:38vh}
+.sky-sub{font-size:clamp(1.15rem,.95rem + .8vw,1.7rem);margin-top:3vh}
+.horizon .sun{width:clamp(56px,5.2vw,92px)}
+.horizon .glow{width:min(70vw,900px);height:34vh;background:radial-gradient(50% 50% at 50% 70%,rgba(216,187,166,.42),rgba(151,85,92,.14) 45%,transparent 72%)}
+@media (max-width:760px){.horizon .glow{width:140vw}}
