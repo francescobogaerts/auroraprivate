@@ -228,7 +228,7 @@ function init(){
       const t0 = performance.now();
       draw = () => {
         gl.uniform2f(uRes, canvas.width, canvas.height);
-        gl.uniform1f(uTime, (performance.now() - t0) / 1000);
+        gl.uniform1f(uTime, (performance.now() - t0) / 1000 * 0.55);
         gl.uniform1f(uRise, state.rise);
         gl.uniform1f(uHor, horizon);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
@@ -242,7 +242,7 @@ function init(){
   }
 
   // Silky scrolling (mouse wheel / trackpad); touch keeps native scrolling
-  const lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 0.9, smoothWheel: true });
+  const lenis = new Lenis({ lerp: 0.05, wheelMultiplier: 0.7, touchMultiplier: 0.8, smoothWheel: true });
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((t) => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
   document.querySelectorAll('a[href^="#"]').forEach((a) => a.addEventListener('click', (e) => { const id = a.getAttribute('href'); if(id.length > 1 && document.querySelector(id)){ e.preventDefault(); lenis.scrollTo(id, { offset: -80 }); } }));
@@ -250,7 +250,7 @@ function init(){
   // Scroll choreography
   const tl = gsap.timeline({
     defaults: { ease: 'none' },
-    scrollTrigger: { trigger: sky, start: 'top top', end: 'bottom bottom', scrub: 0.8 },
+    scrollTrigger: { trigger: sky, start: 'top top', end: 'bottom bottom', scrub: 2.6 },
     onUpdate: setCss,
   });
   tl.to(state, { rise: 1, duration: 1, ease: 'power1.inOut' }, 0)
