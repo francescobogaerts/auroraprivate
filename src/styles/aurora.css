@@ -6,6 +6,8 @@
    Rules: one idea per screen · max one short paragraph per section · red only as a hairline · detail on demand. */
 
 @font-face{font-family:"Jost";src:url("/fonts/jost-var.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("/fonts/instrument-serif.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("/fonts/instrument-serif-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:"Instrument Sans";src:url("/fonts/instrument-sans-var.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
 
 :root{
@@ -21,7 +23,8 @@
   --accent:var(--ink); --on-accent:var(--salt); --red:var(--aurora-red); --focus:var(--tide);
   --band:#1E2624; --on-band:#ECEEEA; --on-band-soft:#AEB8B4; --band-line:#3A4643;
   /* Type */
-  --font-display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+  --font-display:"Instrument Serif","Iowan Old Style","Times New Roman",serif;
+  --font-mark:"Jost","Futura","Avenir Next",system-ui,sans-serif;
   --font-body:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;
   --fs-hero:clamp(2.6rem,1.2rem + 5.4vw,6.6rem);
   --fs-display:clamp(2.2rem,1.3rem + 3.6vw,4.8rem);
@@ -563,3 +566,39 @@ body.over .site-head:not(.is-solid) .progress{opacity:0}
 
 .site-head.over-dark{background:transparent!important;color:var(--on-band)!important;border-bottom-color:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 .site-head.over-dark .progress{opacity:0}
+
+/* ===== v3.1 Title face: Instrument Serif (same family as the body face Instrument Sans) =====
+   Editorial, high-contrast and slightly condensed; one weight, so hierarchy comes from size and italics. */
+h1,h2,h3,.display,.h2,.statement,.lead,.name,.price,.trio .n,.m-line,.rc .q,.dest h3,.story h1,.story .line,.faq summary,.steps h3,.phases h3,.nav .links a,.next .name,.peek h3,.day h3,.exc h3,.facts-row b,.facts dd,.more-links a b,.legal-page h1,.legal-page h2,.days button b,.daytable td:first-child,.site-foot .bound,.boundary blockquote{font-weight:400!important;letter-spacing:-.012em}
+h1 em,h2 em,h3 em,.statement em,.display em,.lead em,.m-line em,.name em{font-style:italic}
+.display{line-height:1.02}
+.opening h1.display{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem);line-height:1}
+.opening--sub h1.display{font-size:clamp(2.3rem,1.3rem + 3.4vw,4.8rem)}
+.h2{font-size:clamp(2rem,1.3rem + 2.4vw,3.6rem);line-height:1.04}
+.statement{font-size:clamp(1.8rem,1.2rem + 2.4vw,3.4rem);line-height:1.14}
+.lead{font-size:clamp(1.3rem,1.1rem + .7vw,1.7rem);line-height:1.35}
+.name{letter-spacing:.14em!important;margin-right:-.14em;font-size:clamp(2.8rem,1.4rem + 5.6vw,7rem)}
+.price,.trio .n{letter-spacing:-.03em}
+.m-line{font-size:clamp(2rem,1.2rem + 3.4vw,4.4rem)!important;line-height:1.1!important}
+.rc .q{font-size:clamp(1.4rem,1.1rem + 1.2vw,2.1rem)}
+.dest h3{font-size:clamp(1.5rem,1.1rem + 1vw,2.1rem)!important;letter-spacing:.06em!important;text-transform:none!important}
+.story h1{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem);line-height:1}
+.story .line{font-size:clamp(1.5rem,1.1rem + 1.4vw,2.4rem)}
+.story h1 + .line{font-family:var(--font-body);font-weight:400!important;letter-spacing:0;font-size:1.05rem}
+.opening .sub{font-family:var(--font-body);font-size:1.05rem;letter-spacing:0}
+.nav .links a{font-size:clamp(2.2rem,1.4rem + 3vw,4rem)}
+.exc h3{font-size:1.5rem}
+.day h3{font-size:clamp(1.8rem,1.3rem + 1.4vw,2.6rem)}
+.trio h3,.rc .a h3{font-family:var(--font-body);font-size:1rem;font-weight:500!important;letter-spacing:0}
+.phases h3,.steps h3{font-size:clamp(1.6rem,1.3rem + .9vw,2.1rem)}
+.faq summary{font-size:clamp(1.3rem,1.1rem + .7vw,1.65rem)}
+.site-foot .bound,.boundary blockquote{font-size:1.15rem;line-height:1.55}
+.brand b,.brand small{font-family:var(--font-mark)}
+
+/* Lockup (outlined SVG) */
+.brand{display:inline-flex}
+.brand svg{width:auto!important;height:30px!important;display:block}
+.site-head .brand svg{height:42px!important}
+.site-foot .mark .brand svg{height:64px!important;--sun:var(--first-light)}
+@media (max-width:760px){.site-head .brand svg{height:32px!important}}
+.site-head.is-solid .brand,body:not(.over) .site-head .brand{--sun:var(--red)}.site-head.over-dark .brand,.menu-open .site-head .brand{--sun:currentColor}

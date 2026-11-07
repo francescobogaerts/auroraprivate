@@ -2,7 +2,6 @@
 // Het traject — canon: Programma 2.0 (Claude Docs, 8 okt 2026). Copy blocks are verbatim where the canon says so.
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import Boundary from '../components/Boundary.astro';
 import IntakeSection from '../components/IntakeSection.astro';
 
 const days: [string, string, string, string, string][] = [
@@ -24,24 +23,23 @@ const days: [string, string, string, string, string][] = [
 const moves: Record<number, string> = { 0: 'Aankomen · dag 1–4', 4: 'Kijken · dag 5–11', 11: 'Vormgeven · dag 12–14' };
 ---
 <Base title="Het traject · AURORA Private" description="Zes maanden persoonlijke begeleiding met veertien dagen op locatie als keerpunt. Voorbereiding, de veertien dagen dag voor dag, integratie en de prijs." og="traject" current={null} crumbs={[{ name: 'Het traject', path: '/traject' }]}>
-<PageHero photo="unsplash:1781969472422-41e137ffe157" alt="Laag licht boven zee en een donkere kustlijn." eyebrow="Het traject" title="Het begint voor je vertrekt en houdt niet op als je thuiskomt." sub="Zes maanden persoonlijke begeleiding, met veertien dagen op Bonaire als keerpunt." coords="4 weken voorbereiding · 14 dagen Bonaire · 5 maanden integratie" focal="40% 60%" />
+<PageHero photo="unsplash:1781969472422-41e137ffe157" alt="Laag licht boven zee en een donkere kustlijn." eyebrow="Het traject" title="Het begint voor je vertrekt." sub="En houdt niet op als je thuiskomt." coords="4 weken · 14 dagen · 5 maanden" focal="40% 60%" />
 
 <section class="section" aria-labelledby="fases-t"><div class="wrap">
-  <span class="eyebrow">Drie fases</span>
-  <h2 class="h2" id="fases-t" style="margin-top:16px;max-width:20ch">Zes maanden. Veertien dagen keerpunt. Eén begeleider.</h2>
-  <div class="phases">
-    <article><span class="when">± 4 weken · thuis</span><h3>Voorbereiding</h3><p class="soft">Het traject begint voor vertrek. Een persoonlijke intake en screening, gesprekken met je vaste begeleider, je doelen en patronen in kaart. Je vertrekt met een eigen AURORA Plan, niet met een koffer vol vragen.</p></article>
-    <article class="core"><span class="when">14 dagen · op locatie</span><h3>The Bonaire Experience</h3><p class="soft">Het hart van het traject. Geen kliniek, maar een veilige, rustige plek met hooguit zes anderen. Eerst vertragen en eerlijk kijken. Dan patronen, relaties en verantwoordelijkheid. Dan je leven thuis opnieuw vormgeven. Daartussen: zee, stilte, goed eten, beweging en plezier. Niet elke minuut is begeleiding.</p></article>
-    <article><span class="when">± 5 maanden · thuis</span><h3>Integratie</h3><p class="soft">Na Bonaire verdwijnt AURORA niet. Eerst wekelijks een 1-op-1 sessie, later tweewekelijks. Groepssessies met je editie, persoonlijke opdrachten en evaluaties op dag 30, 60, 90 en 180. Dezelfde begeleider, het hele traject.</p></article>
+  <div class="head reveal"><div class="stack"><span class="eyebrow">Drie fases</span><h2 class="h2" id="fases-t">Eén begeleider, van intake tot dag <em>180</em>.</h2></div></div>
+  <div class="phases reveal" style="margin-top:0">
+    <article><span class="when">± 4 weken · thuis</span><h3>Voorbereiding</h3><p>Intake, je vaste begeleider en een eigen AURORA Plan.</p>
+      <details class="more"><summary>Meer</summary><div><p>Het traject begint voor vertrek. Een persoonlijke intake en screening, gesprekken met je vaste begeleider, je doelen en patronen in kaart. Je vertrekt met een eigen AURORA Plan, niet met een koffer vol vragen.</p></div></details></article>
+    <article class="core"><span class="when">14 dagen · op locatie</span><h3>The Bonaire Experience</h3><p>Vertragen, eerlijk kijken, je leven thuis opnieuw vormgeven.</p>
+      <details class="more"><summary>Meer</summary><div><p>Het hart van het traject. Geen kliniek, maar een veilige, rustige plek met hooguit zes anderen. Eerst vertragen en eerlijk kijken. Dan patronen, relaties en verantwoordelijkheid. Dan je leven thuis opnieuw vormgeven. Daartussen: zee, stilte, goed eten, beweging en plezier. Niet elke minuut is begeleiding.</p></div></details></article>
+    <article><span class="when">± 5 maanden · thuis</span><h3>Integratie</h3><p>Sessies thuis en evaluaties op dag 30, 60, 90 en 180.</p>
+      <details class="more"><summary>Meer</summary><div><p>Na Bonaire verdwijnt AURORA niet. Eerst wekelijks een 1-op-1 sessie, later tweewekelijks. Groepssessies met je editie, persoonlijke opdrachten en evaluaties op dag 30, 60, 90 en 180. Dezelfde begeleider, het hele traject.</p></div></details></article>
   </div>
 </div></section>
 
 <section class="section" id="veertien" aria-labelledby="dagen-t"><div class="wrap">
-  <div class="split">
-    <div class="stack"><span class="eyebrow">De veertien dagen</span><h2 class="h2" id="dagen-t">Dag voor dag.</h2></div>
-    <div class="stack"><p class="lead">Drie bewegingen, elke dag hetzelfde ritme: ’s ochtends inhoud, ’s middags lichaam en eiland, ’s avonds licht en samen.</p><p class="soft">Je hebt minimaal zes privé sessies met je begeleider. Dag 7 en dag 11 zijn bewust leeg. Voor India, Mauritius en Marbella geldt hetzelfde ritme; alleen de middagen wisselen naar de excursies van die plek.</p></div>
-  </div>
-  <div class="daytable-wrap" role="region" aria-label="Programma van de veertien dagen" tabindex="0">
+  <div class="head reveal"><div class="stack"><span class="eyebrow">De veertien dagen</span><h2 class="h2" id="dagen-t">Dag voor dag.</h2></div><p class="soft small">Ochtend samen · middag lichaam en eiland · avond licht. Dag 7 en 11 zijn stil.</p></div>
+  <div class="daytable-wrap reveal" role="region" aria-label="Programma van de veertien dagen" tabindex="0">
     <table class="daytable">
       <thead><tr><th scope="col">Dag</th><th scope="col">Thema</th><th scope="col">Ochtend, samen</th><th scope="col">1-op-1</th><th scope="col">Middag &amp; eiland</th><th scope="col">Avond</th></tr></thead>
       <tbody>
@@ -54,57 +52,34 @@ const moves: Record<number, string> = { 0: 'Aankomen · dag 1–4', 4: 'Kijken �
       </tbody>
     </table>
   </div>
-  <p class="credit" style="margin-top:20px">De inhoud van de veertien dagen is een eerste ontwerp. De begeleiders vullen en toetsen het voor de eerste editie.</p>
+  <p class="credit" style="margin-top:20px">Eerste ontwerp; de begeleiders vullen en toetsen het voor de eerste editie. India, Mauritius en Marbella volgen hetzelfde ritme.</p>
 </div></section>
 
-<section class="section" aria-labelledby="altijd-t"><div class="wrap split">
-  <div class="stack"><span class="eyebrow">Het verblijf</span><h2 class="h2" id="altijd-t">Wat altijd geldt.</h2></div>
-  <ul class="ticklist">
-    <li>Een eigen kamer met zeezicht</li>
-    <li>Een privé chef en alle transfers op locatie</li>
-    <li>Wasservice</li>
-    <li>Geen telefoon in het groepsprogramma, wel op je kamer</li>
-    <li>Excursies ingepland in het ritme, niet los te boeken</li>
-  </ul>
+<section class="section section--s band" id="editie" aria-labelledby="prijs-t"><div class="wrap edition reveal">
+  <span class="eyebrow" id="prijs-t">Editie 01 · Bonaire</span>
+  <div class="price num">€17.500</div>
+  <p class="soft">Het volledige traject van zes maanden. Maximaal zes deelnemers.</p>
+  <div class="actions"><a class="btn" href="#gesprek">Een eerste gesprek</a><a class="btn btn--ghost" href="/particulier-of-zakelijk">Particulier of zakelijk</a></div>
 </div></section>
 
-<section class="section band" id="editie" aria-labelledby="prijs-t"><div class="wrap split">
-  <div class="stack">
-    <span class="eyebrow">Eén prijs, het hele traject</span>
-    <h2 class="h2" id="prijs-t">Editie 01, Bonaire</h2>
-    <p class="price" style="margin-top:24px">€17.500</p>
-    <p class="lead">Het volledige traject van zes maanden. Niet de prijs van twee weken. Maximaal zes deelnemers per editie.</p>
-    <p><a class="btn btn--ghost" href="/particulier-of-zakelijk">Particulier of zakelijk</a></p>
-  </div>
-  <ul class="ticklist">
-    <li>Eén vaste begeleider, van intake tot dag 180</li>
-    <li>Persoonlijk AURORA Plan voor vertrek</li>
-    <li>Minimaal zes privé sessies op locatie</li>
-    <li>Verblijf, privé chef, transfers en excursies</li>
-    <li>Wekelijkse, later tweewekelijkse sessies thuis</li>
-    <li>Groepssessies met je editie</li>
-    <li>Evaluaties op dag 30, 60, 90 en 180</li>
-  </ul>
-</div></section>
-
-<section class="section" id="meedoen" aria-labelledby="mee-t"><div class="wrap">
+<section class="section" id="meedoen" aria-labelledby="mee-t"><div class="wrap still reveal">
   <span class="eyebrow">Wie kan meedoen</span>
-  <h2 class="h2" id="mee-t" style="margin-top:16px;max-width:22ch">Een eerlijke intake, ook als het antwoord nee is.</h2>
-  <div class="cols2">
-    <div><h3 class="h3">Je kunt meedoen als je</h3><ul class="ticklist">
-      <li>stabiel genoeg bent om zonder medisch toezicht te reizen en veertien dagen in een kleine groep te zijn;</li>
-      <li>zelf kiest voor het traject, niet onder druk van werkgever of familie;</li>
-      <li>bereid bent tot zes maanden begeleiding, ook na thuiskomst.</li>
-    </ul></div>
-    <div><h3 class="h3">We verwijzen door bij</h3><ul class="ticklist">
-      <li>lichamelijke afhankelijkheid waarbij stoppen medisch begeleid moet worden;</li>
-      <li>acute crisis, psychose of een actieve eetstoornis;</li>
-      <li>een lopende behandeling die door deelname onderbroken zou worden, zonder akkoord van de behandelaar.</li>
-    </ul></div>
-  </div>
-  <p class="soft" style="margin-top:32px">Past AURORA niet, dan helpen we je bij de intake de juiste plek te vinden. <a href="/vragen">Meer vragen en antwoorden</a></p>
+  <p class="statement" id="mee-t">Een eerlijke intake, ook als het antwoord <em>nee</em> is.</p>
+  <details class="more"><summary>Toelating en doorverwijzing</summary><div style="text-align:left">
+    <div class="cols2" style="margin-top:0">
+      <div><h3 class="h3">Je kunt meedoen als je</h3><ul class="ticklist">
+        <li>stabiel genoeg bent om zonder medisch toezicht te reizen en veertien dagen in een kleine groep te zijn;</li>
+        <li>zelf kiest voor het traject, niet onder druk van werkgever of familie;</li>
+        <li>bereid bent tot zes maanden begeleiding, ook na thuiskomst.</li>
+      </ul></div>
+      <div><h3 class="h3">We verwijzen door bij</h3><ul class="ticklist">
+        <li>lichamelijke afhankelijkheid waarbij stoppen medisch begeleid moet worden;</li>
+        <li>acute crisis, psychose of een actieve eetstoornis;</li>
+        <li>een lopende behandeling die door deelname onderbroken zou worden, zonder akkoord van de behandelaar.</li>
+      </ul></div>
+    </div>
+  </div></details>
 </div></section>
 
-<Boundary />
 <IntakeSection />
 </Base>

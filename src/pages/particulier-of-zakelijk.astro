@@ -1,50 +1,33 @@
 ---
-// Replaces the v1 Zilveren Kruis blog. The insurer-specific claim from August could not be re-verified
-// (Nov 2026), so this page states only what AURORA itself controls. See README › Nog open.
+// Replaces the v1 Zilveren Kruis blog; states only what AURORA itself controls. See README › Nog open.
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import Boundary from '../components/Boundary.astro';
 import IntakeSection from '../components/IntakeSection.astro';
 ---
 <Base title="Particulier of zakelijk · AURORA Private" description="€17.500 voor het volledige traject van zes maanden. Zelf betalen of via je werkgever, op dezelfde voorwaarden. Waarom AURORA geen vergoede zorg is." og="betalen" crumbs={[{ name: 'Particulier of zakelijk', path: '/particulier-of-zakelijk' }]}>
-<PageHero photo="img/marbella-garden" alt="Een lange houten tafel onder olijfbomen, bergen in de verte." eyebrow="Particulier of zakelijk" title="Eén prijs. Twee manieren om te betalen." sub="€17.500 voor het volledige traject van zes maanden. Dezelfde voorwaarden, wie de factuur ook ontvangt." focal="45% 60%" />
+<PageHero photo="img/marbella-garden" alt="Een lange houten tafel onder olijfbomen, bergen in de verte." eyebrow="Particulier of zakelijk" title="Eén prijs. Twee manieren om te betalen." focal="45% 60%" />
 
-<section class="section" aria-labelledby="twee-t"><div class="wrap">
+<section class="section" aria-labelledby="p-t"><div class="wrap">
+  <div class="edition reveal">
+    <span class="eyebrow" id="p-t">Het volledige traject</span>
+    <div class="price num">€17.500</div>
+    <p class="soft">Zes maanden. Verblijf, privé chef, transfers, excursies en alle sessies. Niet de prijs van twee weken.</p>
+  </div>
+</div></section>
+
+<section class="section section--tight-top" aria-labelledby="twee-t"><div class="wrap">
   <h2 class="sr" id="twee-t">Particulier of zakelijk</h2>
-  <div class="cols2" style="margin-top:0">
-    <div>
-      <span class="eyebrow">Particulier</span>
-      <h3 class="h2" style="font-size:clamp(1.8rem,3vw,2.6rem);margin-top:12px">Je betaalt zelf.</h3>
-      <p class="soft" style="margin-top:16px">Je ontvangt de factuur op je eigen naam. Er komt geen zorgverzekeraar, werkgever of huisarts aan te pas, en er ontstaat geen dossier buiten AURORA. Voor veel deelnemers is dat precies de reden om zelf te betalen.</p>
-    </div>
-    <div>
-      <span class="eyebrow">Zakelijk</span>
-      <h3 class="h2" style="font-size:clamp(1.8rem,3vw,2.6rem);margin-top:12px">Je werkgever betaalt.</h3>
-      <p class="soft" style="margin-top:16px">Zakelijke facturatie, één liaison voor HR, dezelfde voorwaarden. Wat er gedeeld wordt, bepaal jij als deelnemer. De afspraken daarover leggen we per opdracht apart vast. <a href="/organisaties">Meer voor organisaties</a></p>
-    </div>
+  <div class="trio reveal" style="grid-template-columns:1fr 1fr">
+    <div><span class="eyebrow">Particulier</span><h3 style="font:400 clamp(1.8rem,1.3rem + 1.4vw,2.6rem)/1.1 var(--font-display);letter-spacing:-.01em">Je betaalt <em>zelf</em>.</h3><p>De factuur op je eigen naam. Geen verzekeraar, werkgever of dossier buiten AURORA.</p></div>
+    <div><span class="eyebrow">Zakelijk</span><h3 style="font:400 clamp(1.8rem,1.3rem + 1.4vw,2.6rem)/1.1 var(--font-display);letter-spacing:-.01em">Je werkgever betaalt.</h3><p>Eén liaison voor HR, dezelfde voorwaarden. Wat gedeeld wordt, bepaal jij. <a href="/organisaties">Voor organisaties</a></p></div>
   </div>
 </div></section>
 
-<section class="section band" aria-labelledby="w-t"><div class="wrap split">
-  <div class="stack"><span class="eyebrow">Wat je krijgt</span><h2 class="h2" id="w-t">€17.500, het hele traject.</h2></div>
-  <ul class="ticklist">
-    <li>Eén vaste begeleider, van intake tot dag 180</li>
-    <li>Persoonlijk AURORA Plan voor vertrek</li>
-    <li>Veertien dagen op locatie met verblijf, privé chef, transfers en excursies</li>
-    <li>Minimaal zes privé sessies op locatie</li>
-    <li>Wekelijkse, later tweewekelijkse sessies thuis, plus groepssessies met je editie</li>
-    <li>Evaluaties op dag 30, 60, 90 en 180</li>
-  </ul>
+<section class="section section--s band" aria-labelledby="v-t"><div class="wrap still reveal">
+  <span class="eyebrow" id="v-t">Zorgverzekering</span>
+  <p class="statement" style="color:var(--salt)">Geen behandeling, dus geen <em>vergoede</em> zorg.</p>
+  <p class="soft" style="color:var(--on-band-soft)">Heb je medische zorg of ggz nodig, dan is dat de eerste stap, via je huisarts. Bij de intake kijken we samen wat past.</p>
 </div></section>
 
-<section class="section" aria-labelledby="v-t"><div class="wrap split">
-  <div class="stack"><span class="eyebrow">Zorgverzekering</span><h2 class="h2" id="v-t">Waarom AURORA geen vergoede zorg is.</h2></div>
-  <div class="stack">
-    <p class="lead">AURORA Private is een begeleidingstraject, geen behandeling. Het valt daarom niet onder de zorgverzekering, en het is ook geen alternatief voor zorg die wel vergoed wordt.</p>
-    <p class="soft">Heb je medische zorg of ggz-behandeling nodig, dan is dat de eerste stap, via je huisarts en je eigen verzekering. Bij de intake kijken we samen wat past. Soms is dat AURORA, soms iets anders, soms eerst het een en daarna het ander.</p>
-  </div>
-</div></section>
-
-<Boundary />
 <IntakeSection />
 </Base>

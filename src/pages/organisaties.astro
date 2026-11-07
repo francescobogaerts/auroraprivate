@@ -1,41 +1,37 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import Boundary from '../components/Boundary.astro';
 import IntakeSection from '../components/IntakeSection.astro';
 ---
 <Base title="Voor organisaties · AURORA Private" description="Discrete begeleiding voor een medewerker die vastloopt: veertien dagen afwezig, zes maanden begeleiding, zakelijke facturatie en één liaison voor HR." og="organisaties" crumbs={[{ name: 'Voor organisaties', path: '/organisaties' }]}>
-<PageHero photo="unsplash:1497366811353-6870744d04b2" alt="Een lege vergaderruimte met een lange tafel en stoelen." eyebrow="Voor organisaties" title="Uw medewerker is veertien dagen afwezig. De begeleiding loopt zes maanden." sub="Voor de mensen op wie uw organisatie rust, en die dat al te lang alleen dragen." focal="50% 60%" />
+<PageHero photo="unsplash:1497366811353-6870744d04b2" alt="Een lege vergaderruimte met een lange tafel en stoelen." eyebrow="Voor organisaties" title="Veertien dagen afwezig. Zes maanden begeleid." sub="Voor de mensen op wie uw organisatie rust." focal="50% 60%" />
 
-<section class="section" aria-labelledby="w-t"><div class="wrap split">
-  <div class="stack"><span class="eyebrow">Waarom dit werkt voor een organisatie</span><h2 class="h2" id="w-t">Kort weg. Lang begeleid.</h2></div>
-  <div class="stack">
-    <p class="lead">Een retraite werkt zolang iemand er is. Hier ligt het zwaartepunt thuis: vier weken voorbereiding, veertien dagen op locatie en vijf maanden integratie naast het werk.</p>
-    <p class="soft">De afwezigheid is overzienbaar en planbaar. De begeleiding loopt door in het gewone ritme: eerst wekelijks een sessie, later tweewekelijks, met evaluaties op dag 30, 60, 90 en 180. Dezelfde begeleider, het hele traject.</p>
-  </div>
+<section class="section" aria-labelledby="w-t"><div class="wrap still reveal">
+  <span class="eyebrow" id="w-t">Kort weg, lang begeleid</span>
+  <p class="statement">De afwezigheid is <em>planbaar</em>. Het zwaartepunt ligt thuis, naast het werk.</p>
+  <span class="rule" aria-hidden="true"></span>
+  <p class="soft">Vier weken voorbereiding, veertien dagen op locatie, vijf maanden integratie. Dezelfde begeleider, het hele traject.</p>
 </div></section>
 
-<section class="section band" aria-labelledby="hoe-t"><div class="wrap">
-  <span class="eyebrow">Hoe het werkt</span>
-  <h2 class="h2" id="hoe-t" style="margin-top:16px">Zakelijk geregeld. Persoonlijk gehouden.</h2>
-  <ol class="steps">
-    <li><div><h3>Een verkennend gesprek met HR of directie</h3><p>Zonder namen. We bespreken of AURORA past bij de situatie en hoe het traject zich verhoudt tot werk en verlof.</p></div></li>
-    <li><div><h3>De medewerker kiest zelf</h3><p>Meedoen is altijd een eigen keuze. De medewerker heeft een eigen intake met de begeleider, los van de werkgever.</p></div></li>
-    <li><div><h3>Eén liaison, zakelijke facturatie</h3><p>Uw organisatie heeft één vast aanspreekpunt en ontvangt de factuur. Dezelfde voorwaarden als particulier: €17.500 voor het volledige traject van zes maanden.</p></div></li>
-    <li><div><h3>De medewerker houdt de regie</h3><p>Wat er gedeeld wordt, bepaalt de deelnemer. De afspraken over gegevensdeling leggen we per opdracht apart en schriftelijk vast.</p></div></li>
+<section class="section section--tight-top" aria-labelledby="hoe-t"><div class="wrap">
+  <div class="head reveal"><div class="stack"><span class="eyebrow">Hoe het werkt</span><h2 class="h2" id="hoe-t">Zakelijk geregeld. <em>Persoonlijk</em> gehouden.</h2></div></div>
+  <ol class="steps reveal">
+    <li><div><h3>Verkennend gesprek, zonder namen</h3><p>Past AURORA bij de situatie, en hoe verhoudt het zich tot werk en verlof?</p></div></li>
+    <li><div><h3>De medewerker kiest zelf</h3><p>Een eigen intake met de begeleider, los van de werkgever.</p></div></li>
+    <li><div><h3>Eén liaison, zakelijke factuur</h3><p>Dezelfde voorwaarden als particulier: €17.500 voor zes maanden.</p></div></li>
+    <li><div><h3>De medewerker houdt de regie</h3><p>Wat gedeeld wordt, legt u per opdracht schriftelijk vast met de deelnemer.</p></div></li>
   </ol>
 </div></section>
 
-<section class="section" aria-labelledby="d-t"><div class="wrap split">
-  <div class="stack"><span class="eyebrow">Discretie</span><h2 class="h2" id="d-t">Geen namen. Geen sporen.</h2></div>
-  <ul class="ticklist">
-    <li>Maximaal zes deelnemers per editie</li>
-    <li>Geen inhoudelijke rapportage aan de werkgever zonder toestemming van de deelnemer</li>
-    <li>Contact via het kanaal dat de deelnemer kiest, ook Signal</li>
-    <li>Deze site plaatst geen cookies en volgt niemand</li>
-  </ul>
+<section class="section section--s band" aria-labelledby="d-t"><div class="wrap">
+  <div class="facts-row reveal" style="border-color:var(--band-line)">
+    <div style="border-color:var(--band-line)"><b>6</b><span style="color:var(--on-band-soft)">Deelnemers per editie</span></div>
+    <div style="border-color:var(--band-line)"><b>0</b><span style="color:var(--on-band-soft)">Rapportage zonder toestemming</span></div>
+    <div style="border-color:var(--band-line)"><b>1</b><span style="color:var(--on-band-soft)">Liaison voor HR</span></div>
+    <div style="border-color:var(--band-line)"><b>0</b><span style="color:var(--on-band-soft)">Cookies of tracking</span></div>
+  </div>
+  <h2 class="sr" id="d-t">Discretie</h2>
 </div></section>
 
-<Boundary />
-<IntakeSection title="Een verkennend gesprek." lead="Kies ‘Voor mijn organisatie’. We nemen contact op via het kanaal dat u kiest, zonder namen tot u daar klaar voor bent." />
+<IntakeSection title="Een verkennend gesprek." lead="Kies ‘Voor mijn organisatie’. Zonder namen tot u daar klaar voor bent." />
 </Base>
