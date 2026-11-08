@@ -299,7 +299,11 @@
   /* Excursion story: pinned image crossfade, three beats */
   document.querySelectorAll('.story').forEach(function(st){
     var beats = st.querySelectorAll('.beat'); if(beats.length < 2 || still) return;
+    // pin without a fade: the first beat is on before the pin applies, so the beats never show stacked
+    st.classList.add('no-anim');
+    beats[0].classList.add('on');
     st.classList.add('is-pinned');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ st.classList.remove('no-anim'); }); });
     var ticks = document.createElement('div'); ticks.className = 'ticks'; ticks.setAttribute('aria-hidden','true');
     Array.prototype.forEach.call(beats, function(){ ticks.appendChild(document.createElement('i')); });
     st.querySelector('.frames').appendChild(ticks);

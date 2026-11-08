@@ -329,3 +329,4 @@ html:not(.js) .cmp-panel{display:grid;margin-bottom:32px}
 
 /* hero lines stay hidden until the scroll choreography takes them over (no stacked flash on load) */
 @media (prefers-reduced-motion:no-preference){.sky-lines p{opacity:0;visibility:hidden}}
+.story.no-anim .beat,.story.no-anim .beat .photo img{transition:none!important}
