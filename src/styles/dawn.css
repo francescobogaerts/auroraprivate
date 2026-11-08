@@ -319,3 +319,10 @@ html:not(.js) .cmp-panel{display:grid;margin-bottom:32px}
 .opening .copy{padding-bottom:clamp(64px,11vh,128px)}
 .ribbon .wrap{padding-inline:var(--hero-pad)}
 .legal-head .wrap{padding-inline:var(--hero-pad)}
+
+/* v6.1: smaller destination thumbnails, each with its own colour world */
+.slide{flex:0 0 min(26vw,360px)!important;aspect-ratio:3/4}
+@media (max-width:760px){.slide{flex-basis:62vw!important}}
+/* breathing room above the first hero line on the home page */
+.sky:not(.sky--loc) .sky-in{padding-top:clamp(120px,19vh,210px)}
+.sky:not(.sky--loc) .sky .eyebrow,.sky:not(.sky--loc) .eyebrow{margin-bottom:10px}

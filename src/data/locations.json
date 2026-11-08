@@ -129,7 +129,7 @@
     ],
     "next": "india",
     "lede": "De eerste editie. Een droog, open eiland waar de zee het ritme bepaalt.",
-    "thumb": "photography/thumb-bonaire"
+    "thumb": "img/kb-2"
   },
   {
     "key": "india",
@@ -162,7 +162,7 @@
     ],
     "next": "mauritius",
     "lede": "Mist boven het water en een dag die vroeg begint. Hetzelfde traject, in een stiller tempo.",
-    "thumb": "photography/thumb-india"
+    "thumb": "img/india-courtyard"
   },
   {
     "key": "mauritius",
@@ -195,7 +195,7 @@
     ],
     "next": "marbella",
     "lede": "Lagune in de ochtend, bergpaden en bos in de middag. Hetzelfde traject, met zachtere contrasten.",
-    "thumb": "photography/thumb-mauritius"
+    "thumb": "img/br-2"
   },
   {
     "key": "marbella",
@@ -228,6 +228,6 @@
     ],
     "next": "bonaire",
     "lede": "Dicht bij huis, voor wie snel terug moet kunnen. Hetzelfde traject, in een ingetogen Andalusische omgeving.",
-    "thumb": "photography/thumb-marbella"
+    "thumb": "img/marbella-patio"
   }
 ]
