@@ -46,7 +46,7 @@ const hints: Record<string, string> = {
   <div class="strip reveal" tabindex="0" aria-label="Bestemmingen">
     {locations.map((l, i) => (
       <a class="slide" href={`/${l.key}`}>
-        <Photo src={l.photo} alt={l.alt} style={`--focal:${l.focal}`} sizes="(max-width: 760px) 86vw, 44vw" />
+        <Photo src={l.thumb} alt={`${l.name} bij zonsopkomst`} style="--focal:50% 56%" sizes="(max-width: 760px) 86vw, 44vw" />
         <span class="no num">0{i + 1}</span>
         <span class="cap">
           <span class:list={['status', { open: l.open }]}><i aria-hidden="true"></i>{l.open ? 'Editie 01 · nu open' : 'Wachtlijst'}</span>

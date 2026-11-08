@@ -15,7 +15,7 @@ precision highp float;
 uniform vec2 uRes; uniform float uTime; uniform float uRise; uniform float uHorizon;
 uniform float uYaw; uniform float uSunAz; uniform float uClock; uniform vec4 uRip[8];
 // scene: 0 open sea (home), 1 Bonaire, 2 India, 3 Mauritius, 4 Marbella
-uniform float uScene; uniform vec3 uWater; uniform vec3 uShallow; uniform float uHaze; uniform float uWave;
+uniform float uIcon; uniform float uIconS; uniform float uScene; uniform vec3 uWater; uniform vec3 uShallow; uniform float uHaze; uniform float uWave;
 #define PI 3.14159265
 bool isScene(float k){ return abs(uScene - k) < .5; }
 const float RP = 6371e3; const float RA = 6471e3;
@@ -249,13 +249,12 @@ vec4 pirogue(vec2 q, float px, vec3 hz, vec3 sl, float day, float sunRel){
 }
 
 vec3 icon(vec3 col, vec3 rd, vec3 sd, bool refl){
-  if(isScene(0.)) return col;
+  if(isScene(0.) || uIcon < .5) return col;   // landmarks never in a hero; only for stills (?landmark)
   float a = atan(rd.x, rd.z), y = rd.y;
   float c0 = isScene(1.) ? .22 : (isScene(2.) ? .30 : (isScene(3.) ? .13 + .028 * sin(uTime * .021) : .31));
-  c0 *= clamp(uRes.x / uRes.y / 1.6, .3, 1.);   // keep it in frame on a phone
   float span = isScene(2.) ? .15 : (isScene(4.) ? .11 : .085);
-  if(abs(a - c0) > span || y > .07 || y < (isScene(3.) ? -.03 : (isScene(2.) ? -.02 : -.001))) return col;
-  float S = isScene(2.) ? 1.05 : (isScene(4.) ? 1.35 : 1.);
+  if(abs(a - c0) > span * uIconS || y > .07 * uIconS || y < (isScene(3.) ? -.03 : (isScene(2.) ? -.02 : -.001))) return col;
+  float S = (isScene(2.) ? 1.05 : (isScene(4.) ? 1.35 : 1.)) * uIconS;
   float px = (refl ? 3. : 1.2) / (uRes.y * 1.25) / S;
   vec2 q = vec2(a - c0, y) / S;
   vec3 hz = sky(normalize(vec3(rd.x, .003, rd.z)), sd, true);
@@ -522,9 +521,13 @@ function init(){
       };
       const SC = SCENES[sky.getAttribute('data-scene') || 'home'] || SCENES.home;
       const uScene = U('uScene'), uWater = U('uWater'), uShallow = U('uShallow'), uHaze = U('uHaze'), uWave = U('uWave');
+      const qs = new URLSearchParams(location.search);
+      const iconOn = qs.has('landmark') ? 1 : 0, iconS = parseFloat(qs.get('landmark') || '') || 1, hq = qs.has('hq');
+      const yaw0 = parseFloat(qs.get('yaw') || '') || 0;
+      const uIcon = U('uIcon'), uIconS = U('uIconS');
       const uYaw = U('uYaw'), uSunAz = U('uSunAz'), uClock = U('uClock'), uRip = U('uRip');
       // pointer: look around, sun follows a little, ripples on the water
-      const look = { x: 0, y: 0, tx: 0, ty: 0 };
+      const look = { x: yaw0 / 0.26, y: 0, tx: yaw0 / 0.26, ty: 0 };
       const rips = new Float32Array(32); let ripI = 0, lastRip = 0, lastPt = null;
       const clock = () => (performance.now() - t0) / 1000;
       const addRipple = (cx, cy, strength) => {
@@ -553,9 +556,9 @@ function init(){
       sky.classList.add('has-gl');
       let horizon = .5;
       const resize = () => {
-        const dpr = Math.min((window.devicePixelRatio || 1) * 0.75, 1.1);
+        const dpr = hq ? 2 : Math.min((window.devicePixelRatio || 1) * 0.75, 1.1);
         const w = stage.clientWidth, h = stage.clientHeight;
-        const sc = Math.min(dpr, 1500 / Math.max(w, 1)); canvas.width = Math.round(w * sc); canvas.height = Math.round(h * sc);
+        const sc = hq ? dpr : Math.min(dpr, 1500 / Math.max(w, 1)); canvas.width = Math.round(w * sc); canvas.height = Math.round(h * sc);
         gl.viewport(0, 0, canvas.width, canvas.height);
         const line = sky.querySelector('.horizon .line');
         if(line){ const sr = stage.getBoundingClientRect(), lr = line.getBoundingClientRect(); horizon = 1 - (lr.top - sr.top) / sr.height; }
@@ -573,7 +576,7 @@ function init(){
         gl.uniform1f(uClock, clock());
         gl.uniform4fv(uRip, rips);
         gl.uniform1f(uScene, SC.k); gl.uniform3fv(uWater, SC.water); gl.uniform3fv(uShallow, SC.shallow);
-        gl.uniform1f(uHaze, SC.haze); gl.uniform1f(uWave, SC.wave);
+        gl.uniform1f(uHaze, SC.haze); gl.uniform1f(uWave, SC.wave); gl.uniform1f(uIcon, iconOn); gl.uniform1f(uIconS, iconS);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       };
       // render only while the hero is on screen

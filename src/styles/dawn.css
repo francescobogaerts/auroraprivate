@@ -306,3 +306,16 @@ html:not(.js) .cmp-panel{display:grid;margin-bottom:32px}
 .tone-dawn.amb{--amb-c:rgba(255,236,214,.55)}
 .photo{isolation:isolate}
 .tone-day.amb{--amb-c:rgba(216,187,166,.22)}
+
+/* ===== v6 hero breathing room: every first text in a hero gets real inner padding ===== */
+:root{--hero-pad:clamp(32px,7vw,140px)}
+.sky-lines{padding-inline:var(--hero-pad)}
+.sky-word,.sky .eyebrow{padding-inline:var(--hero-pad)}
+.sky--loc .sky-in{padding-inline:var(--hero-pad);padding-top:clamp(124px,17vh,184px)}
+.sky--loc .sky-word,.sky--loc .eyebrow{padding-inline:0}
+.sky--loc .sky-lines{left:var(--hero-pad);right:var(--hero-pad);padding-inline:0;bottom:clamp(96px,15vh,160px)}
+.sky--loc .sky-scroll{left:var(--hero-pad)}
+.opening .copy .wrap{padding-inline:var(--hero-pad)}
+.opening .copy{padding-bottom:clamp(64px,11vh,128px)}
+.ribbon .wrap{padding-inline:var(--hero-pad)}
+.legal-head .wrap{padding-inline:var(--hero-pad)}

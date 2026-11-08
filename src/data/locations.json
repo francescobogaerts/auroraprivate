@@ -1,229 +1,233 @@
 [
- {
-  "key": "bonaire",
-  "name": "Bonaire",
-  "open": true,
-  "photo": "photography/aurora-red-bonaire",
-  "alt": "Zoutvlakte op Bonaire in het eerste licht, met cactussen aan de waterkant en een vlakke horizon.",
-  "focal": "45% 70%",
-  "video": "https://assets.mixkit.co/videos/44392/44392-720.mp4,https://assets.mixkit.co/videos/44392/44392-360.mp4",
-  "tagline": "Ruimte voor een nieuwe ochtend. Koraalsteen, zoutvlaktes en open water.",
-  "coords": "12°09′N 68°16′W",
-  "place": "Het ruwe landschap van Bonaire doet wat geen therapiekamer kan: het geeft je geen plek om je te verstoppen.",
-  "region": "Caribische ruimte",
-  "intro": "Bonaire is de eerste editie van AURORA Private. Een plat, droog eiland met helder water rondom: de zee bepaalt het ritme van de veertien dagen. Ochtenden aan het rif, middagen in het binnenland of op het water, avonden onder een donkere hemel.",
-  "atlas": "/atlas/map-bonaire.svg",
-  "days": [
-   [
-    "Aankomen",
-    "Ontvangst, niets moet",
-    "Kennismaking op locatie",
-    "Zwemmen, rust",
-    "Welkomstdiner met de editie"
-   ],
-   [
-    "Vertragen",
-    "Ademwerk, intenties uitspreken",
-    "—",
-    "Snorkelen bij het huisrif",
-    "Zonsondergang, vroeg slapen"
-   ],
-   [
-    "Waar sta je",
-    "Workshop: het eerlijke inventaris",
-    "Sessie 1",
-    "Wandeling Washington Slagbaai",
-    "Vrije avond"
-   ],
-   [
-    "Wat het je kost",
-    "Workshop: patronen en hun prijs",
-    "—",
-    "Kajak, mangroven Lac Bay",
-    "Chef's table"
-   ],
-   [
-    "Lichaam",
-    "Beweging, slaap, voeding",
-    "Sessie 2",
-    "Vrij",
-    "Sterrenhemel, stilte"
-   ],
-   [
-    "Wat je meedraagt",
-    "Workshop: herstel en verlies",
-    "—",
-    "Zeilen naar Klein Bonaire",
-    "Groepsgesprek bij vuur"
-   ],
-   [
-    "Stilte",
-    "Geen programma",
-    "Op verzoek",
-    "Eigen keuze",
-    "Eigen keuze"
-   ],
-   [
-    "Relaties",
-    "Workshop: wie om je heen staat",
-    "Sessie 3",
-    "Ezelopvang, flamingo’s Pekelmeer",
-    "Vrije avond"
-   ],
-   [
-    "Verantwoordelijkheid",
-    "Workshop: wat van jou is",
-    "—",
-    "Duiken of strand",
-    "Diner in de stad"
-   ],
-   [
-    "Emoties",
-    "Workshop: voelen zonder vluchten",
-    "Sessie 4",
-    "Massage, vrije middag",
-    "Muziek, informeel"
-   ],
-   [
-    "Stilte",
-    "Geen programma",
-    "Op verzoek",
-    "Eigen keuze",
-    "Eigen keuze"
-   ],
-   [
-    "Identiteit",
-    "Workshop: wie je bent zonder rol",
-    "Sessie 5",
-    "Zeilen, zwemmen",
-    "Vrije avond"
-   ],
-   [
-    "Thuis",
-    "Workshop: je leven thuis opnieuw ingericht",
-    "Sessie 6: je integratieplan",
-    "Vrij",
-    "Afscheidsdiner"
-   ],
-   [
-    "Vertrek",
-    "Afsluitende cirkel, afspraak dag 30",
-    "—",
-    "Transfer",
-    "—"
-   ]
-  ],
-  "gallery": [
-   {
-    "src": "img/kb-3",
-    "alt": "Wit strand en turquoise water aan de kust van Klein Bonaire."
-   },
-   {
-    "src": "img/fl-1",
-    "alt": "Roze zoutpan in het zuiden van Bonaire onder een hoge hemel."
-   },
-   {
-    "src": "img/wsb-3",
-    "alt": "Kalksteenkust en helder water in het noorden van het eiland."
-   }
-  ],
-  "next": "india",
-  "lede": "De eerste editie. Een droog, open eiland waar de zee het ritme bepaalt."
- },
- {
-  "key": "india",
-  "name": "India",
-  "open": false,
-  "photo": "photography/aurora-red-india",
-  "alt": "Rivertreden in Noord-India bij dageraad, met een houten boot en heuvelruggen in de nevel.",
-  "focal": "50% 60%",
-  "video": null,
-  "tagline": "Stilte krijgt ruimte. Riviersteen, ochtendmist en gelaagde heuvels.",
-  "coords": "30°05′N 78°16′E",
-  "place": "De rivier is hier al eeuwen. Ze heeft geen haast, en na een paar dagen jij ook niet meer.",
-  "region": "Aan de voet van de Himalaya",
-  "intro": "Mist boven het water, heuvels in de verte en een dag die vroeg begint. India volgt hetzelfde traject als Bonaire, in een stiller tempo: veel ruimte voor stilte en aandacht voor het moment.",
-  "atlas": null,
-  "days": null,
-  "gallery": [
-   {
-    "src": "img/india-terrace",
-    "alt": "Dakterras met kussens bij dageraad, mist boven de rivier."
-   },
-   {
-    "src": "img/india-courtyard",
-    "alt": "Stille binnenplaats met stenen zuilen en een koperen pot."
-   },
-   {
-    "src": "img/india-river",
-    "alt": "Rivier in de ochtendmist met een houten boot aan de treden."
-   }
-  ],
-  "next": "mauritius",
-  "lede": "Mist boven het water en een dag die vroeg begint. Hetzelfde traject, in een stiller tempo."
- },
- {
-  "key": "mauritius",
-  "name": "Mauritius",
-  "open": false,
-  "photo": "photography/aurora-red-mauritius",
-  "alt": "Stille jadegroene lagune op Mauritius in het eerste licht, met een houten pirogue en een basaltrug.",
-  "focal": "50% 62%",
-  "video": null,
-  "tagline": "Een ander ritme. Jadegroen water en vulkanisch landschap.",
-  "coords": "20°10′S 57°30′E",
-  "place": "Lagune en basalt, zacht en hard tegelijk. Zo voelen de veertien dagen ook.",
-  "region": "Lagune en basalt",
-  "intro": "Donkere steen, jadegroen water en warme regen die even komt en weer gaat. Mauritius volgt hetzelfde traject, met zachtere contrasten: lagune in de ochtend, bergpaden en bos in de middag.",
-  "atlas": "/atlas/map-mauritius.svg",
-  "days": null,
-  "gallery": [
-   {
-    "src": "img/mauritius-rain",
-    "alt": "Weelderig groen en een baai onder een regenlucht."
-   },
-   {
-    "src": "img/mauritius-forest",
-    "alt": "Een pad door dicht tropisch bos."
-   },
-   {
-    "src": "img/mauritius-lagoon",
-    "alt": "Een houten boot op een spiegelgladde lagune voor een basaltrug."
-   }
-  ],
-  "next": "marbella",
-  "lede": "Lagune in de ochtend, bergpaden en bos in de middag. Hetzelfde traject, met zachtere contrasten."
- },
- {
-  "key": "marbella",
-  "name": "Marbella",
-  "open": false,
-  "photo": "photography/aurora-red-marbella",
-  "alt": "Terras van een Andalusische finca in het eerste licht, met witte muren, olijfbomen en de zee in de verte.",
-  "focal": "55% 60%",
-  "video": null,
-  "tagline": "Dichter bij jezelf. Wit pleisterwerk, zilvergroene olijven en zee.",
-  "coords": "36°30′N 4°53′W",
-  "place": "Een paar uur vliegen van huis, en toch ver genoeg om eindelijk stil te staan.",
-  "region": "Andalusische ochtenden",
-  "intro": "Wit pleisterwerk, olijven en de Middellandse Zee op afstand. Marbella ligt dicht bij huis, voor wie snel terug moet kunnen. Hetzelfde traject, in een ingetogen Andalusische omgeving.",
-  "atlas": null,
-  "days": null,
-  "gallery": [
-   {
-    "src": "img/marbella-patio",
-    "alt": "Witte patio met een fontein in het eerste licht."
-   },
-   {
-    "src": "img/marbella-garden",
-    "alt": "Een houten tafel onder olijfbomen, de bergen in de verte."
-   },
-   {
-    "src": "img/marbella-sea",
-    "alt": "Rotskust en zee bij zonsopgang."
-   }
-  ],
-  "next": "bonaire",
-  "lede": "Dicht bij huis, voor wie snel terug moet kunnen. Hetzelfde traject, in een ingetogen Andalusische omgeving."
- }
+  {
+    "key": "bonaire",
+    "name": "Bonaire",
+    "open": true,
+    "photo": "photography/aurora-red-bonaire",
+    "alt": "Zoutvlakte op Bonaire in het eerste licht, met cactussen aan de waterkant en een vlakke horizon.",
+    "focal": "45% 70%",
+    "video": "https://assets.mixkit.co/videos/44392/44392-720.mp4,https://assets.mixkit.co/videos/44392/44392-360.mp4",
+    "tagline": "Ruimte voor een nieuwe ochtend. Koraalsteen, zoutvlaktes en open water.",
+    "coords": "12°09′N 68°16′W",
+    "place": "Het ruwe landschap van Bonaire doet wat geen therapiekamer kan: het geeft je geen plek om je te verstoppen.",
+    "region": "Caribische ruimte",
+    "intro": "Bonaire is de eerste editie van AURORA Private. Een plat, droog eiland met helder water rondom: de zee bepaalt het ritme van de veertien dagen. Ochtenden aan het rif, middagen in het binnenland of op het water, avonden onder een donkere hemel.",
+    "atlas": "/atlas/map-bonaire.svg",
+    "days": [
+      [
+        "Aankomen",
+        "Ontvangst, niets moet",
+        "Kennismaking op locatie",
+        "Zwemmen, rust",
+        "Welkomstdiner met de editie"
+      ],
+      [
+        "Vertragen",
+        "Ademwerk, intenties uitspreken",
+        "—",
+        "Snorkelen bij het huisrif",
+        "Zonsondergang, vroeg slapen"
+      ],
+      [
+        "Waar sta je",
+        "Workshop: het eerlijke inventaris",
+        "Sessie 1",
+        "Wandeling Washington Slagbaai",
+        "Vrije avond"
+      ],
+      [
+        "Wat het je kost",
+        "Workshop: patronen en hun prijs",
+        "—",
+        "Kajak, mangroven Lac Bay",
+        "Chef's table"
+      ],
+      [
+        "Lichaam",
+        "Beweging, slaap, voeding",
+        "Sessie 2",
+        "Vrij",
+        "Sterrenhemel, stilte"
+      ],
+      [
+        "Wat je meedraagt",
+        "Workshop: herstel en verlies",
+        "—",
+        "Zeilen naar Klein Bonaire",
+        "Groepsgesprek bij vuur"
+      ],
+      [
+        "Stilte",
+        "Geen programma",
+        "Op verzoek",
+        "Eigen keuze",
+        "Eigen keuze"
+      ],
+      [
+        "Relaties",
+        "Workshop: wie om je heen staat",
+        "Sessie 3",
+        "Ezelopvang, flamingo’s Pekelmeer",
+        "Vrije avond"
+      ],
+      [
+        "Verantwoordelijkheid",
+        "Workshop: wat van jou is",
+        "—",
+        "Duiken of strand",
+        "Diner in de stad"
+      ],
+      [
+        "Emoties",
+        "Workshop: voelen zonder vluchten",
+        "Sessie 4",
+        "Massage, vrije middag",
+        "Muziek, informeel"
+      ],
+      [
+        "Stilte",
+        "Geen programma",
+        "Op verzoek",
+        "Eigen keuze",
+        "Eigen keuze"
+      ],
+      [
+        "Identiteit",
+        "Workshop: wie je bent zonder rol",
+        "Sessie 5",
+        "Zeilen, zwemmen",
+        "Vrije avond"
+      ],
+      [
+        "Thuis",
+        "Workshop: je leven thuis opnieuw ingericht",
+        "Sessie 6: je integratieplan",
+        "Vrij",
+        "Afscheidsdiner"
+      ],
+      [
+        "Vertrek",
+        "Afsluitende cirkel, afspraak dag 30",
+        "—",
+        "Transfer",
+        "—"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "img/kb-3",
+        "alt": "Wit strand en turquoise water aan de kust van Klein Bonaire."
+      },
+      {
+        "src": "img/fl-1",
+        "alt": "Roze zoutpan in het zuiden van Bonaire onder een hoge hemel."
+      },
+      {
+        "src": "img/wsb-3",
+        "alt": "Kalksteenkust en helder water in het noorden van het eiland."
+      }
+    ],
+    "next": "india",
+    "lede": "De eerste editie. Een droog, open eiland waar de zee het ritme bepaalt.",
+    "thumb": "photography/thumb-bonaire"
+  },
+  {
+    "key": "india",
+    "name": "India",
+    "open": false,
+    "photo": "photography/aurora-red-india",
+    "alt": "Rivertreden in Noord-India bij dageraad, met een houten boot en heuvelruggen in de nevel.",
+    "focal": "50% 60%",
+    "video": null,
+    "tagline": "Stilte krijgt ruimte. Riviersteen, ochtendmist en gelaagde heuvels.",
+    "coords": "30°05′N 78°16′E",
+    "place": "De rivier is hier al eeuwen. Ze heeft geen haast, en na een paar dagen jij ook niet meer.",
+    "region": "Aan de voet van de Himalaya",
+    "intro": "Mist boven het water, heuvels in de verte en een dag die vroeg begint. India volgt hetzelfde traject als Bonaire, in een stiller tempo: veel ruimte voor stilte en aandacht voor het moment.",
+    "atlas": null,
+    "days": null,
+    "gallery": [
+      {
+        "src": "img/india-terrace",
+        "alt": "Dakterras met kussens bij dageraad, mist boven de rivier."
+      },
+      {
+        "src": "img/india-courtyard",
+        "alt": "Stille binnenplaats met stenen zuilen en een koperen pot."
+      },
+      {
+        "src": "img/india-river",
+        "alt": "Rivier in de ochtendmist met een houten boot aan de treden."
+      }
+    ],
+    "next": "mauritius",
+    "lede": "Mist boven het water en een dag die vroeg begint. Hetzelfde traject, in een stiller tempo.",
+    "thumb": "photography/thumb-india"
+  },
+  {
+    "key": "mauritius",
+    "name": "Mauritius",
+    "open": false,
+    "photo": "photography/aurora-red-mauritius",
+    "alt": "Stille jadegroene lagune op Mauritius in het eerste licht, met een houten pirogue en een basaltrug.",
+    "focal": "50% 62%",
+    "video": null,
+    "tagline": "Een ander ritme. Jadegroen water en vulkanisch landschap.",
+    "coords": "20°10′S 57°30′E",
+    "place": "Lagune en basalt, zacht en hard tegelijk. Zo voelen de veertien dagen ook.",
+    "region": "Lagune en basalt",
+    "intro": "Donkere steen, jadegroen water en warme regen die even komt en weer gaat. Mauritius volgt hetzelfde traject, met zachtere contrasten: lagune in de ochtend, bergpaden en bos in de middag.",
+    "atlas": "/atlas/map-mauritius.svg",
+    "days": null,
+    "gallery": [
+      {
+        "src": "img/mauritius-rain",
+        "alt": "Weelderig groen en een baai onder een regenlucht."
+      },
+      {
+        "src": "img/mauritius-forest",
+        "alt": "Een pad door dicht tropisch bos."
+      },
+      {
+        "src": "img/mauritius-lagoon",
+        "alt": "Een houten boot op een spiegelgladde lagune voor een basaltrug."
+      }
+    ],
+    "next": "marbella",
+    "lede": "Lagune in de ochtend, bergpaden en bos in de middag. Hetzelfde traject, met zachtere contrasten.",
+    "thumb": "photography/thumb-mauritius"
+  },
+  {
+    "key": "marbella",
+    "name": "Marbella",
+    "open": false,
+    "photo": "photography/aurora-red-marbella",
+    "alt": "Terras van een Andalusische finca in het eerste licht, met witte muren, olijfbomen en de zee in de verte.",
+    "focal": "55% 60%",
+    "video": null,
+    "tagline": "Dichter bij jezelf. Wit pleisterwerk, zilvergroene olijven en zee.",
+    "coords": "36°30′N 4°53′W",
+    "place": "Een paar uur vliegen van huis, en toch ver genoeg om eindelijk stil te staan.",
+    "region": "Andalusische ochtenden",
+    "intro": "Wit pleisterwerk, olijven en de Middellandse Zee op afstand. Marbella ligt dicht bij huis, voor wie snel terug moet kunnen. Hetzelfde traject, in een ingetogen Andalusische omgeving.",
+    "atlas": null,
+    "days": null,
+    "gallery": [
+      {
+        "src": "img/marbella-patio",
+        "alt": "Witte patio met een fontein in het eerste licht."
+      },
+      {
+        "src": "img/marbella-garden",
+        "alt": "Een houten tafel onder olijfbomen, de bergen in de verte."
+      },
+      {
+        "src": "img/marbella-sea",
+        "alt": "Rotskust en zee bij zonsopgang."
+      }
+    ],
+    "next": "bonaire",
+    "lede": "Dicht bij huis, voor wie snel terug moet kunnen. Hetzelfde traject, in een ingetogen Andalusische omgeving.",
+    "thumb": "photography/thumb-marbella"
+  }
 ]
